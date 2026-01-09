@@ -1,0 +1,55 @@
+name: 📢 Notificar Discord
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'modulo-*.html'
+      - 'index.html'
+
+jobs:
+  notify-discord:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Enviar para Discord
+      run: |
+        curl -X POST ${{ secrets.DISCORD_WEBHOOK_URL }} \
+        -H "Content-Type: application/json" \
+        -d '{
+          "content": "🎓 Novo material liberado!",
+          "embeds": [
+            {
+              "title": "✅ Novo Módulo Disponível",
+              "description": "Plataforma Escola de Obreiros 2026",
+              "color": 2211339,
+              "fields": [
+                {
+                  "name": "📚 Acesse Aqui",
+                  "value": "[Clique Para Estudar](https://integracaoon2go.github.io/escola-obreiros-2026/)",
+                  "inline": false
+                },
+                {
+                  "name": "✓ Módulo 1: Soteriologia",
+                  "value": "DISPONÍVEL",
+                  "inline": true
+                },
+                {
+                  "name": "⏳ Próximos Módulos",
+                  "value": "Em breve...",
+                  "inline": true
+                },
+                {
+                  "name": "💬 Dúvidas?",
+                  "value": "Acesse #dúvidas-da-aula",
+                  "inline": false
+                }
+              ],
+              "footer": {
+                "text": "Vida Nova Church - Escola de Obreiros 2026"
+              }
+            }
+          ]
+        }'
