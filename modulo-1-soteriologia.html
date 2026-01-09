@@ -3,12 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Módulo 1 - Soteriologia | Escola de Obreiros</title>
+    <title>Soteriologia - Módulo 1 - Escola de Obreiros</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; }
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; overflow-x: hidden; }
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        .discord-btn { transition: all 0.3s ease; }
+        .discord-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); }
+
+        .concept-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid #2186a0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            margin-bottom: 16px;
+        }
+
+        .concept-card:hover {
+            box-shadow: 0 8px 20px rgba(33, 134, 160, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .concept-card h3 {
+            color: #2186a0;
+            margin: 0 0 10px 0;
+            font-size: 18px;
+        }
+
+        .concept-card p {
+            margin: 0 0 8px 0;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .concept-number {
+            display: inline-block;
+            background: linear-gradient(135deg, #2186a0 0%, #1e7480 100%);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .floating-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #2186a0 0%, #1e7480 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(33, 134, 160, 0.4);
+            z-index: 998;
+            transition: all 0.3s ease;
+            border: none;
+            padding: 0;
+            animation: bounce 2s infinite;
+        }
+
+        .floating-button:hover {
+            transform: scale(1.15);
+            box-shadow: 0 8px 30px rgba(33, 134, 160, 0.6);
+            animation: none;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .floating-button-icon {
+            font-size: 32px;
+        }
+
+        .chat-modal {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            width: 380px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 40px rgba(0, 0, 0, 0.16);
+            z-index: 999;
+            display: none;
+            flex-direction: column;
+            max-height: 550px;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .chat-modal.active { display: flex; }
+
+        .chat-header {
+            background: linear-gradient(135deg, #2186a0 0%, #1e7480 100%);
+            color: white;
+            padding: 16px;
+            border-radius: 12px 12px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header h3 {
+            margin: 0;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+        }
+
+        .chat-body {
+            padding: 16px;
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .chat-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .form-group textarea:focus,
+        .form-group input:focus {
+            outline: none;
+            border-color: #2186a0;
+            box-shadow: 0 0 0 3px rgba(33, 134, 160, 0.1);
+        }
+
+        .send-btn {
+            background: linear-gradient(135deg, #2186a0 0%, #1e7480 100%);
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .send-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(33, 134, 160, 0.4);
+        }
+
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 12px;
+            border-radius: 6px;
+            display: none;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .success-message.show { display: block; }
     </style>
 </head>
 <body class="antialiased">
@@ -19,7 +219,7 @@
             <div class="flex justify-between h-20">
                 <div class="flex items-center gap-4">
                     <div class="h-14 w-14 bg-gradient-to-br from-blue-900 to-indigo-900 rounded-full flex items-center justify-center shadow-lg border-2 border-amber-400">
-                        <img src="https://i.ibb.co/pvs8vvzJ/logo-igreja-removebg-preview.png" alt="Logo Vida Nova" class="h-12 w-12 object-contain filter brightness-200">
+                        <img src="https://i.ibb.co/pvs8vvzJ/logo-igreja-removebg-preview.png" alt="Logo" class="h-12 w-12 object-contain filter brightness-200">
                     </div>
                     <div>
                         <span class="block text-[10px] font-bold text-slate-400 tracking-widest uppercase">Vida Nova Church</span>
@@ -27,11 +227,11 @@
                     </div>
                 </div>
                 <div class="flex items-center gap-3">
-                    <a href="index.html" class="bg-slate-600 hover:bg-slate-700 text-white px-4 py-2 rounded-xl text-sm font-bold shadow-md flex items-center gap-2 transition-all">
+                    <a href="index.html" class="bg-slate-600 hover:bg-slate-700 text-white px-4 py-2 rounded-xl text-sm font-bold shadow-md flex items-center gap-2 transition-all discord-btn">
                         <span>🏠</span>
-                        <span>Início</span>
+                        <span>Voltar</span>
                     </a>
-                    <a href="https://discord.gg/nCTND4bPaM" target="_blank" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-xl text-sm font-bold shadow-md flex items-center gap-2 transition-all">
+                    <a href="https://discord.gg/nCTND4bPaM" target="_blank" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-xl text-sm font-bold shadow-md flex items-center gap-2 transition-all discord-btn">
                         <span>💬</span>
                         <span>Campus Virtual</span>
                     </a>
@@ -40,86 +240,249 @@
         </div>
     </nav>
 
-    <!-- CONTEÚDO -->
-    <div class="max-w-7xl mx-auto px-4 py-20">
-        <div class="mb-12">
-            <h1 class="text-5xl font-bold text-blue-900 mb-4">✝️ Módulo 1: Soteriologia</h1>
-            <p class="text-xl text-slate-600">A Doutrina da Salvação • 9 Passos Fundamentais</p>
+    <!-- BANNER -->
+    <section class="bg-gradient-to-r from-blue-900 via-indigo-900 to-blue-900 text-white py-16 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
         </div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <a href="index.html" class="text-blue-100 hover:text-white mb-4 inline-block">← Voltar aos Módulos</a>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+                ✝️ Módulo 1: Soteriologia
+            </h1>
+            <p class="text-xl text-blue-100">A Doutrina da Salvação • 9 Passos Fundamentais</p>
+        </div>
+    </section>
 
-        <!-- CONTEÚDO DO MÓDULO -->
-        <div class="bg-white rounded-2xl shadow-lg p-8 mb-8">
-            <h2 class="text-3xl font-bold text-blue-900 mb-6">Introdução à Soteriologia</h2>
+    <!-- CONTEÚDO PRINCIPAL -->
+    <section class="py-20 bg-slate-50">
+        <div class="max-w-4xl mx-auto px-4">
             
-            <div class="space-y-6 text-slate-700 leading-relaxed">
-                <p>
-                    <strong>Soteriologia</strong> é o estudo sistemático da doutrina da salvação. A palavra vem do grego "sotería" (salvação) e "logos" (estudo).
+            <!-- INTRODUÇÃO -->
+            <div class="bg-white p-8 rounded-2xl border-2 border-blue-200 mb-12 shadow-lg">
+                <h2 class="text-3xl font-bold text-blue-900 mb-4">O que é Soteriologia?</h2>
+                <p class="text-slate-700 mb-4 text-lg leading-relaxed">
+                    Soteriologia é a doutrina cristã que trata especificamente da <strong>salvação</strong>. A palavra vem do grego "soteria" (σωτηρία), que significa salvação, e "logos" (λόγος), que significa estudo ou razão.
                 </p>
-
-                <h3 class="text-2xl font-bold text-blue-800 mt-8">Os 9 Passos Fundamentais da Salvação</h3>
-
-                <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-900">
-                    <h4 class="font-bold text-lg mb-2">1️⃣ Eleição Divina</h4>
-                    <p>Deus escolheu antecipadamente aqueles que haveriam de ser salvos através de Jesus Cristo.</p>
+                <p class="text-slate-700 mb-4 text-lg leading-relaxed">
+                    É através da soteriologia que entendemos como Deus nos salva, quem precisa de salvação, como a salvação se realiza e quais são seus efeitos em nossas vidas.
+                </p>
+                <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-900">
+                    <p class="text-slate-700"><strong>📖 Base Bíblica:</strong> "Porque pela graça sois salvos, por meio da fé; e isto não vem de vós, é dom de Deus" (Efésios 2:8)</p>
                 </div>
+            </div>
 
-                <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-900">
-                    <h4 class="font-bold text-lg mb-2">2️⃣ Predestinação</h4>
-                    <p>Deus predestinou aqueles que elegeu para serem conformados à imagem de seu Filho.</p>
-                </div>
+            <!-- OS 9 CONCEITOS -->
+            <h2 class="text-3xl font-bold text-blue-900 mb-8">📚 Os 9 Passos Fundamentais</h2>
 
-                <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-900">
-                    <h4 class="font-bold text-lg mb-2">3️⃣ Chamada Eficaz</h4>
-                    <p>O Espírito Santo chama e convence o pecador da realidade do pecado e da necessidade de salvação.</p>
-                </div>
+            <div class="concept-card">
+                <h3>
+                    <span class="concept-number">1</span>
+                    O Pecado e a Necessidade de Salvação
+                </h3>
+                <p>
+                    O pecado separou a humanidade de Deus. Todo ser humano nasce em pecado e precisa de salvação. A Bíblia declara que "todos pecaram e destituídos estão da glória de Deus" (Romanos 3:23).
+                </p>
+                <p><strong>Implicação:</strong> Ninguém pode se salvar por seus próprios méritos ou obras.</p>
+            </div>
 
-                <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-900">
-                    <h4 class="font-bold text-lg mb-2">4️⃣ Regeneração</h4>
-                    <p>Novo nascimento espiritual - o Espírito Santo dá vida nova ao espírito morto do pecador.</p>
-                </div>
+            <div class="concept-card">
+                <h3>
+                    <span class="concept-number">2</span>
+                    O Sacrifício de Cristo na Cruz
+                </h3>
+                <p>
+                    Jesus Cristo, o Filho de Deus, morreu na cruz como sacrifício substitutivo pelos nossos pecados. Sua morte foi o pagamento do preço da redenção.
+                </p>
+                <p><strong>Implicação:</strong> A salvação é baseada na obra consumada de Cristo, não em nossas obras.</p>
+            </div>
 
-                <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-900">
-                    <h4 class="font-bold text-lg mb-2">5️⃣ Conversão/Arrependimento</h4>
-                    <p>O pecador se afasta do pecado e se volta para Deus com fé genuína em Jesus Cristo.</p>
-                </div>
+            <div class="concept-card">
+                <h3>
+                    <span class="concept-number">3</span>
+                    A Graça Divina
+                </h3>
+                <p>
+                    A graça é o favor imerecido de Deus. Somos salvos unicamente pela graça de Deus, não por nossos méritos ou esforços pessoais.
+                </p>
+                <p><strong>Implicação:</strong> A salvação é um presente gratuito que Deus nos oferece em Cristo.</p>
+            </div>
 
-                <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-900">
-                    <h4 class="font-bold text-lg mb-2">6️⃣ Justificação</h4>
-                    <p>Deus declara o pecador justo pela fé em Cristo, imputando-lhe a justiça de Cristo.</p>
-                </div>
+            <div class="concept-card">
+                <h3>
+                    <span class="concept-number">4</span>
+                    A Fé em Jesus Cristo
+                </h3>
+                <p>
+                    A fé é a resposta humana à graça de Deus. Cremos em Cristo como nosso Senhor e Salvador. A fé não é um trabalho que fazemos, mas um recebimento daquilo que Deus oferece.
+                </p>
+                <p><strong>Implicação:</strong> Sem fé em Cristo, a salvação não é apropriada em nossas vidas.</p>
+            </div>
 
-                <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-900">
-                    <h4 class="font-bold text-lg mb-2">7️⃣ Adoção</h4>
-                    <p>O crente é recebido na família de Deus como filho legítimo com todos os seus privilégios.</p>
-                </div>
+            <div class="concept-card">
+                <h3>
+                    <span class="concept-number">5</span>
+                    O Arrependimento
+                </h3>
+                <p>
+                    O arrependimento é uma mudança de mente e de direção. Significa abandonar o pecado e voltar-se para Deus. É uma transformação no pensamento que resulta em mudança de comportamento.
+                </p>
+                <p><strong>Implicação:</strong> Verdadeira fé traz consigo o desejo de abandonar o pecado.</p>
+            </div>
 
-                <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-900">
-                    <h4 class="font-bold text-lg mb-2">8️⃣ Santificação</h4>
-                    <p>Processo contínuo de transformação moral e espiritual pela obra do Espírito Santo.</p>
-                </div>
+            <div class="concept-card">
+                <h3>
+                    <span class="concept-number">6</span>
+                    A Justificação
+                </h3>
+                <p>
+                    Justificação é o ato judicial de Deus pelo qual Ele nos declara justos aos Seus olhos, com base na morte e ressurreição de Cristo. Não significa que não tenhamos pecado, mas que o pecado foi perdoado.
+                </p>
+                <p><strong>Implicação:</strong> Nossa posição diante de Deus é segura e irrevogável em Cristo.</p>
+            </div>
 
-                <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-900">
-                    <h4 class="font-bold text-lg mb-2">9️⃣ Glorificação</h4>
-                    <p>Consumação final quando o crente será completamente transformado e livre de toda imperfeição.</p>
-                </div>
+            <div class="concept-card">
+                <h3>
+                    <span class="concept-number">7</span>
+                    O Novo Nascimento (Regeneração)
+                </h3>
+                <p>
+                    O novo nascimento é a transformação espiritual pela qual recebemos uma nova vida em Cristo. Passamos de morte espiritual para vida espiritual, nascendo de novo pelo Espírito Santo.
+                </p>
+                <p><strong>Implicação:</strong> A salvação não é apenas uma mudança jurídica, mas também uma transformação de vida.</p>
+            </div>
 
+            <div class="concept-card">
+                <h3>
+                    <span class="concept-number">8</span>
+                    A Adoção como Filhos de Deus
+                </h3>
+                <p>
+                    Por meio da salvação em Cristo, somos adotados como filhos de Deus. Temos uma nova posição na família de Deus com todos os direitos e privilégios de filhos.
+                </p>
+                <p><strong>Implicação:</strong> Temos acesso direto a Deus e a herança de filhos de Deus.</p>
+            </div>
+
+            <div class="concept-card">
+                <h3>
+                    <span class="concept-number">9</span>
+                    A Segurança Eterna em Cristo
+                </h3>
+                <p>
+                    Uma vez salvos em Cristo, temos a segurança eterna. Nada pode nos separar do amor de Deus. A salvação não é condicional à nossa capacidade de nos manter salvos, mas é eternamente segura em Cristo.
+                </p>
+                <p><strong>Implicação:</strong> Podemos viver com confiança e paz sabendo que somos eternamente seguros em Cristo.</p>
+            </div>
+
+            <!-- CTA -->
+            <div class="text-center bg-gradient-to-r from-blue-900 to-indigo-900 text-white p-12 rounded-2xl mt-12">
+                <h3 class="text-2xl font-bold mb-4">Próximas Etapas</h3>
+                <p class="text-blue-100 mb-8 text-lg">Tem dúvidas sobre os conceitos? Clique no botão flutuante e pergunte!</p>
+                <a href="https://discord.gg/nCTND4bPaM" target="_blank" class="inline-block bg-white text-blue-900 px-8 py-3 rounded-xl font-bold hover:bg-amber-400 transition-all">
+                    Ir para o Discord
+                </a>
             </div>
         </div>
-
-        <!-- BOTÃO VOLTAR -->
-        <div class="text-center">
-            <a href="index.html" class="inline-block bg-blue-900 hover:bg-blue-800 text-white px-8 py-3 rounded-xl font-bold transition-colors">
-                ← Voltar aos Módulos
-            </a>
-        </div>
-    </div>
+    </section>
 
     <!-- FOOTER -->
-    <footer class="bg-slate-900 text-white py-16 mt-20">
+    <footer class="bg-slate-900 text-white py-12">
         <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-sm text-slate-400">© 2026 Vida Nova Church Piracicaba • Protocolo de Excelência</p>
+            <p class="text-slate-400 mb-2">© 2026 Vida Nova Church Piracicaba • Protocolo de Excelência</p>
+            <p class="text-slate-500 text-sm">Módulo 1 - Soteriologia</p>
         </div>
     </footer>
 
+    <!-- BOTÃO FLUTUANTE -->
+    <button class="floating-button" id="floatingBtn" onclick="toggleChat()" aria-label="Abrir formulário de dúvidas">
+        <span class="floating-button-icon">💬</span>
+    </button>
+
+    <!-- MODAL DE CHAT -->
+    <div class="chat-modal" id="chatModal">
+        <div class="chat-header">
+            <h3>❓ Dúvida da Aula</h3>
+            <button class="close-btn" id="closeBtn" onclick="toggleChat()">✕</button>
+        </div>
+        <div class="chat-body">
+            <div class="success-message" id="successMsg">
+                ✅ Dúvida enviada! Responderemos em breve no Discord.
+            </div>
+            <form class="chat-form" id="chatForm" onsubmit="sendQuestion(event)">
+                <div class="form-group">
+                    <label for="name">Seu Nome:</label>
+                    <input type="text" id="name" name="name" placeholder="Ex: João da Silva" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email (opcional):</label>
+                    <input type="email" id="email" name="email" placeholder="seu@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="question">Sua Dúvida:</label>
+                    <textarea id="question" name="question" placeholder="Descreva sua dúvida sobre Soteriologia..." required></textarea>
+                </div>
+                <button type="submit" class="send-btn" id="sendBtn">Enviar Dúvida 🚀</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleChat() {
+            const chatModal = document.getElementById('chatModal');
+            chatModal.classList.toggle('active');
+            if (chatModal.classList.contains('active')) {
+                document.getElementById('name').focus();
+            }
+        }
+
+        async function sendQuestion(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const question = document.getElementById('question').value;
+            const sendBtn = document.getElementById('sendBtn');
+
+            sendBtn.disabled = true;
+            sendBtn.textContent = 'Enviando...';
+
+            try {
+                const webhookUrl = 'https://discord.com/api/webhooks/1453208362325115024/npjdfJpW-nw5U3Hp5oflciiL6y6UTl9UpCoo2N5i17JRgqrZNE7a_4GuhvVsq-w1DZVX';
+
+                const response = await fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        content: '🙋‍♂️ **NOVA DÚVIDA - MÓDULO 1 SOTERIOLOGIA**',
+                        embeds: [{
+                            color: 3092790,
+                            fields: [
+                                { name: '👤 Nome', value: name, inline: true },
+                                { name: '📧 Email', value: email || 'Não informado', inline: true },
+                                { name: '📚 Dúvida', value: question, inline: false }
+                            ],
+                            timestamp: new Date().toISOString()
+                        }]
+                    })
+                });
+
+                if (response.ok) {
+                    document.getElementById('successMsg').classList.add('show');
+                    document.getElementById('chatForm').style.display = 'none';
+                    setTimeout(() => {
+                        document.getElementById('chatForm').reset();
+                        document.getElementById('chatForm').style.display = 'flex';
+                        document.getElementById('successMsg').classList.remove('show');
+                        toggleChat();
+                    }, 3000);
+                }
+            } catch (error) {
+                alert('❌ Erro ao enviar. Tente novamente!');
+            } finally {
+                sendBtn.disabled = false;
+                sendBtn.textContent = 'Enviar Dúvida 🚀';
+            }
+        }
+    </script>
 </body>
 </html>
