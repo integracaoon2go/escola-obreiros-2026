@@ -1,55 +1,140 @@
-name: 📢 Notificar Discord
+name: Auto Discord Channels
 
 on:
   push:
-    branches: [ main ]
-    paths:
-      - 'modulo-*.html'
-      - 'index.html'
+    branches: [main]
+    paths: ['modulo-*.html', 'index.html']
+  schedule:
+    # Segunda 9h - Avisos Oficiais
+    - cron: '0 12 * * 1'
+    # Segunda 10h - Mesa de Exegese
+    - cron: '0 13 * * 1'
+    # Quarta 9h - Dúvidas da Aula
+    - cron: '0 12 * * 3'
+    # Quinta 9h - Desafios da Semana
+    - cron: '0 12 * * 4'
+    # Sexta 9h - Materiais dos Módulos
+    - cron: '0 12 * * 5'
+    # Domingo 10h - Geral VNC
+    - cron: '0 13 * * 0'
 
 jobs:
-  notify-discord:
+  discord-notifications:
     runs-on: ubuntu-latest
-    
     steps:
-    - uses: actions/checkout@v3
-    
-    - name: Enviar para Discord
-      run: |
-        curl -X POST ${{ secrets.DISCORD_WEBHOOK_URL }} \
-        -H "Content-Type: application/json" \
-        -d '{
-          "content": "🎓 Novo material liberado!",
-          "embeds": [
-            {
-              "title": "✅ Novo Módulo Disponível",
-              "description": "Plataforma Escola de Obreiros 2026",
-              "color": 2211339,
-              "fields": [
-                {
-                  "name": "📚 Acesse Aqui",
-                  "value": "[Clique Para Estudar](https://integracaoon2go.github.io/escola-obreiros-2026/)",
-                  "inline": false
-                },
-                {
-                  "name": "✓ Módulo 1: Soteriologia",
-                  "value": "DISPONÍVEL",
-                  "inline": true
-                },
-                {
-                  "name": "⏳ Próximos Módulos",
-                  "value": "Em breve...",
-                  "inline": true
-                },
-                {
-                  "name": "💬 Dúvidas?",
-                  "value": "Acesse #dúvidas-da-aula",
-                  "inline": false
-                }
-              ],
-              "footer": {
-                "text": "Vida Nova Church - Escola de Obreiros 2026"
-              }
-            }
-          ]
-        }'
+      # SEGUNDA 9h - AVISOS OFICIAIS
+      - name: Enviar para #avisos-oficiais
+        if: github.event.schedule == '0 12 * * 1'
+        run: |
+          curl -X POST ${{ secrets.WEBHOOK_AVISOS }} \
+            -H 'Content-Type: application/json' \
+            -d '{
+              "content": "📢 **CONVOCAÇÃO DA SEMANA**",
+              "embeds": [{
+                "title": "🎓 Escola de Obreiros - Semana Começou",
+                "description": "Bem-vindo à nova semana de aprendizado!",
+                "color": 3092790,
+                "fields": [
+                  {"name": "📅 Dia", "value": "Segunda-feira", "inline": true},
+                  {"name": "⏰ Horário", "value": "Sempre às 9h", "inline": true},
+                  {"name": "👨‍🏫 Responsável", "value": "Pastor Osvaldo", "inline": false}
+                ]
+              }]
+            }'
+
+      # SEGUNDA 10h - MESA DE EXEGESE
+      - name: Enviar para #mesa-de-exegese
+        if: github.event.schedule == '0 13 * * 1'
+        run: |
+          curl -X POST ${{ secrets.WEBHOOK_MESA }} \
+            -H 'Content-Type: application/json' \
+            -d '{
+              "content": "🎙️ **PODCAST: MESA DE EXEGESE**",
+              "embeds": [{
+                "title": "📖 Revisão Bíblica da Semana",
+                "description": "Análise profunda do módulo em andamento. Ouça agora!",
+                "color": 3092790,
+                "fields": [
+                  {"name": "🎧 Formato", "value": "Podcast", "inline": true},
+                  {"name": "⏱️ Duração", "value": "~30 min", "inline": true}
+                ]
+              }]
+            }'
+
+      # QUARTA 9h - DÚVIDAS DA AULA
+      - name: Enviar para #duvidas-da-aula
+        if: github.event.schedule == '0 12 * * 3'
+        run: |
+          curl -X POST ${{ secrets.WEBHOOK_DUVIDAS }} \
+            -H 'Content-Type: application/json' \
+            -d '{
+              "content": "🙋‍♂️ **PLANTÃO DE DÚVIDAS ABERTO**",
+              "embeds": [{
+                "title": "❓ Tire suas dúvidas agora!",
+                "description": "Nossos mentores estão prontos para ajudar. Escreva sua pergunta!",
+                "color": 3092790,
+                "fields": [
+                  {"name": "🕐 Horário", "value": "Quarta-feira às 9h", "inline": true},
+                  {"name": "💬 Canal", "value": "Aqui neste chat", "inline": true}
+                ]
+              }]
+            }'
+
+      # QUINTA 9h - DESAFIOS DA SEMANA
+      - name: Enviar para #desafios-da-semana
+        if: github.event.schedule == '0 12 * * 4'
+        run: |
+          curl -X POST ${{ secrets.WEBHOOK_DESAFIOS }} \
+            -H 'Content-Type: application/json' \
+            -d '{
+              "content": "🏆 **DESAFIO PRÁTICO DA SEMANA**",
+              "embeds": [{
+                "title": "💪 Coloque em Prática o Aprendizado",
+                "description": "Seu desafio está pronto! Aceite e comece agora.",
+                "color": 3092790,
+                "fields": [
+                  {"name": "📝 Tipo", "value": "Desafio Prático", "inline": true},
+                  {"name": "🎯 Dificuldade", "value": "Progressiva", "inline": true},
+                  {"name": "🏆 Prêmio", "value": "Pontos + Role", "inline": false}
+                ]
+              }]
+            }'
+
+      # SEXTA 9h - MATERIAIS DOS MÓDULOS
+      - name: Enviar para #materiais-dos-modulos
+        if: github.event.schedule == '0 12 * * 5'
+        run: |
+          curl -X POST ${{ secrets.WEBHOOK_MATERIAIS }} \
+            -H 'Content-Type: application/json' \
+            -d '{
+              "content": "📚 **APOSTILA SEMANAL DISPONÍVEL**",
+              "embeds": [{
+                "title": "✅ Novo Material Liberado",
+                "description": "Confira a apostila e os materiais desta semana!",
+                "color": 3092790,
+                "fields": [
+                  {"name": "📖 Formato", "value": "PDF + HTML", "inline": true},
+                  {"name": "📥 Download", "value": "Clique no link acima", "inline": true},
+                  {"name": "💾 Salve", "value": "Para estudar offline", "inline": false}
+                ]
+              }]
+            }'
+
+      # DOMINGO 10h - GERAL VNC
+      - name: Enviar para #geral-vnc
+        if: github.event.schedule == '0 13 * * 0'
+        run: |
+          curl -X POST ${{ secrets.WEBHOOK_GERAL }} \
+            -H 'Content-Type: application/json' \
+            -d '{
+              "content": "📸 **COMUNHÃO E FOTOS DA SEMANA**",
+              "embeds": [{
+                "title": "🙏 Compartilhe seus Momentos",
+                "description": "Poste fotos e compartilhe experiências desta semana!",
+                "color": 3092790,
+                "fields": [
+                  {"name": "📷 O que postar?", "value": "Fotos da comunidade, celebrações, momentos especiais", "inline": false},
+                  {"name": "❤️ Tema", "value": "Comunhão e unidade", "inline": false}
+                ]
+              }]
+            }'
