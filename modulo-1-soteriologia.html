@@ -3,23 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escola de Obreiros - Protocolo de Excelência 2026</title>
+    <title>Módulo 1 - Soteriologia | Escola de Obreiros</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; overflow-x: hidden; }
-        h1, h2, h3, .serif-font { font-family: 'Playfair Display', serif; }
-        .chart-container { position: relative; width: 100%; max-width: 600px; height: 300px; margin: 0 auto; }
-        .floating-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .floating-card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); }
-        .modal-overlay { background-color: rgba(15, 23, 42, 0.8); backdrop-filter: blur(4px); }
-        .custom-scroll::-webkit-scrollbar { width: 5px; }
-        .custom-scroll::-webkit-scrollbar-track { background: transparent; }
-        .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
-        .discord-btn { transition: all 0.3s ease; }
-        .discord-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); }
-        @media print { nav, .quick-links, footer, .banner-hero { display: none; } body { background: white; } }
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
     </style>
 </head>
 <body class="antialiased">
@@ -29,7 +18,6 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20">
                 <div class="flex items-center gap-4">
-                    <!-- LOGO PREMIUM COM FUNDO GRADIENT -->
                     <div class="h-14 w-14 bg-gradient-to-br from-blue-900 to-indigo-900 rounded-full flex items-center justify-center shadow-lg border-2 border-amber-400">
                         <img src="https://i.ibb.co/pvs8vvzJ/logo-igreja-removebg-preview.png" alt="Logo Vida Nova" class="h-12 w-12 object-contain filter brightness-200">
                     </div>
@@ -38,13 +26,12 @@
                         <span class="block text-xl font-bold text-blue-900 leading-tight">Escola de Obreiros</span>
                     </div>
                 </div>
-                <div class="flex items-center gap-6">
-                    <div class="hidden md:flex items-center space-x-6 mr-6">
-                        <button onclick="scrollToSection('soteriologia')" class="text-sm font-semibold text-slate-500 hover:text-blue-900 transition-colors">Doutrina</button>
-                        <button onclick="scrollToSection('cronograma')" class="text-sm font-semibold text-slate-500 hover:text-blue-900 transition-colors">Cronograma</button>
-                        <button onclick="scrollToSection('canais')" class="text-sm font-semibold text-slate-500 hover:text-blue-900 transition-colors">Comunidade</button>
-                    </div>
-                    <a href="https://discord.gg/nCTND4bPaM" target="_blank" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-xl text-sm font-bold shadow-md flex items-center gap-2 transition-all discord-btn">
+                <div class="flex items-center gap-3">
+                    <a href="index.html" class="bg-slate-600 hover:bg-slate-700 text-white px-4 py-2 rounded-xl text-sm font-bold shadow-md flex items-center gap-2 transition-all">
+                        <span>🏠</span>
+                        <span>Início</span>
+                    </a>
+                    <a href="https://discord.gg/nCTND4bPaM" target="_blank" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-xl text-sm font-bold shadow-md flex items-center gap-2 transition-all">
                         <span>💬</span>
                         <span>Campus Virtual</span>
                     </a>
@@ -53,339 +40,86 @@
         </div>
     </nav>
 
-    <!-- QUICK LINKS DISCORD -->
-    <div class="quick-links bg-gradient-to-r from-blue-50 to-indigo-50 border-b-2 border-blue-200 sticky top-20 z-40">
-        <div class="max-w-7xl mx-auto px-4 py-3 flex gap-2 overflow-x-auto">
-            <a href="https://discord.gg/3EKwHbr7n3" target="_blank" class="whitespace-nowrap px-3 py-2 bg-white rounded-lg text-xs font-bold text-red-600 hover:bg-red-50 discord-btn">📢 Avisos</a>
-            <a href="https://discord.gg/sHZz4TFguw" target="_blank" class="whitespace-nowrap px-3 py-2 bg-white rounded-lg text-xs font-bold text-purple-600 hover:bg-purple-50 discord-btn">🎙️ Podcast</a>
-            <a href="https://discord.gg/nCTND4bPaM" target="_blank" class="whitespace-nowrap px-3 py-2 bg-white rounded-lg text-xs font-bold text-orange-600 hover:bg-orange-50 discord-btn">❓ Dúvidas</a>
-            <a href="https://discord.gg/mJ7Sf4NDTW" target="_blank" class="whitespace-nowrap px-3 py-2 bg-white rounded-lg text-xs font-bold text-yellow-600 hover:bg-yellow-50 discord-btn">🏆 Desafios</a>
-            <a href="https://discord.gg/DywwXg7w" target="_blank" class="whitespace-nowrap px-3 py-2 bg-white rounded-lg text-xs font-bold text-green-600 hover:bg-green-50 discord-btn">📚 Material</a>
+    <!-- CONTEÚDO -->
+    <div class="max-w-7xl mx-auto px-4 py-20">
+        <div class="mb-12">
+            <h1 class="text-5xl font-bold text-blue-900 mb-4">✝️ Módulo 1: Soteriologia</h1>
+            <p class="text-xl text-slate-600">A Doutrina da Salvação • 9 Passos Fundamentais</p>
+        </div>
+
+        <!-- CONTEÚDO DO MÓDULO -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 mb-8">
+            <h2 class="text-3xl font-bold text-blue-900 mb-6">Introdução à Soteriologia</h2>
+            
+            <div class="space-y-6 text-slate-700 leading-relaxed">
+                <p>
+                    <strong>Soteriologia</strong> é o estudo sistemático da doutrina da salvação. A palavra vem do grego "sotería" (salvação) e "logos" (estudo).
+                </p>
+
+                <h3 class="text-2xl font-bold text-blue-800 mt-8">Os 9 Passos Fundamentais da Salvação</h3>
+
+                <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-900">
+                    <h4 class="font-bold text-lg mb-2">1️⃣ Eleição Divina</h4>
+                    <p>Deus escolheu antecipadamente aqueles que haveriam de ser salvos através de Jesus Cristo.</p>
+                </div>
+
+                <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-900">
+                    <h4 class="font-bold text-lg mb-2">2️⃣ Predestinação</h4>
+                    <p>Deus predestinou aqueles que elegeu para serem conformados à imagem de seu Filho.</p>
+                </div>
+
+                <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-900">
+                    <h4 class="font-bold text-lg mb-2">3️⃣ Chamada Eficaz</h4>
+                    <p>O Espírito Santo chama e convence o pecador da realidade do pecado e da necessidade de salvação.</p>
+                </div>
+
+                <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-900">
+                    <h4 class="font-bold text-lg mb-2">4️⃣ Regeneração</h4>
+                    <p>Novo nascimento espiritual - o Espírito Santo dá vida nova ao espírito morto do pecador.</p>
+                </div>
+
+                <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-900">
+                    <h4 class="font-bold text-lg mb-2">5️⃣ Conversão/Arrependimento</h4>
+                    <p>O pecador se afasta do pecado e se volta para Deus com fé genuína em Jesus Cristo.</p>
+                </div>
+
+                <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-900">
+                    <h4 class="font-bold text-lg mb-2">6️⃣ Justificação</h4>
+                    <p>Deus declara o pecador justo pela fé em Cristo, imputando-lhe a justiça de Cristo.</p>
+                </div>
+
+                <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-900">
+                    <h4 class="font-bold text-lg mb-2">7️⃣ Adoção</h4>
+                    <p>O crente é recebido na família de Deus como filho legítimo com todos os seus privilégios.</p>
+                </div>
+
+                <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-900">
+                    <h4 class="font-bold text-lg mb-2">8️⃣ Santificação</h4>
+                    <p>Processo contínuo de transformação moral e espiritual pela obra do Espírito Santo.</p>
+                </div>
+
+                <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-900">
+                    <h4 class="font-bold text-lg mb-2">9️⃣ Glorificação</h4>
+                    <p>Consumação final quando o crente será completamente transformado e livre de toda imperfeição.</p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- BOTÃO VOLTAR -->
+        <div class="text-center">
+            <a href="index.html" class="inline-block bg-blue-900 hover:bg-blue-800 text-white px-8 py-3 rounded-xl font-bold transition-colors">
+                ← Voltar aos Módulos
+            </a>
         </div>
     </div>
 
-    <!-- BANNER HERO CHAMATIVO -->
-    <section class="banner-hero bg-gradient-to-r from-blue-900 via-indigo-900 to-blue-900 text-white py-16 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10">
-            <div class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-            <div class="absolute bottom-0 left-0 w-72 h-72 bg-amber-400 rounded-full blur-3xl"></div>
-        </div>
-        <div class="max-w-7xl mx-auto px-4 relative z-10 text-center">
-            <h1 class="text-5xl md:text-6xl font-bold mb-4 leading-tight">
-                Protocolo de Excelência
-                <br><span class="text-amber-400">Módulo 1: Soteriologia</span>
-            </h1>
-            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-                Capacitação e Reciclagem 2026 • Alinhando o coração do obreiro com a profundidade da Doutrina da Salvação
-            </p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <button onclick="scrollToSection('soteriologia')" class="bg-white text-blue-900 px-8 py-3 rounded-xl font-bold hover:bg-amber-400 transition-all discord-btn">
-                    📖 Explorar Conteúdo
-                </button>
-                <a href="https://discord.gg/nCTND4bPaM" target="_blank" class="bg-amber-400 text-blue-900 px-8 py-3 rounded-xl font-bold hover:bg-white transition-all discord-btn">
-                    💬 Ir para Discord
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- SOTERIOLOGIA -->
-    <section id="soteriologia" class="py-20 bg-slate-50 border-y border-slate-200">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-blue-900 mb-4">A Doutrina da Salvação</h2>
-                <p class="text-slate-500 max-w-2xl mx-auto">Explore os 9 passos fundamentais do protocolo teológico. Clique em "Visualizar" para acessar o fundamento bíblico.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="steps-grid"></div>
-        </div>
-    </section>
-
-    <!-- CTA DEPOIS DO CONTEÚDO -->
-    <section class="py-12 bg-blue-900 text-white">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <h3 class="text-3xl font-bold mb-4">💬 Tem dúvida sobre o conteúdo?</h3>
-            <p class="text-blue-100 mb-6">Acesse nosso plantão de dúvidas toda quarta-feira no Discord</p>
-            <a href="https://discord.gg/nCTND4bPaM" target="_blank" class="inline-block bg-white text-blue-900 px-8 py-3 rounded-xl font-bold hover:bg-blue-50 transition-colors discord-btn">
-                Ir para #dúvidas-da-aula
-            </a>
-        </div>
-    </section>
-
-    <!-- CRONOGRAMA SEMANAL -->
-    <section id="cronograma" class="py-20 bg-gradient-to-b from-white to-blue-50 border-y border-slate-200">
-        <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-4xl font-bold text-blue-900 mb-4 text-center">📅 Cronograma da Semana</h2>
-            <p class="text-slate-600 text-center mb-12 max-w-2xl mx-auto">Acompanhe os eventos da semana e interaja com a comunidade no Discord</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <a href="https://discord.gg/3EKwHbr7n3" target="_blank" class="floating-card bg-white p-6 rounded-2xl border-2 border-red-300 shadow-sm hover:shadow-lg">
-                    <p class="text-3xl mb-3">📢</p>
-                    <h3 class="font-bold text-lg text-red-900 mb-1">#avisos-oficiais</h3>
-                    <p class="text-sm text-red-700 mb-3">Convocações e links urgentes</p>
-                    <p class="text-xs bg-red-50 text-red-900 px-3 py-1 rounded-full inline-block font-bold">🗓️ Sábado</p>
-                </a>
-                <a href="https://discord.gg/sHZz4TFguw" target="_blank" class="floating-card bg-white p-6 rounded-2xl border-2 border-purple-300 shadow-sm hover:shadow-lg">
-                    <p class="text-3xl mb-3">🎙️</p>
-                    <h3 class="font-bold text-lg text-purple-900 mb-1">#mesa-de-exegese</h3>
-                    <p class="text-sm text-purple-700 mb-3">Podcast de revisão</p>
-                    <p class="text-xs bg-purple-50 text-purple-900 px-3 py-1 rounded-full inline-block font-bold">🗓️ Segunda</p>
-                </a>
-                <a href="https://discord.gg/nCTND4bPaM" target="_blank" class="floating-card bg-white p-6 rounded-2xl border-2 border-orange-300 shadow-sm hover:shadow-lg">
-                    <p class="text-3xl mb-3">❓</p>
-                    <h3 class="font-bold text-lg text-orange-900 mb-1">#duvidas-da-aula</h3>
-                    <p class="text-sm text-orange-700 mb-3">Plantão de dúvidas</p>
-                    <p class="text-xs bg-orange-50 text-orange-900 px-3 py-1 rounded-full inline-block font-bold">🗓️ Quarta</p>
-                </a>
-                <a href="https://discord.gg/mJ7Sf4NDTW" target="_blank" class="floating-card bg-white p-6 rounded-2xl border-2 border-yellow-300 shadow-sm hover:shadow-lg">
-                    <p class="text-3xl mb-3">🏆</p>
-                    <h3 class="font-bold text-lg text-yellow-900 mb-1">#desafios-da-semana</h3>
-                    <p class="text-sm text-yellow-700 mb-3">Desafio prático para subir de nível</p>
-                    <p class="text-xs bg-yellow-50 text-yellow-900 px-3 py-1 rounded-full inline-block font-bold">🗓️ Quinta</p>
-                </a>
-                <a href="https://discord.gg/DywwXg7w" target="_blank" class="floating-card bg-white p-6 rounded-2xl border-2 border-green-300 shadow-sm hover:shadow-lg">
-                    <p class="text-3xl mb-3">📚</p>
-                    <h3 class="font-bold text-lg text-green-900 mb-1">#materiais-dos-modulos</h3>
-                    <p class="text-sm text-green-700 mb-3">Entrega de Ebooks e Apostilas</p>
-                    <p class="text-xs bg-green-50 text-green-900 px-3 py-1 rounded-full inline-block font-bold">🗓️ Sexta</p>
-                </a>
-                <a href="https://discord.gg/nCTND4bPaM" target="_blank" class="floating-card bg-white p-6 rounded-2xl border-2 border-blue-300 shadow-sm hover:shadow-lg">
-                    <p class="text-3xl mb-3">📸</p>
-                    <h3 class="font-bold text-lg text-blue-900 mb-1">#geral-vnc</h3>
-                    <p class="text-sm text-blue-700 mb-3">Fotos e comunhão</p>
-                    <p class="text-xs bg-blue-50 text-blue-900 px-3 py-1 rounded-full inline-block font-bold">🗓️ Domingo</p>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- NÍVEIS DE CONSTÂNCIA -->
-    <section id="canais" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div>
-                    <h2 class="text-3xl font-bold text-slate-900 mb-6">🎖️ Níveis de Constância</h2>
-                    <p class="text-slate-600 mb-8 text-lg">O engajamento na comunidade define sua progressão. Quanto mais participa dos canais, mais sobe de nível!</p>
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-4 bg-slate-50 p-4 rounded-2xl border border-slate-100">
-                            <span class="h-10 w-10 bg-blue-900 text-white flex items-center justify-center rounded-xl font-bold">1</span>
-                            <div>
-                                <h4 class="font-bold text-slate-800">Cargos de Engajamento</h4>
-                                <p class="text-xs text-slate-500">Discípulo, Servo, Coluna, Barnabé, Apolo e Timóteo</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-4 bg-slate-50 p-4 rounded-2xl border border-slate-100">
-                            <span class="h-10 w-10 bg-amber-500 text-white flex items-center justify-center rounded-xl font-bold">2</span>
-                            <div>
-                                <h4 class="font-bold text-slate-800">Cargos Ministeriais</h4>
-                                <p class="text-xs text-slate-500">Concessão pastoral baseada em maturidade e serviço</p>
-                            </div>
-                        </div>
-                        <a href="https://discord.gg/mJ7Sf4NDTW" target="_blank" class="flex items-center gap-4 bg-gradient-to-r from-indigo-50 to-blue-50 p-4 rounded-2xl border-2 border-indigo-300 hover:shadow-lg transition-all group discord-btn">
-                            <span class="h-10 w-10 bg-indigo-600 text-white flex items-center justify-center rounded-xl font-bold group-hover:scale-110 transition-transform">3</span>
-                            <div>
-                                <h4 class="font-bold text-slate-800">Participe dos Desafios</h4>
-                                <p class="text-xs text-slate-600">Clique para acessar o canal e subir de nível! 🚀</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="bg-slate-50 p-8 rounded-[3rem] shadow-inner border border-slate-200">
-                    <h3 class="text-center text-sm font-bold text-slate-400 uppercase tracking-widest mb-6">Distribuição da Pirâmide de Honra</h3>
-                    <div class="chart-container">
-                        <canvas id="revertedRolesChart"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- RODAPÉ -->
-    <footer class="bg-slate-900 text-white py-16">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-                <div>
-                    <h4 class="font-bold mb-4 text-lg">📖 Apostila Digital</h4>
-                    <p class="text-sm text-slate-400">Complemento digital da Escola de Obreiros • Protocolo de Excelência 2026</p>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-4 text-lg">💬 Comunidade Discord</h4>
-                    <a href="https://discord.gg/nCTND4bPaM" target="_blank" class="block text-indigo-400 hover:text-indigo-300 text-sm mb-2">Acesso Principal</a>
-                    <a href="https://discord.gg/3EKwHbr7n3" target="_blank" class="block text-red-400 hover:text-red-300 text-sm mb-2">Avisos</a>
-                    <a href="https://discord.gg/sHZz4TFguw" target="_blank" class="block text-purple-400 hover:text-purple-300 text-sm">Podcast</a>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-4 text-lg">📚 Recursos</h4>
-                    <a href="https://discord.gg/DywwXg7w" target="_blank" class="block text-green-400 hover:text-green-300 text-sm mb-2">Material dos Módulos</a>
-                    <a href="https://discord.gg/mJ7Sf4NDTW" target="_blank" class="block text-yellow-400 hover:text-yellow-300 text-sm mb-2">Desafios da Semana</a>
-                    <button onclick="window.print()" class="text-blue-400 hover:text-blue-300 text-sm">📄 Imprimir</button>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-4 text-lg">📅 Cronograma</h4>
-                    <p class="text-sm text-slate-400">Seg: Podcast</p>
-                    <p class="text-sm text-slate-400">Qua: Dúvidas</p>
-                    <p class="text-sm text-slate-400">Qui: Desafios</p>
-                </div>
-            </div>
-            <div class="border-t border-slate-700 pt-8 text-center">
-                <p class="text-sm text-slate-400">© 2026 Vida Nova Church Piracicaba • Protocolo de Excelência</p>
-            </div>
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-white py-16 mt-20">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-sm text-slate-400">© 2026 Vida Nova Church Piracicaba • Protocolo de Excelência</p>
         </div>
     </footer>
 
-    <!-- MODAL -->
-    <div id="stepModal" class="modal-overlay fixed inset-0 z-[100] hidden flex items-center justify-center p-4">
-        <div class="bg-white w-full max-w-2xl rounded-[2.5rem] overflow-hidden shadow-2xl transform transition-all scale-95 opacity-0" id="modalContent">
-            <div class="p-8 md:p-12 relative">
-                <button onclick="closeModal()" class="absolute top-6 right-6 text-slate-300 hover:text-slate-900 text-3xl font-light">×</button>
-                <div class="mb-8">
-                    <span id="modalStepNum" class="text-amber-600 font-black text-xs uppercase tracking-widest block mb-2">Passo X</span>
-                    <h3 id="modalTitle" class="text-4xl font-bold text-blue-900 mb-4">Título do Passo</h3>
-                    <div class="h-1 w-20 bg-blue-100 rounded-full"></div>
-                </div>
-                <div class="bg-blue-50 p-6 rounded-2xl border-l-8 border-blue-900 mb-8">
-                    <p class="text-[10px] text-blue-900 font-bold uppercase mb-2">Fundamento Bíblico</p>
-                    <p id="modalVerse" class="font-serif italic text-xl text-slate-800">"Versículo..."</p>
-                </div>
-                <div class="max-h-[300px] overflow-y-auto pr-4 custom-scroll">
-                    <p id="modalText" class="text-slate-600 text-lg leading-relaxed"></p>
-                </div>
-            </div>
-            <div class="bg-slate-50 p-6 flex justify-end">
-                <button onclick="closeModal()" class="bg-blue-900 text-white px-8 py-3 rounded-xl font-bold shadow-lg hover:bg-blue-800 transition-colors">Fechar</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- POP-UP DE ENGAJAMENTO -->
-    <div id="engagementPopup" class="hidden fixed inset-0 flex items-center justify-center z-[200] bg-black bg-opacity-40 p-4">
-        <div class="bg-white rounded-[2rem] p-8 max-w-md shadow-2xl transform transition-all scale-95 opacity-0" id="popupContent">
-            <div class="text-center">
-                <div class="text-5xl mb-4">👋</div>
-                <h3 class="text-2xl font-bold text-blue-900 mb-3">O que achou da aula?</h3>
-                <p class="text-slate-600 mb-2">Tem alguma dúvida ou sugestão?</p>
-                <p class="text-sm text-slate-500 mb-6">Nossos pastores estão prontos para ajudar!</p>
-                <div class="space-y-3">
-                    <a href="https://discord.gg/nCTND4bPaM" target="_blank" 
-                       onclick="closeEngagementPopup()"
-                       class="block w-full bg-gradient-to-r from-blue-900 to-indigo-900 text-white p-3 rounded-xl font-bold text-center hover:shadow-lg transition-all discord-btn">
-                        📝 Enviar Dúvida
-                    </a>
-                    <button onclick="closeEngagementPopup()" 
-                            class="block w-full bg-slate-100 text-slate-800 p-3 rounded-xl font-bold hover:bg-slate-200 transition-colors">
-                        Agora não
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        const soteriologySteps = [
-            { title: "Arrependimento", num: 1, icon: "🔄", verse: "Atos 3:19", summary: "Mudança radical de mente, coração e direção.", full: "Segundo a Bíblia, o arrependimento é uma mudança radical de mente, coração e direção, que envolve reconhecer o pecado, sentir tristeza genuína por ele, confessá-lo a Deus e, com a Sua ajuda, abandonar o velho caminho para voltar-se a Deus, produzindo frutos de uma nova vida e obediência." },
-            { title: "Confissão", num: 2, icon: "🗣️", verse: "Rm 10:9-10", summary: "A verbalização que quebra a legalidade das trevas.", full: "A confissão prepara o caminho para o perdão. A verbalização dos nossos pecados inviabiliza toda a acusação contra o pecador. Quando confessamos há uma quebra de legalidade do poder das trevas para nos acusar dos nossos delitos." },
-            { title: "Conversão", num: 3, icon: "✝️", verse: "At 3:19", summary: "Mudança radical de direção e renascimento espiritual.", full: "Significa uma mudança radical de direção na vida, afastando-se do pecado para seguir a Deus, envolvendo transformação de mente, coração e comportamento, impulsionada pelo arrependimento e fé em Jesus Cristo." },
-            { title: "Perdão", num: 4, icon: "❤️", verse: "1 Jo 1:9", summary: "Absolvição de faltas e reconciliação divina.", full: "O perdão é dividido em Humano e Divino. Só na pessoa de Jesus Cristo podemos alcançar o perdão, pois Ele pagou a dívida na cruz do Calvário." },
-            { title: "Justificação", num: 5, icon: "⚖️", verse: "Rm 5:1", summary: "Ser declarado justo por Deus através da fé.", full: "Significa ser inocentado, provado ou alinhado. Na Teologia Cristã, refere-se a ser declarado justo por Deus através da fé em Jesus Cristo." },
-            { title: "Reconciliação", num: 6, icon: "🤝", verse: "2 Co 5:18", summary: "Restauração da harmonia e confiança entre Deus e o homem.", full: "Ato de restabelecer a harmonia entre o Criador e a criatura. No plano espiritual, significa restaurar o que foi quebrado pelo pecado e construir confiança." },
-            { title: "Regeneração", num: 7, icon: "🌱", verse: "1 Pe 1:23", summary: "Novo nascimento espiritual pelo poder do Espírito Santo.", full: "Significa ser transformado por Deus, um novo nascimento espiritual, onde o Espírito Santo dá nova vida a quem crê." },
-            { title: "Santificação", num: 8, icon: "✨", verse: "Hb 12:14", summary: "Processo contínuo de consagração e separação.", full: "Processo de separação e consagração, onde o crente se torna mais semelhante a Cristo através de um aperfeiçoamento contínuo." },
-            { title: "Glorificação", num: 9, icon: "👑", verse: "Fp 3:20-21", summary: "Etapa final da salvação com o corpo ressurreto.", full: "A etapa final da salvação, quando os crentes recebem um corpo ressurreto e glorioso, libertos por completo da presença e poder do pecado." }
-        ];
-
-        function initGrid() {
-            const grid = document.getElementById('steps-grid');
-            grid.innerHTML = '';
-            soteriologySteps.forEach(step => {
-                const card = document.createElement('div');
-                card.className = "floating-card bg-white rounded-[2rem] p-8 border border-slate-100 shadow-sm flex flex-col items-center text-center";
-                card.innerHTML = `
-                    <div class="h-16 w-16 bg-blue-50 text-3xl flex items-center justify-center rounded-2xl mb-6">${step.icon}</div>
-                    <span class="text-amber-600 font-black text-[10px] uppercase tracking-widest mb-2">Passo ${step.num}</span>
-                    <h4 class="text-xl font-bold text-slate-800 mb-4">${step.title}</h4>
-                    <p class="text-slate-500 text-sm mb-6">${step.summary}</p>
-                    <button onclick="openModal(${step.num - 1})" class="bg-blue-900 text-white px-6 py-2 rounded-xl text-xs font-bold hover:bg-amber-500 transition-colors shadow-lg">Visualizar</button>
-                `;
-                grid.appendChild(card);
-            });
-        }
-
-        function openModal(idx) {
-            const step = soteriologySteps[idx];
-            const modal = document.getElementById('stepModal');
-            const content = document.getElementById('modalContent');
-            document.getElementById('modalStepNum').innerText = `Passo ${step.num} da Salvação`;
-            document.getElementById('modalTitle').innerText = step.title;
-            document.getElementById('modalVerse').innerText = step.verse;
-            document.getElementById('modalText').innerText = step.full;
-            modal.classList.remove('hidden');
-            setTimeout(() => {
-                content.classList.remove('scale-95', 'opacity-0');
-                content.classList.add('scale-100', 'opacity-100');
-            }, 10);
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('stepModal');
-            const content = document.getElementById('modalContent');
-            content.classList.add('scale-95', 'opacity-0');
-            setTimeout(() => modal.classList.add('hidden'), 200);
-        }
-
-        function closeEngagementPopup() {
-            const popup = document.getElementById('engagementPopup');
-            const content = document.getElementById('popupContent');
-            content.classList.add('scale-95', 'opacity-0');
-            setTimeout(() => popup.classList.add('hidden'), 200);
-            localStorage.setItem('engagementPopupShown', 'true');
-        }
-
-        function showEngagementPopup() {
-            const popup = document.getElementById('engagementPopup');
-            const content = document.getElementById('popupContent');
-            
-            if (!localStorage.getItem('engagementPopupShown')) {
-                popup.classList.remove('hidden');
-                setTimeout(() => {
-                    content.classList.remove('scale-95', 'opacity-0');
-                    content.classList.add('scale-100', 'opacity-100');
-                }, 10);
-            }
-        }
-
-        function initCharts() {
-            const chartCanvas = document.getElementById('revertedRolesChart');
-            if (!chartCanvas) return;
-            const ctx = chartCanvas.getContext('2d');
-            new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['Discípulo', 'Servo', 'Coluna', 'Barnabé', 'Apolo', 'Timóteo'],
-                    datasets: [{
-                        data: [45, 25, 15, 8, 5, 2],
-                        backgroundColor: ['#f1f5f9', '#e2e8f0', '#94a3b8', '#64748b', '#475569', '#1e3a8a'],
-                        borderWidth: 0,
-                        hoverOffset: 10
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: { legend: { position: 'bottom', labels: { usePointStyle: true, padding: 20 } } },
-                    cutout: '70%'
-                }
-            });
-        }
-
-        function scrollToSection(id) {
-            const section = document.getElementById(id);
-            if (section) section.scrollIntoView({ behavior: 'smooth' });
-        }
-
-        window.onload = () => {
-            initGrid();
-            initCharts();
-            // Pop-up aparece após 3 segundos
-            setTimeout(showEngagementPopup, 3000);
-        };
-    </script>
 </body>
 </html>
