@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-pt">
 <head>
@@ -13,6 +14,182 @@
         .module-card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); }
         .discord-btn { transition: all 0.3s ease; }
         .discord-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); }
+
+        /* BOTÃO FLUTUANTE */
+        .floating-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #2186a0 0%, #1e7480 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(33, 134, 160, 0.4);
+            z-index: 999;
+            transition: all 0.3s ease;
+            border: none;
+            padding: 0;
+        }
+
+        .floating-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(33, 134, 160, 0.6);
+        }
+
+        .floating-button-icon {
+            font-size: 28px;
+        }
+
+        /* MODAL DE DÚVIDA */
+        .chat-modal {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 350px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 40px rgba(0, 0, 0, 0.16);
+            z-index: 999;
+            display: none;
+            flex-direction: column;
+            max-height: 500px;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .chat-modal.active {
+            display: flex;
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, #2186a0 0%, #1e7480 100%);
+            color: white;
+            padding: 16px;
+            border-radius: 12px 12px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header h3 {
+            margin: 0;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-btn:hover {
+            opacity: 0.8;
+        }
+
+        .chat-body {
+            padding: 16px;
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .chat-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-group textarea:focus,
+        .form-group input:focus {
+            outline: none;
+            border-color: #2186a0;
+            box-shadow: 0 0 0 3px rgba(33, 134, 160, 0.1);
+        }
+
+        .send-btn {
+            background: linear-gradient(135deg, #2186a0 0%, #1e7480 100%);
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .send-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(33, 134, 160, 0.4);
+        }
+
+        .send-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            display: none;
+            font-size: 14px;
+        }
+
+        .success-message.show {
+            display: block;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -211,8 +388,174 @@
         </div>
     </footer>
 
+    <!-- BOTÃO FLUTUANTE -->
+    <button class="floating-button" id="floatingBtn" aria-label="Abrir formulário de dúvidas">
+        <span class="floating-button-icon">💬</span>
+    </button>
+
+    <!-- MODAL DE CHAT -->
+    <div class="chat-modal" id="chatModal">
+        <div class="chat-header">
+            <h3>❓ Dúvida da Aula</h3>
+            <button class="close-btn" id="closeBtn">✕</button>
+        </div>
+        <div class="chat-body">
+            <div class="success-message" id="successMsg">
+                ✅ Dúvida enviada! Responderemos em breve no Discord.
+            </div>
+            <form class="chat-form" id="chatForm">
+                <div class="form-group">
+                    <label for="name">Seu Nome:</label>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        placeholder="Ex: João da Silva" 
+                        required
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="email">Email (opcional):</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="seu@email.com"
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="module">Módulo:</label>
+                    <input 
+                        type="text" 
+                        id="module" 
+                        name="module" 
+                        placeholder="Ex: Soteriologia" 
+                        required
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="question">Sua Dúvida:</label>
+                    <textarea 
+                        id="question" 
+                        name="question" 
+                        placeholder="Descreva sua dúvida aqui..." 
+                        required
+                    ></textarea>
+                </div>
+                <button type="submit" class="send-btn" id="sendBtn">
+                    Enviar Dúvida 🚀
+                </button>
+            </form>
+        </div>
+    </div>
+
     <script>
-        // Smooth scroll
+        // ELEMENTOS
+        const floatingBtn = document.getElementById('floatingBtn');
+        const chatModal = document.getElementById('chatModal');
+        const closeBtn = document.getElementById('closeBtn');
+        const chatForm = document.getElementById('chatForm');
+        const successMsg = document.getElementById('successMsg');
+        const sendBtn = document.getElementById('sendBtn');
+
+        // ABRIR MODAL
+        floatingBtn.addEventListener('click', () => {
+            chatModal.classList.add('active');
+            document.getElementById('name').focus();
+        });
+
+        // FECHAR MODAL
+        closeBtn.addEventListener('click', () => {
+            chatModal.classList.remove('active');
+        });
+
+        // FECHAR AO CLICAR FORA (opcional)
+        document.addEventListener('click', (e) => {
+            if (!chatModal.contains(e.target) && !floatingBtn.contains(e.target)) {
+                if (chatModal.classList.contains('active')) {
+                    // Não fecha automaticamente para evitar fechar sem querer
+                }
+            }
+        });
+
+        // ENVIAR FORMULÁRIO
+        chatForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const module = document.getElementById('module').value;
+            const question = document.getElementById('question').value;
+
+            sendBtn.disabled = true;
+            sendBtn.textContent = 'Enviando...';
+
+            try {
+                // WEBHOOK DO DISCORD PARA #DUVIDAS-DA-AULA
+                const webhookUrl = 'https://discord.com/api/webhooks/1453208362325115024/npjdfJpW-nw5U3Hp5oflciiL6y6UTl9UpCoo2N5i17JRgqrZNE7a_4GuhvVsq-w1DZVX';
+
+                const response = await fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        content: '🙋‍♂️ **NOVA DÚVIDA DO SITE**',
+                        embeds: [{
+                            color: 3092790,
+                            fields: [
+                                {
+                                    name: '👤 Nome',
+                                    value: name,
+                                    inline: true
+                                },
+                                {
+                                    name: '📧 Email',
+                                    value: email || 'Não informado',
+                                    inline: true
+                                },
+                                {
+                                    name: '📚 Módulo',
+                                    value: module,
+                                    inline: true
+                                },
+                                {
+                                    name: '❓ Dúvida',
+                                    value: question,
+                                    inline: false
+                                }
+                            ],
+                            timestamp: new Date().toISOString()
+                        }]
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Erro na resposta do servidor');
+                }
+
+                // MOSTRAR SUCESSO
+                successMsg.classList.add('show');
+                chatForm.style.display = 'none';
+
+                // RESETAR APÓS 3 SEGUNDOS
+                setTimeout(() => {
+                    chatForm.reset();
+                    chatForm.style.display = 'flex';
+                    successMsg.classList.remove('show');
+                    chatModal.classList.remove('active');
+                }, 3000);
+
+            } catch (error) {
+                alert('❌ Erro ao enviar. Tente novamente!');
+                console.error('Erro:', error);
+            } finally {
+                sendBtn.disabled = false;
+                sendBtn.textContent = 'Enviar Dúvida 🚀';
+            }
+        });
+
+        // Smooth scroll (código original mantido)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
