@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escola de Obreiros - Protocolo de Excelência 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; overflow-x: hidden; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        .module-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .module-card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); }
+        .discord-btn { transition: all 0.3s ease; }
+        .discord-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- NAVEGAÇÃO -->
+    <nav class="bg-white border-b border-slate-100 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center gap-4">
+                    <div class="h-14 w-14 bg-gradient-to-br from-blue-900 to-indigo-900 rounded-full flex items-center justify-center shadow-lg border-2 border-amber-400">
+                        <img src="https://i.ibb.co/pvs8vvzJ/logo-igreja-removebg-preview.png" alt="Logo Vida Nova" class="h-12 w-12 object-contain filter brightness-200">
+                    </div>
+                    <div>
+                        <span class="block text-[10px] font-bold text-slate-400 tracking-widest uppercase">Vida Nova Church</span>
+                        <span class="block text-xl font-bold text-blue-900 leading-tight">Escola de Obreiros</span>
+                    </div>
+                </div>
+                <a href="https://discord.gg/nCTND4bPaM" target="_blank" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-xl text-sm font-bold shadow-md flex items-center gap-2 transition-all discord-btn">
+                    <span>💬</span>
+                    <span>Campus Virtual</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- BANNER HERO -->
+    <section class="bg-gradient-to-r from-blue-900 via-indigo-900 to-blue-900 text-white py-20 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 w-72 h-72 bg-amber-400 rounded-full blur-3xl"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold mb-4 leading-tight">
+                Protocolo de Excelência
+                <br><span class="text-amber-400">2026</span>
+            </h1>
+            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                Capacitação e Reciclagem para Obreiros • 12 Módulos de Doutrina Cristã Profunda
+            </p>
+        </div>
+    </section>
+
+    <!-- MÓDULOS DISPONÍVEIS -->
+    <section class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-blue-900 mb-4">📚 Módulos Disponíveis</h2>
+                <p class="text-slate-600 text-lg">Acesse o material de cada semana. Novos módulos são liberados toda semana!</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- MÓDULO 1 - DISPONÍVEL -->
+                <a href="modulo-1-soteriologia.html" class="module-card bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-[2rem] border-2 border-blue-300 shadow-lg hover:shadow-2xl">
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="text-4xl">✝️</span>
+                        <span class="bg-green-500 text-white text-xs font-bold px-4 py-1 rounded-full">✓ Disponível</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-blue-900 mb-2">Módulo 1</h3>
+                    <p class="text-lg font-semibold text-blue-800 mb-3">Soteriologia</p>
+                    <p class="text-slate-600 mb-6 text-sm">A Doutrina da Salvação • 9 Passos Fundamentais</p>
+                    <div class="space-y-2 text-xs text-slate-500 mb-6">
+                        <p>📅 Semana 1 (Janeiro)</p>
+                        <p>👥 9 conceitos teológicos</p>
+                        <p>⏱️ ~2 horas de estudo</p>
+                    </div>
+                    <button class="w-full bg-blue-900 hover:bg-blue-800 text-white py-3 rounded-xl font-bold transition-colors discord-btn">
+                        Acessar Módulo
+                    </button>
+                </a>
+
+                <!-- MÓDULO 2 - EM BREVE -->
+                <div class="module-card bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-[2rem] border-2 border-purple-200 shadow-lg opacity-60">
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="text-4xl">⛪</span>
+                        <span class="bg-slate-400 text-white text-xs font-bold px-4 py-1 rounded-full">Em Breve</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-purple-900 mb-2">Módulo 2</h3>
+                    <p class="text-lg font-semibold text-purple-800 mb-3">Cristologia</p>
+                    <p class="text-slate-600 mb-6 text-sm">A Pessoa e Obra de Cristo • Fundamentos do Evangelho</p>
+                    <div class="space-y-2 text-xs text-slate-500 mb-6">
+                        <p>📅 Semana 2 (Janeiro)</p>
+                        <p>👥 8 conceitos teológicos</p>
+                        <p>⏱️ ~2 horas de estudo</p>
+                    </div>
+                    <button disabled class="w-full bg-slate-300 text-slate-600 py-3 rounded-xl font-bold cursor-not-allowed">
+                        Em Breve
+                    </button>
+                </div>
+
+                <!-- MÓDULO 3 - EM BREVE -->
+                <div class="module-card bg-gradient-to-br from-orange-50 to-red-50 p-8 rounded-[2rem] border-2 border-orange-200 shadow-lg opacity-60">
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="text-4xl">🕊️</span>
+                        <span class="bg-slate-400 text-white text-xs font-bold px-4 py-1 rounded-full">Em Breve</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-orange-900 mb-2">Módulo 3</h3>
+                    <p class="text-lg font-semibold text-orange-800 mb-3">Pneumatologia</p>
+                    <p class="text-slate-600 mb-6 text-sm">O Espírito Santo • Ministério e Poder Divino</p>
+                    <div class="space-y-2 text-xs text-slate-500 mb-6">
+                        <p>📅 Semana 3 (Janeiro)</p>
+                        <p>👥 7 conceitos teológicos</p>
+                        <p>⏱️ ~2 horas de estudo</p>
+                    </div>
+                    <button disabled class="w-full bg-slate-300 text-slate-600 py-3 rounded-xl font-bold cursor-not-allowed">
+                        Em Breve
+                    </button>
+                </div>
+
+                <!-- MÓDULOS 4-12 - PLACEHOLDER -->
+                <div class="module-card bg-slate-100 p-8 rounded-[2rem] border-2 border-slate-300 shadow-lg opacity-50">
+                    <div class="text-center">
+                        <p class="text-5xl mb-4">4️⃣</p>
+                        <p class="text-slate-600 font-bold">Módulo 4</p>
+                        <p class="text-sm text-slate-500 mt-2">Eclesiologia</p>
+                    </div>
+                </div>
+                <div class="module-card bg-slate-100 p-8 rounded-[2rem] border-2 border-slate-300 shadow-lg opacity-50">
+                    <div class="text-center">
+                        <p class="text-5xl mb-4">5️⃣</p>
+                        <p class="text-slate-600 font-bold">Módulo 5</p>
+                        <p class="text-sm text-slate-500 mt-2">Escatologia</p>
+                    </div>
+                </div>
+                <div class="module-card bg-slate-100 p-8 rounded-[2rem] border-2 border-slate-300 shadow-lg opacity-50">
+                    <div class="text-center">
+                        <p class="text-5xl mb-4">➕</p>
+                        <p class="text-slate-600 font-bold">Módulos 6-12</p>
+                        <p class="text-sm text-slate-500 mt-2">Em desenvolvimento</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CRONOGRAMA DE LIBERAÇÃO -->
+    <section class="py-20 bg-white border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-blue-900 mb-12 text-center">📅 Cronograma de Liberação</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-blue-50 p-6 rounded-2xl border-l-4 border-blue-900">
+                    <p class="text-sm font-bold text-blue-600 uppercase tracking-widest mb-2">Semana 1</p>
+                    <p class="text-lg font-bold text-slate-800">Soteriologia ✓</p>
+                    <p class="text-xs text-slate-600 mt-2">Janeiro</p>
+                </div>
+                <div class="bg-purple-50 p-6 rounded-2xl border-l-4 border-purple-900">
+                    <p class="text-sm font-bold text-purple-600 uppercase tracking-widest mb-2">Semana 2</p>
+                    <p class="text-lg font-bold text-slate-800">Cristologia</p>
+                    <p class="text-xs text-slate-600 mt-2">Janeiro</p>
+                </div>
+                <div class="bg-orange-50 p-6 rounded-2xl border-l-4 border-orange-900">
+                    <p class="text-sm font-bold text-orange-600 uppercase tracking-widest mb-2">Semana 3</p>
+                    <p class="text-lg font-bold text-slate-800">Pneumatologia</p>
+                    <p class="text-xs text-slate-600 mt-2">Janeiro</p>
+                </div>
+                <div class="bg-slate-50 p-6 rounded-2xl border-l-4 border-slate-400">
+                    <p class="text-sm font-bold text-slate-600 uppercase tracking-widest mb-2">Semanas 4-12</p>
+                    <p class="text-lg font-bold text-slate-800">Próximos Módulos</p>
+                    <p class="text-xs text-slate-600 mt-2">Fevereiro-Março</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA DISCORD -->
+    <section class="py-16 bg-blue-900 text-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h3 class="text-3xl font-bold mb-4">💬 Conecte-se com a Comunidade</h3>
+            <p class="text-blue-100 mb-8 text-lg">Dúvidas? Sugestões? Interaja com pastores e outros obreiros</p>
+            <a href="https://discord.gg/nCTND4bPaM" target="_blank" class="inline-block bg-white text-blue-900 px-8 py-3 rounded-xl font-bold hover:bg-amber-400 transition-all discord-btn">
+                Entrar no Discord
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h4 class="font-bold mb-4 text-lg">📖 Sobre</h4>
+                    <p class="text-sm text-slate-400">Programa de capacitação e reciclagem para obreiros da Vida Nova Church.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-lg">🔗 Links Rápidos</h4>
+                    <a href="https://discord.gg/nCTND4bPaM" target="_blank" class="block text-indigo-400 hover:text-indigo-300 text-sm mb-2">Discord Principal</a>
+                    <a href="https://discord.gg/DywwXg7w" target="_blank" class="block text-green-400 hover:text-green-300 text-sm">Canal de Materiais</a>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-lg">📅 Próximo Módulo</h4>
+                    <p class="text-sm text-slate-400">Cristologia (Em breve)</p>
+                </div>
+            </div>
+            <div class="border-t border-slate-700 pt-8 text-center">
+                <p class="text-sm text-slate-400">© 2026 Vida Nova Church Piracicaba • Protocolo de Excelência</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
