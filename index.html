@@ -14,48 +14,55 @@
         .discord-btn { transition: all 0.3s ease; }
         .discord-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); }
 
-        /* BOTÃO FLUTUANTE */
+        /* BOTÃO FLUTUANTE MELHORADO */
         .floating-button {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             background: linear-gradient(135deg, #2186a0 0%, #1e7480 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(33, 134, 160, 0.4);
-            z-index: 999;
+            box-shadow: 0 6px 20px rgba(33, 134, 160, 0.4);
+            z-index: 998;
             transition: all 0.3s ease;
             border: none;
             padding: 0;
+            animation: bounce 2s infinite;
         }
 
         .floating-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(33, 134, 160, 0.6);
+            transform: scale(1.15);
+            box-shadow: 0 8px 30px rgba(33, 134, 160, 0.6);
+            animation: none;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         .floating-button-icon {
-            font-size: 28px;
+            font-size: 32px;
         }
 
         /* MODAL DE DÚVIDA */
         .chat-modal {
             position: fixed;
-            bottom: 90px;
+            bottom: 100px;
             right: 20px;
-            width: 350px;
+            width: 380px;
             background: white;
             border-radius: 12px;
             box-shadow: 0 5px 40px rgba(0, 0, 0, 0.16);
             z-index: 999;
             display: none;
             flex-direction: column;
-            max-height: 500px;
+            max-height: 550px;
             animation: slideUp 0.3s ease;
         }
 
@@ -143,7 +150,7 @@
 
         .form-group textarea {
             resize: vertical;
-            min-height: 100px;
+            min-height: 80px;
         }
 
         .form-group textarea:focus,
@@ -188,6 +195,86 @@
 
         .success-message.show {
             display: block;
+        }
+
+        /* GUIA DISCORD - ESTILOS V5 */
+        .guide-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid #2186a0;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .guide-card:hover {
+            box-shadow: 0 12px 25px rgba(33, 134, 160, 0.2);
+            transform: translateY(-4px);
+            border-left: 6px solid #2186a0;
+        }
+
+        .guide-card h4 {
+            color: #2186a0;
+            margin: 0 0 8px 0;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .guide-card p {
+            margin: 0;
+            color: #555;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .channel-day {
+            display: inline-block;
+            background: linear-gradient(135deg, #2186a0 0%, #1e7480 100%);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 10px;
+            box-shadow: 0 2px 8px rgba(33, 134, 160, 0.2);
+            transition: all 0.2s;
+        }
+
+        .channel-day:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(33, 134, 160, 0.3);
+        }
+
+        .step-guide {
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 12px;
+            padding: 18px;
+            margin: 12px 0;
+            border-left: 4px solid rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .step-guide:hover {
+            background: rgba(255, 255, 255, 0.18);
+            border-left: 4px solid white;
+            transform: translateX(4px);
+        }
+
+        .step-guide p:first-child {
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0 0 8px 0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .step-guide p:last-child {
+            color: rgba(255, 255, 255, 0.92);
+            font-size: 14px;
+            margin: 0;
+            line-height: 1.6;
         }
 
         /* NOTIFICAÇÃO POP-UP */
@@ -431,7 +518,124 @@
         </div>
     </section>
 
-    <!-- CTA DISCORD -->
+    <!-- GUIA DISCORD - PARA PÚBLICOS COM 50+ -->
+    <section class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-blue-900 mb-4">📱 Guia do Discord - Canais e Cronograma</h2>
+                <p class="text-slate-600 text-lg">Se você vinha usando WhatsApp, o Discord é bem parecido! Aqui mostramos os canais e quando usá-los.</p>
+            </div>
+
+            <!-- INTRODUÇÃO -->
+            <div class="bg-white p-8 rounded-2xl border-2 border-blue-200 mb-12 shadow-lg">
+                <h3 class="text-2xl font-bold text-blue-900 mb-4">ℹ️ O que é Discord?</h3>
+                <p class="text-slate-700 mb-4 text-lg">Discord é um aplicativo de comunidade parecido com WhatsApp, mas com mais organização. Em vez de um grupo único, temos <strong>canais específicos</strong> para cada assunto. Assim fica mais fácil encontrar informações!</p>
+                <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-900">
+                    <p class="text-slate-700"><strong>💡 Dica:</strong> Baixe o Discord do Play Store (Android) ou App Store (iPhone) e entre no servidor da Vida Nova.</p>
+                </div>
+            </div>
+
+            <!-- CANAIS E CRONOGRAMA -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                
+                <!-- CANAL 1 -->
+                <div class="guide-card bg-gradient-to-br from-red-50 to-orange-50">
+                    <h4>📢 #avisos-oficiais</h4>
+                    <p>Convocações, avisos urgentes e links importantes.</p>
+                    <div class="channel-day">🔔 Sábados</div>
+                </div>
+
+                <!-- CANAL 2 -->
+                <div class="guide-card bg-gradient-to-br from-purple-50 to-pink-50">
+                    <h4>🎙️ #mesa-de-exegese</h4>
+                    <p>Podcast com revisão da aula e aprofundamento teológico.</p>
+                    <div class="channel-day">📻 Segundas-feira</div>
+                </div>
+
+                <!-- CANAL 3 -->
+                <div class="guide-card bg-gradient-to-br from-green-50 to-teal-50">
+                    <h4>🙋‍♂️ #duvidas-da-aula</h4>
+                    <p>Plantão para tirar dúvidas sobre o conteúdo. Resposta garantida!</p>
+                    <div class="channel-day">❓ Quartas-feiras</div>
+                </div>
+
+                <!-- CANAL 4 -->
+                <div class="guide-card bg-gradient-to-br from-yellow-50 to-amber-50">
+                    <h4>🏆 #desafios-da-semana</h4>
+                    <p>Desafio prático para aplicar o que aprendeu. Compartilhe resultados!</p>
+                    <div class="channel-day">🎯 Quintas-feiras</div>
+                </div>
+
+                <!-- CANAL 5 -->
+                <div class="guide-card bg-gradient-to-br from-blue-50 to-indigo-50">
+                    <h4>📚 #materiais-dos-modulos</h4>
+                    <p>Ebooks, apostilas e materiais complementares de cada módulo.</p>
+                    <div class="channel-day">📖 Sextas-feiras</div>
+                </div>
+
+                <!-- CANAL 6 -->
+                <div class="guide-card bg-gradient-to-br from-rose-50 to-pink-50">
+                    <h4>📸 #geral-vnc</h4>
+                    <p>Fotos, testemunhos e comunhão entre os obreiros.</p>
+                    <div class="channel-day">🙏 Domingos</div>
+                </div>
+            </div>
+
+            <!-- PASSO A PASSO PARA INICIANTES -->
+            <div class="bg-gradient-to-r from-blue-900 to-indigo-900 text-white p-12 rounded-2xl mb-12 shadow-xl">
+                <h3 class="text-3xl font-bold mb-8 text-center">👨‍🏫 Como Usar o Discord (Passo a Passo)</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- PASSO 1 -->
+                    <div class="step-guide">
+                        <p>1️⃣ Baixe e Abra o App</p>
+                        <p>Acesse Play Store (Android) ou App Store (iPhone) e procure por "Discord". Baixe e abra o aplicativo.</p>
+                    </div>
+
+                    <!-- PASSO 2 -->
+                    <div class="step-guide">
+                        <p>2️⃣ Entre no Servidor</p>
+                        <p>Clique no link que você recebeu ou procure por "Vida Nova Church" na busca de servidores. Clique em "Entrar".</p>
+                    </div>
+
+                    <!-- PASSO 3 -->
+                    <div class="step-guide">
+                        <p>3️⃣ Veja os Canais</p>
+                        <p>Na esquerda da tela, você verá uma lista de canais (com #). Cada um é para um assunto diferente.</p>
+                    </div>
+
+                    <!-- PASSO 4 -->
+                    <div class="step-guide">
+                        <p>4️⃣ Envie Mensagens</p>
+                        <p>Na caixa de texto do rodapé, digite sua pergunta ou mensagem e pressione "Enviar" (como no WhatsApp).</p>
+                    </div>
+
+                    <!-- PASSO 5 -->
+                    <div class="step-guide">
+                        <p>5️⃣ Procure Mensagens Antigas</p>
+                        <p>Pode scrollar para cima em qualquer canal para ver mensagens antigas. Muito útil para revisar conteúdo!</p>
+                    </div>
+
+                    <!-- PASSO 6 -->
+                    <div class="step-guide">
+                        <p>6️⃣ Ative Notificações</p>
+                        <p>Clique no nome do servidor (no topo) > Configurações de Notificação > Escolha como ser notificado de mensagens.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA FINAL -->
+            <div class="text-center bg-white p-12 rounded-2xl border-2 border-blue-200">
+                <h3 class="text-2xl font-bold text-blue-900 mb-4">Pronto para começar?</h3>
+                <p class="text-slate-700 mb-8 text-lg">Clique no botão abaixo para entrar no Discord da Vida Nova Church</p>
+                <a href="https://discord.gg/nCTND4bPaM" target="_blank" class="inline-block bg-gradient-to-r from-blue-900 to-indigo-900 text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all text-lg">
+                    ➡️ Entrar no Discord Agora
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA DISCORD ORIGINAL -->
     <section class="py-16 bg-blue-900 text-white">
         <div class="max-w-4xl mx-auto px-4 text-center">
             <h3 class="text-3xl font-bold mb-4">💬 Conecte-se com a Comunidade</h3>
@@ -467,231 +671,98 @@
     </footer>
 
     <!-- BOTÃO FLUTUANTE -->
-    <button class="floating-button" id="floatingBtn" aria-label="Abrir formulário de dúvidas">
+    <button class="floating-button" id="floatingBtn" onclick="toggleChat()" aria-label="Abrir formulário de dúvidas">
         <span class="floating-button-icon">💬</span>
     </button>
-
-    <!-- NOTIFICAÇÃO POP-UP -->
-    <div class="notification-popup" id="notificationPopup">
-        <button class="notification-close" id="notificationClose">✕</button>
-        <div class="notification-text">
-            💡 Tem uma dúvida sobre a aula?<br>
-            Clique aqui e pergunte agora!
-        </div>
-        <button class="notification-btn" id="notificationBtn">Fazer Pergunta</button>
-    </div>
 
     <!-- MODAL DE CHAT -->
     <div class="chat-modal" id="chatModal">
         <div class="chat-header">
             <h3>❓ Dúvida da Aula</h3>
-            <button class="close-btn" id="closeBtn">✕</button>
+            <button class="close-btn" id="closeBtn" onclick="toggleChat()">✕</button>
         </div>
         <div class="chat-body">
             <div class="success-message" id="successMsg">
                 ✅ Dúvida enviada! Responderemos em breve no Discord.
             </div>
-            <form class="chat-form" id="chatForm">
+            <form class="chat-form" id="chatForm" onsubmit="sendQuestion(event)">
                 <div class="form-group">
                     <label for="name">Seu Nome:</label>
-                    <input 
-                        type="text" 
-                        id="name" 
-                        name="name" 
-                        placeholder="Ex: João da Silva" 
-                        required
-                    >
+                    <input type="text" id="name" name="name" placeholder="Ex: João da Silva" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email (opcional):</label>
-                    <input 
-                        type="email" 
-                        id="email" 
-                        name="email" 
-                        placeholder="seu@email.com"
-                    >
-                </div>
-                <div class="form-group">
-                    <label for="module">Módulo:</label>
-                    <input 
-                        type="text" 
-                        id="module" 
-                        name="module" 
-                        placeholder="Ex: Soteriologia" 
-                        required
-                    >
+                    <input type="email" id="email" name="email" placeholder="seu@email.com">
                 </div>
                 <div class="form-group">
                     <label for="question">Sua Dúvida:</label>
-                    <textarea 
-                        id="question" 
-                        name="question" 
-                        placeholder="Descreva sua dúvida aqui..." 
-                        required
-                    ></textarea>
+                    <textarea id="question" name="question" placeholder="Descreva sua dúvida aqui..." required></textarea>
                 </div>
-                <button type="submit" class="send-btn" id="sendBtn">
-                    Enviar Dúvida 🚀
-                </button>
+                <button type="submit" class="send-btn" id="sendBtn">Enviar Dúvida 🚀</button>
             </form>
         </div>
     </div>
 
     <script>
-        // ELEMENTOS
-        const floatingBtn = document.getElementById('floatingBtn');
-        const chatModal = document.getElementById('chatModal');
-        const closeBtn = document.getElementById('closeBtn');
-        const chatForm = document.getElementById('chatForm');
-        const successMsg = document.getElementById('successMsg');
-        const sendBtn = document.getElementById('sendBtn');
-        const notificationPopup = document.getElementById('notificationPopup');
-        const notificationClose = document.getElementById('notificationClose');
-        const notificationBtn = document.getElementById('notificationBtn');
-
-        // ABRIR MODAL DO BOTÃO FLUTUANTE
-        floatingBtn.addEventListener('click', () => {
-            chatModal.classList.add('active');
-            notificationPopup.classList.remove('show');
-            document.getElementById('name').focus();
-        });
-
-        // ABRIR MODAL DA NOTIFICAÇÃO
-        notificationBtn.addEventListener('click', () => {
-            chatModal.classList.add('active');
-            notificationPopup.classList.remove('show');
-            document.getElementById('name').focus();
-        });
-
-        // FECHAR NOTIFICAÇÃO
-        notificationClose.addEventListener('click', () => {
-            notificationPopup.classList.remove('show');
-        });
-
-        // FECHAR MODAL
-        closeBtn.addEventListener('click', () => {
-            chatModal.classList.remove('active');
-        });
-
-        // FECHAR AO CLICAR FORA (opcional)
-        document.addEventListener('click', (e) => {
-            if (!chatModal.contains(e.target) && !floatingBtn.contains(e.target)) {
-                if (chatModal.classList.contains('active')) {
-                    // Não fecha automaticamente para evitar fechar sem querer
-                }
+        // CHAT FLUTUANTE
+        function toggleChat() {
+            const chatModal = document.getElementById('chatModal');
+            chatModal.classList.toggle('active');
+            if (chatModal.classList.contains('active')) {
+                document.getElementById('name').focus();
             }
-        });
+        }
 
-        // ENVIAR FORMULÁRIO
-        chatForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
+        async function sendQuestion(event) {
+            event.preventDefault();
 
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
-            const module = document.getElementById('module').value;
             const question = document.getElementById('question').value;
+            const sendBtn = document.getElementById('sendBtn');
 
             sendBtn.disabled = true;
             sendBtn.textContent = 'Enviando...';
 
             try {
-                // WEBHOOK DO DISCORD PARA #DUVIDAS-DA-AULA
                 const webhookUrl = 'https://discord.com/api/webhooks/1453208362325115024/npjdfJpW-nw5U3Hp5oflciiL6y6UTl9UpCoo2N5i17JRgqrZNE7a_4GuhvVsq-w1DZVX';
 
                 const response = await fetch(webhookUrl, {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         content: '🙋‍♂️ **NOVA DÚVIDA DO SITE**',
                         embeds: [{
                             color: 3092790,
                             fields: [
-                                {
-                                    name: '👤 Nome',
-                                    value: name,
-                                    inline: true
-                                },
-                                {
-                                    name: '📧 Email',
-                                    value: email || 'Não informado',
-                                    inline: true
-                                },
-                                {
-                                    name: '📚 Módulo',
-                                    value: module,
-                                    inline: true
-                                },
-                                {
-                                    name: '❓ Dúvida',
-                                    value: question,
-                                    inline: false
-                                }
+                                { name: '👤 Nome', value: name, inline: true },
+                                { name: '📧 Email', value: email || 'Não informado', inline: true },
+                                { name: '📚 Dúvida', value: question, inline: false }
                             ],
                             timestamp: new Date().toISOString()
                         }]
                     })
                 });
 
-                if (!response.ok) {
-                    throw new Error('Erro na resposta do servidor');
+                if (response.ok) {
+                    document.getElementById('successMsg').classList.add('show');
+                    document.getElementById('chatForm').style.display = 'none';
+                    setTimeout(() => {
+                        document.getElementById('chatForm').reset();
+                        document.getElementById('chatForm').style.display = 'flex';
+                        document.getElementById('successMsg').classList.remove('show');
+                        toggleChat();
+                    }, 3000);
                 }
-
-                // MOSTRAR SUCESSO
-                successMsg.classList.add('show');
-                chatForm.style.display = 'none';
-
-                // RESETAR APÓS 3 SEGUNDOS
-                setTimeout(() => {
-                    chatForm.reset();
-                    chatForm.style.display = 'flex';
-                    successMsg.classList.remove('show');
-                    chatModal.classList.remove('active');
-                }, 3000);
-
             } catch (error) {
                 alert('❌ Erro ao enviar. Tente novamente!');
-                console.error('Erro:', error);
             } finally {
                 sendBtn.disabled = false;
                 sendBtn.textContent = 'Enviar Dúvida 🚀';
             }
-        });
-
-        // SISTEMA DE NOTIFICAÇÕES AUTOMÁTICAS
-        let notificationShown = false;
-        let notificationTimer = null;
-
-        // Mostrar notificação a cada 45 segundos se o usuário não abrir o chat
-        function scheduleNotification() {
-            notificationTimer = setTimeout(() => {
-                if (!chatModal.classList.contains('active') && !notificationShown) {
-                    notificationPopup.classList.add('show');
-                    notificationShown = true;
-                    
-                    // Auto-fechar após 8 segundos
-                    setTimeout(() => {
-                        notificationPopup.classList.remove('show');
-                        notificationShown = false;
-                        scheduleNotification();
-                    }, 8000);
-                }
-            }, 45000);
         }
 
-        // Iniciar sistema de notificações
-        scheduleNotification();
-
-        // Resetar timer quando o chat é aberto
-        const originalClickFloating = floatingBtn.onclick;
-        floatingBtn.addEventListener('click', () => {
-            clearTimeout(notificationTimer);
-            notificationShown = false;
-            scheduleNotification();
-        });
-
-        // Smooth scroll (código original mantido)
+        // SMOOTH SCROLL
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
