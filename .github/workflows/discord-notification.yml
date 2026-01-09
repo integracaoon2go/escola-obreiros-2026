@@ -24,7 +24,7 @@ jobs:
                 "color": 3092790,
                 "fields": [
                   {"name": "📖 Formato", "value": "PDF + HTML", "inline": true},
-                  {"name": "📥 Download", "value": "https://seu-site.com", "inline": true}
+                  {"name": "📥 Download", "value": "https://integracaoon2go.github.io/escola-obreiros-2026/", "inline": true}
                 ]
               }]
             }'
