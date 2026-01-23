@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cristologia - Módulo 2 - Escola de Obreiros</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; overflow-x: hidden; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        .discord-btn { transition: all 0.3s ease; }
+        .discord-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); }
+
+        .concept-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid #2186a0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            margin-bottom: 16px;
+        }
+
+        .concept-card:hover {
+            box-shadow: 0 8px 20px rgba(33, 134, 160, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .concept-card h3 {
+            color: #2186a0;
+            margin: 0 0 10px 0;
+            font-size: 18px;
+        }
+
+        .concept-card p {
+            margin: 0 0 8px 0;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .concept-number {
+            display: inline-block;
+            background: linear-gradient(135deg, #2186a0 0%, #1e7480 100%);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .floating-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #2186a0 0%, #1e7480 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(33, 134, 160, 0.4);
+            z-index: 998;
+            transition: all 0.3s ease;
+            border: none;
+            padding: 0;
+            animation: bounce 2s infinite;
+        }
+
+        .floating-button:hover {
+            transform: scale(1.15);
+            box-shadow: 0 8px 30px rgba(33, 134, 160, 0.6);
+            animation: none;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .floating-button-icon {
+            font-size: 32px;
+        }
+
+        .chat-modal {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            width: 380px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 40px rgba(0, 0, 0, 0.16);
+            z-index: 999;
+            display: none;
+            flex-direction: column;
+            max-height: 550px;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .chat-modal.active { display: flex; }
+
+        .chat-header {
+            background: linear-gradient(135deg, #2186a0 0%, #1e7480 100%);
+            color: white;
+            padding: 16px;
+            border-radius: 12px 12px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header h3 {
+            margin: 0;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+        }
+
+        .chat-body {
+            padding: 16px;
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .chat-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .form-group textarea:focus,
+        .form-group input:focus {
+            outline: none;
+            border-color: #2186a0;
+            box-shadow: 0 0 0 3px rgba(33, 134, 160, 0.1);
+        }
+
+        .send-btn {
+            background: linear-gradient(135deg, #2186a0 0%, #1e7480 100%);
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .send-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(33, 134, 160, 0.4);
+        }
+
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 12px;
+            border-radius: 6px;
+            display: none;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .success-message.show { display: block; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- NAVEGAÇÃO -->
+    <nav class="bg-white border-b border-slate-100 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center gap-4">
+                    <div class="h-14 w-14 bg-gradient-to-br from-blue-900 to-indigo-900 rounded-full flex items-center justify-center shadow-lg border-2 border-amber-400">
+                        <img src="https://i.ibb.co/pvs8vvzJ/logo-igreja-removebg-preview.png" alt="Logo" class="h-12 w-12 object-contain filter brightness-200">
+                    </div>
+                    <div>
+                        <span class="block text-[10px] font-bold text-slate-400 tracking-widest uppercase">Vida Nova Church</span>
+                        <span class="block text-xl font-bold text-blue-900 leading-tight">Escola de Obreiros</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <a href="index.html" class="bg-slate-600 hover:bg-slate-700 text-white px-4 py-2 rounded-xl text-sm font-bold shadow-md flex items-center gap-2 transition-all discord-btn">
+                        <span>🏠</span>
+                        <span>Voltar</span>
+                    </a>
+                    <a href="https://discord.gg/nCTND4bPaM" target="_blank" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-xl text-sm font-bold shadow-md flex items-center gap-2 transition-all discord-btn">
+                        <span>💬</span>
+                        <span>Campus Virtual</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- BANNER -->
+    <section class="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 text-white py-16 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <a href="index.html" class="text-purple-100 hover:text-white mb-4 inline-block">← Voltar aos Módulos</a>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+                ⛪ Módulo 2: Cristologia
+            </h1>
+            <p class="text-xl text-purple-100">A Pessoa e Obra de Cristo • 8 Fundamentos do Evangelho</p>
+        </div>
+    </section>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <section class="py-20 bg-slate-50">
+        <div class="max-w-4xl mx-auto px-4">
+            
+            <!-- INTRODUÇÃO -->
+            <div class="bg-white p-8 rounded-2xl border-2 border-purple-200 mb-12 shadow-lg">
+                <h2 class="text-3xl font-bold text-purple-900 mb-4">O que é Cristologia?</h2>
+                <p class="text-slate-700 mb-4 text-lg leading-relaxed">
+                    Cristologia é a doutrina cristã que trata especificamente da <strong>pessoa e obra de Jesus Cristo</strong>. A palavra vem do grego "Christos" (Χριστός), que significa "Ungido" ou "Messias", e "logos" (λόγος), que significa estudo ou razão.
+                </p>
+                <p class="text-slate-700 mb-4 text-lg leading-relaxed">
+                    É através da cristologia que entendemos quem é Jesus Cristo, sua natureza divina e humana, sua obra redentora e sua posição como mediador entre Deus e os homens.
+                </p>
+                <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-900">
+                    <p class="text-slate-700"><strong>📖 Base Bíblica:</strong> "E o Verbo se fez carne, e habitou entre nós, e vimos a sua glória, como a glória do unigênito do Pai, cheio de graça e de verdade." (João 1:14)</p>
+                </div>
+            </div>
+
+            <!-- OS 8 CONCEITOS -->
+            <h2 class="text-3xl font-bold text-purple-900 mb-8">📚 Os 8 Fundamentos da Cristologia</h2>
+
+            <div class="concept-card">
+                <h3>
+                    <span class="concept-number">1</span>
+                    A Preexistência de Cristo
+                </h3>
+                <p>
+                    Jesus Cristo existia desde a eternidade com Deus Pai, muito antes de sua encarnação. Ele é o Verbo eterno que estava com Deus desde o princípio.
+                </p>
+                <p><strong>Implicação:</strong> Cristo não foi criado; Ele sempre existiu como Filho de Deus.</p>
+            </div>
+
+            <div class="concept-card">
+                <h3>
+                    <span class="concept-number">2</span>
+                    A Encarnação de Cristo
+                </h3>
+                <p>
+                    O Verbo eterno se fez carne, nasceu de uma virgem chamada Maria. Jesus é totalmente Deus e totalmente homem, uma união perfeita das duas naturezas.
+                </p>
+                <p><strong>Implicação:</strong> Cristo é o Deus-homem, o mediador perfeito entre Deus e a humanidade.</p>
+            </div>
+
+            <div class="concept-card">
+                <h3>
+                    <span class="concept-number">3</span>
+                    A Impecabilidade de Cristo
+                </h3>
+                <p>
+                    Jesus Cristo nunca pecou. Mesmo sendo tentado em todos os pontos como somos nós, Ele permaneceu perfeitamente puro e sem pecado.
+                </p>
+                <p><strong>Implicação:</strong> Apenas um sacrifício perfeito e sem mácula poderia pagar pelos nossos pecados.</p>
+            </div>
+
+            <div class="concept-card">
+                <h3>
+                    <span class="concept-number">4</span>
+                    O Ministério Redentor de Cristo
+                </h3>
+                <p>
+                    Durante seus três anos e meio de ministério, Jesus pregou o evangelho, realizou milagres, ensinou a verdade de Deus e se apresentou como o Salvador do mundo.
+                </p>
+                <p><strong>Implicação:</strong> A obra redentora de Cristo não se limita à cruz, mas inclui todo seu ministério terreno.</p>
+            </div>
+
+            <div class="concept-card">
+                <h3>
+                    <span class="concept-number">5</span>
+                    A Morte Substitutiva de Cristo
+                </h3>
+                <p>
+                    Jesus morreu na cruz como sacrifício substitutivo pelos pecados de toda a humanidade. Ele tomou sobre si a punição que nós merecemos.
+                </p>
+                <p><strong>Implicação:</strong> A morte de Cristo é a base de toda salvação cristã e redenção eterna.</p>
+            </div>
+
+            <div class="concept-card">
+                <h3>
+                    <span class="concept-number">6</span>
+                    A Ressurreição de Cristo
+                </h3>
+                <p>
+                    Três dias após sua morte, Jesus ressuscitou dos mortos em seu corpo glorificado. Esta é a confirmação da vitória sobre o pecado, a morte e o inferno.
+                </p>
+                <p><strong>Implicação:</strong> A ressurreição garante vida eterna a todos os que creem nele.</p>
+            </div>
+
+            <div class="concept-card">
+                <h3>
+                    <span class="concept-number">7</span>
+                    A Ascensão e Exaltação de Cristo
+                </h3>
+                <p>
+                    Depois de sua ressurreição, Jesus ascendeu ao céu e se assentou à destra de Deus Pai. Ele é agora exaltado acima de todo principado e potestade.
+                </p>
+                <p><strong>Implicação:</strong> Cristo intercede por nós diante do Pai e governa sobre toda a criação.</p>
+            </div>
+
+            <div class="concept-card">
+                <h3>
+                    <span class="concept-number">8</span>
+                    O Retorno de Cristo
+                </h3>
+                <p>
+                    Jesus prometeu voltar pessoalmente e visivelmente no final dos tempos para julgar os vivos e os mortos e estabelecer seu reino eterno.
+                </p>
+                <p><strong>Implicação:</strong> Devemos viver em expectativa do retorno do Senhor e estar preparados para seu julgamento.</p>
+            </div>
+
+            <!-- CTA -->
+            <div class="text-center bg-gradient-to-r from-purple-900 to-indigo-900 text-white p-12 rounded-2xl mt-12">
+                <h3 class="text-2xl font-bold mb-4">Próximos Passos</h3>
+                <p class="text-purple-100 mb-8 text-lg">Tem dúvidas sobre Cristologia? Clique no botão flutuante e pergunte!</p>
+                <a href="https://discord.gg/nCTND4bPaM" target="_blank" class="inline-block bg-white text-purple-900 px-8 py-3 rounded-xl font-bold hover:bg-amber-400 transition-all">
+                    Ir para o Discord
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-slate-400 mb-2">© 2026 Vida Nova Church Piracicaba • Protocolo de Excelência</p>
+            <p class="text-slate-500 text-sm">Módulo 2 - Cristologia</p>
+        </div>
+    </footer>
+
+    <!-- BOTÃO FLUTUANTE -->
+    <button class="floating-button" id="floatingBtn" onclick="toggleChat()" aria-label="Abrir formulário de dúvidas">
+        <span class="floating-button-icon">💬</span>
+    </button>
+
+    <!-- MODAL DE CHAT -->
+    <div class="chat-modal" id="chatModal">
+        <div class="chat-header">
+            <h3>❓ Dúvida da Aula</h3>
+            <button class="close-btn" id="closeBtn" onclick="toggleChat()">✕</button>
+        </div>
+        <div class="chat-body">
+            <div class="success-message" id="successMsg">
+                ✅ Dúvida enviada! Responderemos em breve no Discord.
+            </div>
+            <form class="chat-form" id="chatForm" onsubmit="sendQuestion(event)">
+                <div class="form-group">
+                    <label for="name">Seu Nome:</label>
+                    <input type="text" id="name" name="name" placeholder="Ex: João da Silva" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email (opcional):</label>
+                    <input type="email" id="email" name="email" placeholder="seu@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="question">Sua Dúvida:</label>
+                    <textarea id="question" name="question" placeholder="Descreva sua dúvida sobre Cristologia..." required></textarea>
+                </div>
+                <button type="submit" class="send-btn" id="sendBtn">Enviar Dúvida 🚀</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleChat() {
+            const chatModal = document.getElementById('chatModal');
+            chatModal.classList.toggle('active');
+            if (chatModal.classList.contains('active')) {
+                document.getElementById('name').focus();
+            }
+        }
+
+        async function sendQuestion(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const question = document.getElementById('question').value;
+            const sendBtn = document.getElementById('sendBtn');
+
+            sendBtn.disabled = true;
+            sendBtn.textContent = 'Enviando...';
+
+            try {
+                const webhookUrl = 'https://leonardo-n8n.chl8a8.easypanel.host/webhook/duvida-escola-obreiros';
+
+                const response = await fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        content: '🙋‍♂️ **NOVA DÚVIDA - MÓDULO 2 CRISTOLOGIA**',
+                        embeds: [{
+                            color: 9830160,
+                            fields: [
+                                { name: '👤 Nome', value: name, inline: true },
+                                { name: '📧 Email', value: email || 'Não informado', inline: true },
+                                { name: '📚 Dúvida', value: question, inline: false }
+                            ],
+                            timestamp: new Date().toISOString()
+                        }]
+                    })
+                });
+
+                if (response.ok) {
+                    document.getElementById('successMsg').classList.add('show');
+                    document.getElementById('chatForm').style.display = 'none';
+                    setTimeout(() => {
+                        document.getElementById('chatForm').reset();
+                        document.getElementById('chatForm').style.display = 'flex';
+                        document.getElementById('successMsg').classList.remove('show');
+                        toggleChat();
+                    }, 3000);
+                }
+            } catch (error) {
+                alert('❌ Erro ao enviar. Tente novamente!');
+            } finally {
+                sendBtn.disabled = false;
+                sendBtn.textContent = 'Enviar Dúvida 🚀';
+            }
+        }
+    </script>
+</body>
+</html>
