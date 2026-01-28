@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎙️ Mesa de Exegese - Escola de Obreiros</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; overflow-x: hidden; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+        .discord-btn { transition: all 0.3s ease; }
+        .discord-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); }
+
+        .episode-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            border-left: 4px solid #9333ea;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .episode-card:hover {
+            box-shadow: 0 8px 20px rgba(147, 51, 234, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .episode-number {
+            display: inline-block;
+            background: linear-gradient(135deg, #9333ea 0%, #7e22ce 100%);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 12px;
+            margin-bottom: 12px;
+        }
+
+        .episode-title {
+            color: #9333ea;
+            font-size: 22px;
+            font-weight: bold;
+            margin: 12px 0;
+        }
+
+        .episode-date {
+            color: #64748b;
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 16px;
+        }
+
+        .video-container iframe {
+            display: block;
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+
+        .episode-description {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+            border-left: 4px solid #9333ea;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tab-container {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .tab-btn {
+            padding: 12px 20px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-weight: 600;
+            color: #94a3b8;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active {
+            color: #9333ea;
+            border-bottom-color: #9333ea;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- NAVEGAÇÃO -->
+    <nav class="bg-white border-b border-slate-100 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center gap-4">
+                    <div class="h-14 w-14 bg-gradient-to-br from-blue-900 to-indigo-900 rounded-full flex items-center justify-center shadow-lg border-2 border-amber-400">
+                        <img src="https://i.ibb.co/pvs8vvzJ/logo-igreja-removebg-preview.png" alt="Logo" class="h-12 w-12 object-contain filter brightness-200">
+                    </div>
+                    <div>
+                        <span class="block text-[10px] font-bold text-slate-400 tracking-widest uppercase">Vida Nova Church</span>
+                        <span class="block text-xl font-bold text-blue-900 leading-tight">Escola de Obreiros</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <a href="index.html" class="bg-slate-600 hover:bg-slate-700 text-white px-4 py-2 rounded-xl text-sm font-bold shadow-md flex items-center gap-2 transition-all discord-btn">
+                        <span>🏠</span>
+                        <span>Voltar</span>
+                    </a>
+                    <a href="https://discord.gg/nCTND4bPaM" target="_blank" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-xl text-sm font-bold shadow-md flex items-center gap-2 transition-all discord-btn">
+                        <span>💬</span>
+                        <span>Campus Virtual</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- BANNER -->
+    <section class="bg-gradient-to-r from-purple-900 via-purple-800 to-purple-900 text-white py-16 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <a href="index.html" class="text-purple-100 hover:text-white mb-4 inline-block">← Voltar aos Módulos</a>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+                🎙️ Mesa de Exegese
+            </h1>
+            <p class="text-xl text-purple-100">Debate Teológico Semanal • Análise Profunda das Escrituras</p>
+            <p class="text-sm text-purple-200 mt-4">📅 Toda Segunda-feira às 19:00 | 🎬 Disponível no YouTube</p>
+        </div>
+    </section>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <section class="py-20 bg-slate-50">
+        <div class="max-w-4xl mx-auto px-4">
+            
+            <!-- ABAS -->
+            <div class="tab-container">
+                <button class="tab-btn active" onclick="switchTab(event, 'episodios')">🎙️ Episódios</button>
+                <button class="tab-btn" onclick="switchTab(event, 'sobre')">ℹ️ Sobre</button>
+            </div>
+
+            <!-- TAB 1: EPISÓDIOS -->
+            <div id="episodios" class="tab-content active">
+                <h2 class="text-3xl font-bold text-purple-900 mb-8">📺 Episódios da Mesa de Exegese</h2>
+                
+                <!-- EPISÓDIO 1 - MAIS RECENTE -->
+                <div class="episode-card">
+                    <div class="episode-number">Episódio #1</div>
+                    <h3 class="episode-title">Eclesiologia - Os 6 Fundamentos da Igreja</h3>
+                    <p class="episode-date">📅 Segunda-feira, 27 de Janeiro de 2026</p>
+                    
+                    <div class="video-container">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/uhZTPOORX4k?si=4nHbBat1sYS3o1ZO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+
+                    <p class="episode-description">
+                        <strong>Tema:</strong> Aprofundamento nos 6 Fundamentos da Eclesiologia apresentados no Módulo 2 da Escola de Obreiros.
+                    </p>
+
+                    <div class="highlight-box">
+                        <p><strong>🎯 Tópicos abordados:</strong></p>
+                        <ul style="margin-top: 8px; padding-left: 20px; color: #555; line-height: 1.8;">
+                            <li>Definição e Propósito Divino da Igreja</li>
+                            <li>Corpo Místico vs. Organização</li>
+                            <li>A Missão Central: O "IDE" (Hupago)</li>
+                            <li>As Batalhas contra a Igreja Moderna</li>
+                            <li>A Estrutura de Liderança</li>
+                            <li>O Destino Eterno da Igreja</li>
+                        </ul>
+                    </div>
+
+                    <p class="text-sm text-slate-600 mt-4">
+                        💬 <strong>Participantes:</strong> Pr. Osvaldo Doreto e convidados teólogos da comunidade<br>
+                        ⏱️ <strong>Duração:</strong> 60 minutos
+                    </p>
+                </div>
+
+                <!-- ESPAÇO PARA PRÓXIMOS EPISÓDIOS -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg text-center border-2 border-dashed border-purple-300">
+                    <p class="text-purple-900 text-lg font-bold mb-2">🎬 Próximo Episódio</p>
+                    <p class="text-slate-600">Segunda-feira, 3 de Fevereiro de 2026</p>
+                    <p class="text-sm text-slate-500 mt-4">Novo episódio será adicionado em breve...</p>
+                </div>
+            </div>
+
+            <!-- TAB 2: SOBRE -->
+            <div id="sobre" class="tab-content">
+                <h2 class="text-3xl font-bold text-purple-900 mb-8">ℹ️ Sobre a Mesa de Exegese</h2>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg mb-12">
+                    <h3 class="text-2xl font-bold text-purple-900 mb-4">O que é?</h3>
+                    <p class="text-slate-700 mb-4 text-lg leading-relaxed">
+                        A <strong>Mesa de Exegese</strong> é um espaço de debate teológico semanal onde aprofundamos nos fundamentos das doutrinas cristãs. É uma oportunidade para questionar, aprender e crescer espiritualmente junto a mestres e irmãos da fé.
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-lg mb-12">
+                    <h3 class="text-2xl font-bold text-purple-900 mb-4">🎯 Objetivos</h3>
+                    <div class="space-y-4">
+                        <div class="p-4 bg-purple-50 rounded-lg border-l-4 border-purple-900">
+                            <p class="font-bold text-purple-900">📖 Aprofundamento Bíblico</p>
+                            <p class="text-sm text-slate-600">Análise exegética profunda das Escrituras</p>
+                        </div>
+                        <div class="p-4 bg-purple-50 rounded-lg border-l-4 border-purple-900">
+                            <p class="font-bold text-purple-900">💭 Debate Teológico</p>
+                            <p class="text-sm text-slate-600">Discussão saudável de doutrinas cristãs</p>
+                        </div>
+                        <div class="p-4 bg-purple-50 rounded-lg border-l-4 border-purple-900">
+                            <p class="font-bold text-purple-900">📚 Formação de Obreiros</p>
+                            <p class="text-sm text-slate-600">Preparação de líderes para o ministério</p>
+                        </div>
+                        <div class="p-4 bg-purple-50 rounded-lg border-l-4 border-purple-900">
+                            <p class="font-bold text-purple-900">🤝 Comunhão Fraterna</p>
+                            <p class="text-sm text-slate-600">Fortalecimento dos laços comunitários</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-lg mb-12">
+                    <h3 class="text-2xl font-bold text-purple-900 mb-4">📅 Quando Acontece?</h3>
+                    <div class="bg-purple-50 p-6 rounded-lg border-l-4 border-purple-900">
+                        <p class="text-purple-900 font-bold text-lg">🎙️ Toda segunda-feira às 19:00</p>
+                        <p class="text-slate-600 mt-2">Gravado e disponibilizado no YouTube para quem não conseguir assistir ao vivo</p>
+                    </div>
+                </div>
+
+                <div class="text-center bg-gradient-to-r from-purple-900 to-indigo-900 text-white p-12 rounded-2xl">
+                    <h3 class="text-2xl font-bold mb-4">Quer Participar?</h3>
+                    <p class="text-purple-100 mb-8 text-lg">Junte-se a nós no Discord ou YouTube</p>
+                    <a href="https://discord.gg/nCTND4bPaM" target="_blank" class="inline-block bg-white text-purple-900 px-8 py-3 rounded-xl font-bold hover:bg-amber-400 transition-all">
+                        Entrar no Discord
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-slate-400 mb-2">© 2026 Vida Nova Church Piracicaba • Protocolo de Excelência</p>
+            <p class="text-slate-500 text-sm">Mesa de Exegese • Produção: Escola de Obreiros</p>
+        </div>
+    </footer>
+
+    <script>
+        function switchTab(event, tabName) {
+            event.preventDefault();
+            
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            const btns = document.querySelectorAll('.tab-btn');
+            btns.forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
