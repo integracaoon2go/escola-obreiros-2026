@@ -1,30 +1,116 @@
-name: Auto Discord - Materiais
+name: Notificar Discord - Atualização de Conteúdo
 
 on:
-  schedule:
-    # Sexta 9h - Materiais dos Módulos
-    - cron: '0 12 * * 5'
   push:
-    branches: [main]
-    paths: ['modulo-*.html', 'index.html']
+    branches:
+      - principal
+      - main
+      - master
 
 jobs:
-  discord-notifications:
+  notify-discord:
     runs-on: ubuntu-latest
     steps:
-      - name: Enviar para #materiais-dos-modulos
+      - name: Checkout código
+        uses: actions/checkout@v3
+
+      - name: Notificar #segunda-feira-mesa-de-exegese
         run: |
-          curl -X POST ${{ secrets.DISCORD_WEBHOOK_URL }} \
-            -H 'Content-Type: application/json' \
+          curl -X POST \
+            -H 'Content-type: application/json' \
             -d '{
-              "content": "📚 **APOSTILA SEMANAL DISPONÍVEL**",
+              "username": "📺 Escola de Obreiros",
+              "avatar_url": "https://i.ibb.co/pvs8vvzJ/logo-igreja-removebg-preview.png",
+              "content": "<@&1452723451105116392>",
               "embeds": [{
-                "title": "✅ Novo Material Liberado",
-                "description": "Confira a apostila e os materiais desta semana!",
-                "color": 3092790,
+                "title": "🎙️ NOVO EPISÓDIO - MESA DE EXEGESE",
+                "description": "Um novo episódio foi publicado!",
+                "color": 9658653,
+                "thumbnail": {
+                  "url": "https://i.ibb.co/pvs8vvzJ/logo-igreja-removebg-preview.png",
+                  "height": 100,
+                  "width": 100
+                },
                 "fields": [
-                  {"name": "📖 Formato", "value": "PDF + HTML", "inline": true},
-                  {"name": "📥 Download", "value": "https://integracaoon2go.github.io/escola-obreiros-2026/", "inline": true}
-                ]
+                  {
+                    "name": "📅 Data",
+                    "value": "'$(date '+%d/%m/%Y às %H:%M')'",
+                    "inline": true
+                  },
+                  {
+                    "name": "🎬 Status",
+                    "value": "✅ Disponível no YouTube",
+                    "inline": true
+                  },
+                  {
+                    "name": "🔗 Acesse Agora",
+                    "value": "[Ver Episódio](https://seu-dominio.com/mesa-exegese.html)",
+                    "inline": false
+                  },
+                  {
+                    "name": "⏱️ Duração",
+                    "value": "Aproximadamente 15 minutos",
+                    "inline": true
+                  },
+                  {
+                    "name": "👥 Participantes",
+                    "value": "Pr. Osvaldo Doreto e convidados",
+                    "inline": true
+                  }
+                ],
+                "footer": {
+                  "text": "Escola de Obreiros • Vida Nova Church Piracicaba",
+                  "icon_url": "https://i.ibb.co/pvs8vvzJ/logo-igreja-removebg-preview.png"
+                },
+                "timestamp": "'$(date -u +%Y-%m-%dT%H:%M:%SZ)'"
               }]
-            }'
+            }' \
+            https://discord.com/api/webhooks/1466076506689245225/5xyc8WfipyL6mStJDurbBFNscNBy6Ff_8lMeoma-Ar06wyV9a-Jc_5QC6oranStwTu2L/github
+
+      - name: Notificar #materiais-dos-modulos
+        run: |
+          curl -X POST \
+            -H 'Content-type: application/json' \
+            -d '{
+              "username": "📚 Escola de Obreiros",
+              "avatar_url": "https://i.ibb.co/pvs8vvzJ/logo-igreja-removebg-preview.png",
+              "content": "<@&1452723451105116392>",
+              "embeds": [{
+                "title": "📚 NOVO CONTEÚDO - PLATAFORMA ATUALIZADA",
+                "description": "A Escola de Obreiros foi atualizada com novos materiais!",
+                "color": 2186160,
+                "thumbnail": {
+                  "url": "https://i.ibb.co/pvs8vvzJ/logo-igreja-removebg-preview.png",
+                  "height": 100,
+                  "width": 100
+                },
+                "fields": [
+                  {
+                    "name": "📅 Data da Atualização",
+                    "value": "'$(date '+%d/%m/%Y às %H:%M')'",
+                    "inline": true
+                  },
+                  {
+                    "name": "✅ Status",
+                    "value": "Online e Disponível",
+                    "inline": true
+                  },
+                  {
+                    "name": "🔗 Acesse a Plataforma",
+                    "value": "[Ir para Escola de Obreiros](https://seu-dominio.com)",
+                    "inline": false
+                  },
+                  {
+                    "name": "📖 O que há de novo?",
+                    "value": "Módulos • Materiais • Mesa de Exegese",
+                    "inline": false
+                  }
+                ],
+                "footer": {
+                  "text": "Escola de Obreiros • Vida Nova Church Piracicaba",
+                  "icon_url": "https://i.ibb.co/pvs8vvzJ/logo-igreja-removebg-preview.png"
+                },
+                "timestamp": "'$(date -u +%Y-%m-%dT%H:%M:%SZ)'"
+              }]
+            }' \
+            https://discord.com/api/webhooks/SEU_WEBHOOK_ID/SEU_WEBHOOK_TOKEN/github
