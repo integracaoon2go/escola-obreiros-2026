@@ -3,271 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escola de Obreiros - Protocolo de Excelência 2026</title>
+    <title>Escola de Obreiros - Vida Nova Church</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; overflow-x: hidden; }
-        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
-        .module-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); text-decoration: none; display: block; }
-        .module-card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); }
-        .discord-btn { transition: all 0.3s ease; }
-        .discord-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); }
-
-        /* BOTÃO FLUTUANTE MELHORADO */
-        .floating-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #2186a0 0%, #1e7480 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 6px 20px rgba(33, 134, 160, 0.4);
-            z-index: 998;
-            transition: all 0.3s ease;
-            border: none;
-            padding: 0;
-            animation: bounce 2s infinite;
-        }
-
-        .floating-button:hover {
-            transform: scale(1.15);
-            box-shadow: 0 8px 30px rgba(33, 134, 160, 0.6);
-            animation: none;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .floating-button-icon {
-            font-size: 32px;
-        }
-
-        /* MODAL DE DÚVIDA */
-        .chat-modal {
-            position: fixed;
-            bottom: 100px;
-            right: 20px;
-            width: 380px;
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        
+        .module-card {
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 5px 40px rgba(0, 0, 0, 0.16);
-            z-index: 999;
-            display: none;
-            flex-direction: column;
-            max-height: 550px;
-            animation: slideUp 0.3s ease;
-        }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .chat-modal.active { display: flex; }
-
-        .chat-header {
-            background: linear-gradient(135deg, #2186a0 0%, #1e7480 100%);
-            color: white;
-            padding: 16px;
-            border-radius: 12px 12px 0 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .chat-header h3 {
-            margin: 0;
-            font-size: 16px;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .close-btn {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-            padding: 0;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .close-btn:hover {
-            opacity: 0.8;
-        }
-
-        .chat-body {
-            padding: 16px;
-            flex: 1;
-            overflow-y: auto;
-        }
-
-        .chat-form {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .form-group label {
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 4px;
-            color: #333;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            padding: 8px 12px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 80px;
-        }
-
-        .form-group textarea:focus,
-        .form-group input:focus {
-            outline: none;
-            border-color: #2186a0;
-            box-shadow: 0 0 0 3px rgba(33, 134, 160, 0.1);
-        }
-
-        .send-btn {
-            background: linear-gradient(135deg, #2186a0 0%, #1e7480 100%);
-            color: white;
-            border: none;
-            padding: 10px 16px;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
+            border-radius: 16px;
+            padding: 24px;
             transition: all 0.3s ease;
-            font-family: 'Inter', sans-serif;
+            border-left: 4px solid #2186a0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
 
-        .send-btn:hover {
+        .module-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .module-title {
+            color: #2186a0;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .module-desc {
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .module-badge {
+            display: inline-block;
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-right: 8px;
+            margin-bottom: 12px;
+        }
+
+        .btn-acesso {
+            background: linear-gradient(135deg, #2186a0 0%, #1e7480 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .btn-acesso:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(33, 134, 160, 0.4);
         }
 
-        .send-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .success-message {
-            background: #d4edda;
-            color: #155724;
-            padding: 12px;
-            border-radius: 6px;
-            margin-bottom: 12px;
-            display: none;
-            font-size: 14px;
-        }
-
-        .success-message.show {
-            display: block;
-        }
-
-        /* GUIA DISCORD */
-        .guide-card {
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            border-left: 4px solid #2186a0;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        }
-
-        .guide-card:hover {
-            box-shadow: 0 12px 25px rgba(33, 134, 160, 0.2);
-            transform: translateY(-4px);
-            border-left: 6px solid #2186a0;
-        }
-
-        .guide-card h4 {
-            color: #2186a0;
-            margin: 0 0 8px 0;
-            font-size: 18px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-        .guide-card p {
-            margin: 0;
-            color: #555;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        .channel-day {
-            display: inline-block;
-            background: linear-gradient(135deg, #2186a0 0%, #1e7480 100%);
-            color: white;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-top: 10px;
-            box-shadow: 0 2px 8px rgba(33, 134, 160, 0.2);
-            transition: all 0.2s;
-        }
-
-        .channel-day:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(33, 134, 160, 0.3);
-        }
-
-        .step-guide {
-            background: rgba(255, 255, 255, 0.12);
-            border-radius: 12px;
-            padding: 18px;
-            margin: 12px 0;
-            border-left: 4px solid rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-
-        .step-guide:hover {
-            background: rgba(255, 255, 255, 0.18);
-            border-left: 4px solid white;
-            transform: translateX(4px);
-        }
-
-        .step-guide p:first-child {
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            margin: 0 0 8px 0;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        .step-guide p:last-child {
-            color: rgba(255, 255, 255, 0.92);
-            font-size: 14px;
-            margin: 0;
-            line-height: 1.6;
-        }
+        .discord-btn { transition: all 0.3s ease; }
+        .discord-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); }
     </style>
 </head>
 <body class="antialiased">
@@ -278,7 +78,7 @@
             <div class="flex justify-between h-20">
                 <div class="flex items-center gap-4">
                     <div class="h-14 w-14 bg-gradient-to-br from-blue-900 to-indigo-900 rounded-full flex items-center justify-center shadow-lg border-2 border-amber-400">
-                        <img src="https://i.ibb.co/pvs8vvzJ/logo-igreja-removebg-preview.png" alt="Logo Vida Nova" class="h-12 w-12 object-contain filter brightness-200">
+                        <img src="https://i.ibb.co/pvs8vvzJ/logo-igreja-removebg-preview.png" alt="Logo" class="h-12 w-12 object-contain filter brightness-200">
                     </div>
                     <div>
                         <span class="block text-[10px] font-bold text-slate-400 tracking-widest uppercase">Vida Nova Church</span>
@@ -286,10 +86,6 @@
                     </div>
                 </div>
                 <div class="flex items-center gap-3">
-                    <a href="index.html" class="bg-slate-600 hover:bg-slate-700 text-white px-4 py-2 rounded-xl text-sm font-bold shadow-md flex items-center gap-2 transition-all discord-btn">
-                        <span>🏠</span>
-                        <span>Início</span>
-                    </a>
                     <a href="https://discord.gg/nCTND4bPaM" target="_blank" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-xl text-sm font-bold shadow-md flex items-center gap-2 transition-all discord-btn">
                         <span>💬</span>
                         <span>Campus Virtual</span>
@@ -299,451 +95,124 @@
         </div>
     </nav>
 
-    <!-- BANNER HERO -->
-    <section class="bg-gradient-to-r from-blue-900 via-indigo-900 to-blue-900 text-white py-20 relative overflow-hidden">
+    <!-- BANNER PRINCIPAL -->
+    <section class="bg-gradient-to-r from-blue-900 via-indigo-900 to-purple-900 text-white py-20 relative overflow-hidden">
         <div class="absolute inset-0 opacity-10">
             <div class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-            <div class="absolute bottom-0 left-0 w-72 h-72 bg-amber-400 rounded-full blur-3xl"></div>
         </div>
-        <div class="max-w-7xl mx-auto px-4 relative z-10 text-center">
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
             <h1 class="text-5xl md:text-6xl font-bold mb-4 leading-tight">
-                Protocolo de Excelência
-                <br><span class="text-amber-400">2026</span>
+                📚 Escola de Obreiros
             </h1>
-            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-                Capacitação e Reciclagem para Obreiros • 7 Módulos de Doutrina Cristã Profunda
-            </p>
+            <p class="text-2xl text-indigo-100 mb-2">Preparando líderes para o Reino de Deus</p>
+            <p class="text-lg text-indigo-200">Vida Nova Church • Piracicaba</p>
         </div>
     </section>
 
-    <!-- MÓDULOS DISPONÍVEIS -->
+    <!-- CONTEÚDO -->
     <section class="py-20 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-blue-900 mb-4">📚 Módulos Disponíveis</h2>
-                <p class="text-slate-600 text-lg">Acesse o material de cada semana. Novos módulos são liberados conforme o cronograma!</p>
+            
+            <!-- MÓDULOS DE ENSINO -->
+            <div class="mb-20">
+                <h2 class="text-4xl font-bold text-blue-900 mb-12">📖 Módulos de Ensino</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    
+                    <!-- MÓDULO 1 -->
+                    <div class="module-card">
+                        <div class="module-badge">Módulo 1</div>
+                        <h3 class="module-title">Soterologia</h3>
+                        <p class="module-desc">A Doutrina da Salvação • Compreenda como Deus salva a humanidade através de Cristo.</p>
+                        <p class="text-xs text-slate-500 mb-4">👨‍🏫 Pr. Osvaldo Doreto</p>
+                        <a href="modulo-1-soterologia.html" class="btn-acesso">Acessar Módulo →</a>
+                    </div>
+
+                    <!-- MÓDULO 2 -->
+                    <div class="module-card">
+                        <div class="module-badge">Módulo 2</div>
+                        <h3 class="module-title">Eclesiologia</h3>
+                        <p class="module-desc">A Doutrina da Igreja • Os 6 Fundamentos da Organização Eclesiástica.</p>
+                        <p class="text-xs text-slate-500 mb-4">👨‍🏫 Pr. Osvaldo Doreto</p>
+                        <a href="modulo-2-eclesiologia.html" class="btn-acesso">Acessar Módulo →</a>
+                    </div>
+
+                    <!-- MÓDULO 3 -->
+                    <div class="module-card">
+                        <div class="module-badge">Módulo 3</div>
+                        <h3 class="module-title">Pneumatologia</h3>
+                        <p class="module-desc">A Doutrina do Espírito Santo • O papel transformador do Espírito na vida do crente.</p>
+                        <p class="text-xs text-slate-500 mb-4">👨‍🏫 Em breve</p>
+                        <a href="#" class="btn-acesso opacity-50 cursor-not-allowed">Em Desenvolvimento</a>
+                    </div>
+
+                    <!-- MÓDULO 4 -->
+                    <div class="module-card">
+                        <div class="module-badge">Módulo 4</div>
+                        <h3 class="module-title">Escatologia</h3>
+                        <p class="module-desc">A Doutrina dos Últimos Tempos • Entenda o plano divino para o futuro.</p>
+                        <p class="text-xs text-slate-500 mb-4">👨‍🏫 Em breve</p>
+                        <a href="#" class="btn-acesso opacity-50 cursor-not-allowed">Em Desenvolvimento</a>
+                    </div>
+                </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- MÓDULO 1 - SOTERIOLOGIA - DISPONÍVEL -->
-                <a href="modulo-1-soteriologia.html" class="module-card bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-[2rem] border-2 border-blue-300 shadow-lg hover:shadow-2xl">
-                    <div class="flex items-center justify-between mb-6">
-                        <span class="text-4xl">✝️</span>
-                        <span class="bg-green-500 text-white text-xs font-bold px-4 py-1 rounded-full">✓ Disponível</span>
+            <!-- CATEGORIA: MESA DE EXEGESE -->
+            <div>
+                <h2 class="text-4xl font-bold text-purple-900 mb-12">🎙️ Mesa de Exegese</h2>
+                <div class="grid md:grid-cols-1 gap-8">
+                    <div class="module-card" style="border-left-color: #9333ea;">
+                        <div style="display: inline-block; background: linear-gradient(135deg, #9333ea 0%, #7e22ce 100%); color: white; padding: 6px 12px; border-radius: 20px; font-weight: bold; font-size: 12px; margin-bottom: 12px;">
+                            CATEGORIA
+                        </div>
+                        <h3 style="color: #9333ea;" class="module-title">🎙️ Mesa de Exegese</h3>
+                        <p class="module-desc">Debate Teológico Semanal • Análise profunda das Escrituras com mestres da comunidade. Toda segunda-feira às 19:00.</p>
+                        <p class="text-xs text-slate-500 mb-4">📅 Toda segunda-feira | 🎬 Disponível no YouTube</p>
+                        <a href="mesa-exegese.html" class="btn-acesso" style="background: linear-gradient(135deg, #9333ea 0%, #7e22ce 100%);">Ver Episódios →</a>
                     </div>
-                    <h3 class="text-2xl font-bold text-blue-900 mb-2">Módulo 1</h3>
-                    <p class="text-lg font-semibold text-blue-800 mb-3">Soteriologia</p>
-                    <p class="text-slate-600 mb-6 text-sm">Doutrina da Salvação • 9 Passos Fundamentais</p>
-                    <div class="space-y-2 text-xs text-slate-500 mb-6">
-                        <p>📅 11/01 e 18/01</p>
-                        <p>👥 9 conceitos teológicos</p>
-                        <p>⏱️ ~2 horas de estudo</p>
-                    </div>
-                    <button class="w-full bg-blue-900 hover:bg-blue-800 text-white py-3 rounded-xl font-bold transition-colors discord-btn">
-                        Acessar Módulo
-                    </button>
-                </a>
-
-                <!-- MÓDULO 2 - ECLESIOLOGIA - DISPONÍVEL -->
-                <a href="modulo-2-eclesiologia.html" class="module-card bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-[2rem] border-2 border-purple-200 shadow-lg hover:shadow-2xl">
-                    <div class="flex items-center justify-between mb-6">
-                        <span class="text-4xl">⛪</span>
-                        <span class="bg-green-500 text-white text-xs font-bold px-4 py-1 rounded-full">✓ Disponível</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-purple-900 mb-2">Módulo 2</h3>
-                    <p class="text-lg font-semibold text-purple-800 mb-3">Eclesiologia</p>
-                    <p class="text-slate-600 mb-6 text-sm">Doutrina da Igreja • Fundamentos Eclesiásticos</p>
-                    <div class="space-y-2 text-xs text-slate-500 mb-6">
-                        <p>📅 25/01 e 01/02</p>
-                        <p>👥 6 conceitos teológicos</p>
-                        <p>⏱️ ~2 horas de estudo</p>
-                    </div>
-                    <button class="w-full bg-purple-900 hover:bg-purple-800 text-white py-3 rounded-xl font-bold transition-colors discord-btn">
-                        Acessar Módulo
-                    </button>
-                </a>
-
-                <!-- MÓDULO 3 - HAMARTIOLOGIA - EM BREVE -->
-                <div class="module-card bg-gradient-to-br from-orange-50 to-red-50 p-8 rounded-[2rem] border-2 border-orange-200 shadow-lg opacity-60">
-                    <div class="flex items-center justify-between mb-6">
-                        <span class="text-4xl">⚠️</span>
-                        <span class="bg-slate-400 text-white text-xs font-bold px-4 py-1 rounded-full">Em Breve</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-orange-900 mb-2">Módulo 3</h3>
-                    <p class="text-lg font-semibold text-orange-800 mb-3">Hamartiologia</p>
-                    <p class="text-slate-600 mb-6 text-sm">Doutrina do Pecado • Origem e Consequências</p>
-                    <div class="space-y-2 text-xs text-slate-500 mb-6">
-                        <p>📅 08/02 e 15/02</p>
-                        <p>👥 8 conceitos teológicos</p>
-                        <p>⏱️ ~2 horas de estudo</p>
-                    </div>
-                    <button disabled class="w-full bg-slate-300 text-slate-600 py-3 rounded-xl font-bold cursor-not-allowed">
-                        Em Breve
-                    </button>
-                </div>
-
-                <!-- MÓDULO 4 - ÉTICA CRISTÃ - EM BREVE -->
-                <div class="module-card bg-gradient-to-br from-emerald-50 to-green-50 p-8 rounded-[2rem] border-2 border-emerald-200 shadow-lg opacity-60">
-                    <div class="flex items-center justify-between mb-6">
-                        <span class="text-4xl">⚖️</span>
-                        <span class="bg-slate-400 text-white text-xs font-bold px-4 py-1 rounded-full">Em Breve</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-emerald-900 mb-2">Módulo 4</h3>
-                    <p class="text-lg font-semibold text-emerald-800 mb-3">Ética Cristã</p>
-                    <p class="text-slate-600 mb-6 text-sm">Comportamental • Padrões de Conduta Bíblica</p>
-                    <div class="space-y-2 text-xs text-slate-500 mb-6">
-                        <p>📅 22/02 e 01/03</p>
-                        <p>👥 8 conceitos teológicos</p>
-                        <p>⏱️ ~2 horas de estudo</p>
-                    </div>
-                    <button disabled class="w-full bg-slate-300 text-slate-600 py-3 rounded-xl font-bold cursor-not-allowed">
-                        Em Breve
-                    </button>
-                </div>
-
-                <!-- MÓDULO 5 - ORDENANÇAS - EM BREVE -->
-                <div class="module-card bg-gradient-to-br from-cyan-50 to-blue-50 p-8 rounded-[2rem] border-2 border-cyan-200 shadow-lg opacity-60">
-                    <div class="flex items-center justify-between mb-6">
-                        <span class="text-4xl">💧</span>
-                        <span class="bg-slate-400 text-white text-xs font-bold px-4 py-1 rounded-full">Em Breve</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-cyan-900 mb-2">Módulo 5</h3>
-                    <p class="text-lg font-semibold text-cyan-800 mb-3">Ordenanças</p>
-                    <p class="text-slate-600 mb-6 text-sm">Batismo e Ceia • Sacramentos da Igreja</p>
-                    <div class="space-y-2 text-xs text-slate-500 mb-6">
-                        <p>📅 08/03 e 15/03</p>
-                        <p>👥 8 conceitos teológicos</p>
-                        <p>⏱️ ~2 horas de estudo</p>
-                    </div>
-                    <button disabled class="w-full bg-slate-300 text-slate-600 py-3 rounded-xl font-bold cursor-not-allowed">
-                        Em Breve
-                    </button>
-                </div>
-
-                <!-- MÓDULO 6 - PNEUMATOLOGIA - EM BREVE -->
-                <div class="module-card bg-gradient-to-br from-rose-50 to-pink-50 p-8 rounded-[2rem] border-2 border-rose-200 shadow-lg opacity-60">
-                    <div class="flex items-center justify-between mb-6">
-                        <span class="text-4xl">🕊️</span>
-                        <span class="bg-slate-400 text-white text-xs font-bold px-4 py-1 rounded-full">Em Breve</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-rose-900 mb-2">Módulo 6</h3>
-                    <p class="text-lg font-semibold text-rose-800 mb-3">Pneumatologia</p>
-                    <p class="text-slate-600 mb-6 text-sm">Batismo no ES • Frutos e Dons do Espírito</p>
-                    <div class="space-y-2 text-xs text-slate-500 mb-6">
-                        <p>📅 22/03 e 29/03</p>
-                        <p>👥 9 conceitos teológicos</p>
-                        <p>⏱️ ~2 horas de estudo</p>
-                    </div>
-                    <button disabled class="w-full bg-slate-300 text-slate-600 py-3 rounded-xl font-bold cursor-not-allowed">
-                        Em Breve
-                    </button>
-                </div>
-
-                <!-- MÓDULO 7 - HOMILÉTICA - EM BREVE -->
-                <div class="module-card bg-gradient-to-br from-violet-50 to-indigo-50 p-8 rounded-[2rem] border-2 border-violet-200 shadow-lg opacity-60">
-                    <div class="flex items-center justify-between mb-6">
-                        <span class="text-4xl">🎤</span>
-                        <span class="bg-slate-400 text-white text-xs font-bold px-4 py-1 rounded-full">Em Breve</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-violet-900 mb-2">Módulo 7</h3>
-                    <p class="text-lg font-semibold text-violet-800 mb-3">Homilética</p>
-                    <p class="text-slate-600 mb-6 text-sm">Arte de Pregar • Técnicas e Hermenêutica</p>
-                    <div class="space-y-2 text-xs text-slate-500 mb-6">
-                        <p>📅 05/04 a 19/04</p>
-                        <p>👥 10 conceitos teológicos</p>
-                        <p>⏱️ ~3 horas de estudo</p>
-                    </div>
-                    <button disabled class="w-full bg-slate-300 text-slate-600 py-3 rounded-xl font-bold cursor-not-allowed">
-                        Em Breve
-                    </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CRONOGRAMA DE LIBERAÇÃO -->
-    <section class="py-20 bg-white border-y border-slate-200">
-        <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-4xl font-bold text-blue-900 mb-12 text-center">📅 Cronograma de Liberação</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div class="bg-blue-50 p-6 rounded-2xl border-l-4 border-blue-900">
-                    <p class="text-sm font-bold text-blue-600 uppercase tracking-widest mb-2">Módulo 1</p>
-                    <p class="text-lg font-bold text-slate-800">Soteriologia ✓</p>
-                    <p class="text-xs text-slate-600 mt-2">11/01 e 18/01</p>
-                </div>
-                <div class="bg-purple-50 p-6 rounded-2xl border-l-4 border-purple-900">
-                    <p class="text-sm font-bold text-purple-600 uppercase tracking-widest mb-2">Módulo 2</p>
-                    <p class="text-lg font-bold text-slate-800">Eclesiologia ✓</p>
-                    <p class="text-xs text-slate-600 mt-2">25/01 e 01/02</p>
-                </div>
-                <div class="bg-orange-50 p-6 rounded-2xl border-l-4 border-orange-900">
-                    <p class="text-sm font-bold text-orange-600 uppercase tracking-widest mb-2">Módulo 3</p>
-                    <p class="text-lg font-bold text-slate-800">Hamartiologia</p>
-                    <p class="text-xs text-slate-600 mt-2">08/02 e 15/02</p>
-                </div>
-                <div class="bg-emerald-50 p-6 rounded-2xl border-l-4 border-emerald-900">
-                    <p class="text-sm font-bold text-emerald-600 uppercase tracking-widest mb-2">Módulo 4</p>
-                    <p class="text-lg font-bold text-slate-800">Ética Cristã</p>
-                    <p class="text-xs text-slate-600 mt-2">22/02 e 01/03</p>
-                </div>
-                <div class="bg-cyan-50 p-6 rounded-2xl border-l-4 border-cyan-900">
-                    <p class="text-sm font-bold text-cyan-600 uppercase tracking-widest mb-2">Módulo 5</p>
-                    <p class="text-lg font-bold text-slate-800">Ordenanças</p>
-                    <p class="text-xs text-slate-600 mt-2">08/03 e 15/03</p>
-                </div>
-                <div class="bg-rose-50 p-6 rounded-2xl border-l-4 border-rose-900">
-                    <p class="text-sm font-bold text-rose-600 uppercase tracking-widest mb-2">Módulo 6</p>
-                    <p class="text-lg font-bold text-slate-800">Pneumatologia</p>
-                    <p class="text-xs text-slate-600 mt-2">22/03 e 29/03</p>
-                </div>
-                <div class="bg-violet-50 p-6 rounded-2xl border-l-4 border-violet-900">
-                    <p class="text-sm font-bold text-violet-600 uppercase tracking-widest mb-2">Módulo 7</p>
-                    <p class="text-lg font-bold text-slate-800">Homilética</p>
-                    <p class="text-xs text-slate-600 mt-2">05/04 a 19/04</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- GUIA DISCORD -->
-    <section class="py-20 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-blue-900 mb-4">📱 Guia do Discord - Canais e Cronograma</h2>
-                <p class="text-slate-600 text-lg">Se você vinha usando WhatsApp, o Discord é bem parecido! Aqui mostramos os canais e quando usá-los.</p>
-            </div>
-
-            <!-- INTRODUÇÃO -->
-            <div class="bg-white p-8 rounded-2xl border-2 border-blue-200 mb-12 shadow-lg">
-                <h3 class="text-2xl font-bold text-blue-900 mb-4">ℹ️ O que é Discord?</h3>
-                <p class="text-slate-700 mb-4 text-lg">Discord é um aplicativo de comunidade parecido com WhatsApp, mas com mais organização. Em vez de um grupo único, temos <strong>canais específicos</strong> para cada assunto. Assim fica mais fácil encontrar informações!</p>
-                <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-900">
-                    <p class="text-slate-700"><strong>💡 Dica:</strong> Baixe o Discord do Play Store (Android) ou App Store (iPhone) e entre no servidor da Vida Nova.</p>
-                </div>
-            </div>
-
-            <!-- CANAIS E CRONOGRAMA -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-                <div class="guide-card bg-gradient-to-br from-red-50 to-orange-50">
-                    <h4>📢 #avisos-oficiais</h4>
-                    <p>Convocações, avisos urgentes e links importantes.</p>
-                    <div class="channel-day">🔔 Sábados</div>
-                </div>
-
-                <div class="guide-card bg-gradient-to-br from-purple-50 to-pink-50">
-                    <h4>🎙️ #mesa-de-exegese</h4>
-                    <p>Podcast com revisão da aula e aprofundamento teológico.</p>
-                    <div class="channel-day">📻 Segundas-feira</div>
-                </div>
-
-                <div class="guide-card bg-gradient-to-br from-green-50 to-teal-50">
-                    <h4>🙋‍♂️ #duvidas-da-aula</h4>
-                    <p>Plantão para tirar dúvidas sobre o conteúdo. Resposta garantida!</p>
-                    <div class="channel-day">❓ Quartas-feiras</div>
-                </div>
-
-                <div class="guide-card bg-gradient-to-br from-yellow-50 to-amber-50">
-                    <h4>🏆 #desafios-da-semana</h4>
-                    <p>Desafio prático para aplicar o que aprendeu. Compartilhe resultados!</p>
-                    <div class="channel-day">🎯 Quintas-feiras</div>
-                </div>
-
-                <div class="guide-card bg-gradient-to-br from-blue-50 to-indigo-50">
-                    <h4>📚 #materiais-dos-modulos</h4>
-                    <p>Ebooks, apostilas e materiais complementares de cada módulo.</p>
-                    <div class="channel-day">📖 Sextas-feiras</div>
-                </div>
-
-                <div class="guide-card bg-gradient-to-br from-rose-50 to-pink-50">
-                    <h4>📸 #geral-vnc</h4>
-                    <p>Fotos, testemunhos e comunhão entre os obreiros.</p>
-                    <div class="channel-day">🙏 Domingos</div>
-                </div>
-            </div>
-
-            <!-- PASSO A PASSO PARA INICIANTES -->
-            <div class="bg-gradient-to-r from-blue-900 to-indigo-900 text-white p-12 rounded-2xl mb-12 shadow-xl">
-                <h3 class="text-3xl font-bold mb-8 text-center">👨‍🏫 Como Usar o Discord (Passo a Passo)</h3>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="step-guide">
-                        <p>1️⃣ Baixe e Abra o App</p>
-                        <p>Acesse Play Store (Android) ou App Store (iPhone) e procure por "Discord". Baixe e abra o aplicativo.</p>
-                    </div>
-
-                    <div class="step-guide">
-                        <p>2️⃣ Entre no Servidor</p>
-                        <p>Clique no link que você recebeu ou procure por "Vida Nova Church" na busca de servidores. Clique em "Entrar".</p>
-                    </div>
-
-                    <div class="step-guide">
-                        <p>3️⃣ Veja os Canais</p>
-                        <p>Na esquerda da tela, você verá uma lista de canais (com #). Cada um é para um assunto diferente.</p>
-                    </div>
-
-                    <div class="step-guide">
-                        <p>4️⃣ Envie Mensagens</p>
-                        <p>Na caixa de texto do rodapé, digite sua pergunta ou mensagem e pressione "Enviar" (como no WhatsApp).</p>
-                    </div>
-
-                    <div class="step-guide">
-                        <p>5️⃣ Procure Mensagens Antigas</p>
-                        <p>Pode scrollar para cima em qualquer canal para ver mensagens antigas. Muito útil para revisar conteúdo!</p>
-                    </div>
-
-                    <div class="step-guide">
-                        <p>6️⃣ Ative Notificações</p>
-                        <p>Clique no nome do servidor (no topo) > Configurações de Notificação > Escolha como ser notificado.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CTA FINAL -->
-            <div class="text-center bg-white p-12 rounded-2xl border-2 border-blue-200">
-                <h3 class="text-2xl font-bold text-blue-900 mb-4">Pronto para começar?</h3>
-                <p class="text-slate-700 mb-8 text-lg">Clique no botão abaixo para entrar no Discord da Vida Nova Church</p>
-                <a href="https://discord.gg/nCTND4bPaM" target="_blank" class="inline-block bg-gradient-to-r from-blue-900 to-indigo-900 text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all text-lg">
-                    ➡️ Entrar no Discord Agora
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA DISCORD ORIGINAL -->
-    <section class="py-16 bg-blue-900 text-white">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <h3 class="text-3xl font-bold mb-4">💬 Conecte-se com a Comunidade</h3>
-            <p class="text-blue-100 mb-8 text-lg">Dúvidas? Sugestões? Interaja com pastores e outros obreiros</p>
-            <a href="https://discord.gg/nCTND4bPaM" target="_blank" class="inline-block bg-white text-blue-900 px-8 py-3 rounded-xl font-bold hover:bg-amber-400 transition-all discord-btn">
-                Entrar no Discord
+    <!-- CHAMADA PARA AÇÃO -->
+    <section class="bg-gradient-to-r from-blue-900 to-indigo-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Pronto para crescer?</h2>
+            <p class="text-lg text-indigo-100 mb-8">Junte-se à nossa comunidade no Discord e interaja com outros obreiros em formação.</p>
+            <a href="https://discord.gg/nCTND4bPaM" target="_blank" class="inline-block bg-white text-blue-900 px-8 py-3 rounded-xl font-bold hover:bg-amber-400 transition-all">
+                Entrar no Campus Virtual
             </a>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-slate-900 text-white py-16">
+    <footer class="bg-slate-900 text-white py-12">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
                 <div>
-                    <h4 class="font-bold mb-4 text-lg">📖 Sobre</h4>
-                    <p class="text-sm text-slate-400">Programa de capacitação e reciclagem para obreiros da Vida Nova Church.</p>
+                    <h4 class="font-bold mb-4">Sobre</h4>
+                    <p class="text-slate-400 text-sm">Escola de Obreiros da Vida Nova Church, preparando líderes para o Reino de Deus.</p>
                 </div>
                 <div>
-                    <h4 class="font-bold mb-4 text-lg">🔗 Links Rápidos</h4>
-                    <a href="https://discord.gg/nCTND4bPaM" target="_blank" class="block text-indigo-400 hover:text-indigo-300 text-sm mb-2">Discord Principal</a>
-                    <a href="https://discord.gg/DywwXg7w" target="_blank" class="block text-green-400 hover:text-green-300 text-sm">Canal de Materiais</a>
+                    <h4 class="font-bold mb-4">Módulos</h4>
+                    <ul class="text-slate-400 text-sm space-y-2">
+                        <li><a href="modulo-2-eclesiologia.html" class="hover:text-white">Eclesiologia</a></li>
+                        <li><a href="mesa-exegese.html" class="hover:text-white">Mesa de Exegese</a></li>
+                    </ul>
                 </div>
                 <div>
-                    <h4 class="font-bold mb-4 text-lg">📅 Próximo Módulo</h4>
-                    <p class="text-sm text-slate-400">Hamartiologia (08/02 e 15/02)</p>
+                    <h4 class="font-bold mb-4">Comunidade</h4>
+                    <ul class="text-slate-400 text-sm space-y-2">
+                        <li><a href="https://discord.gg/nCTND4bPaM" class="hover:text-white" target="_blank">Discord</a></li>
+                        <li><a href="https://youtube.com" class="hover:text-white" target="_blank">YouTube</a></li>
+                    </ul>
                 </div>
             </div>
             <div class="border-t border-slate-700 pt-8 text-center">
-                <p class="text-sm text-slate-400">© 2026 Vida Nova Church Piracicaba • Protocolo de Excelência</p>
+                <p class="text-slate-400">© 2026 Vida Nova Church Piracicaba • Protocolo de Excelência</p>
             </div>
         </div>
     </footer>
 
-    <!-- BOTÃO FLUTUANTE -->
-    <button class="floating-button" id="floatingBtn" onclick="toggleChat()" aria-label="Abrir formulário de dúvidas">
-        <span class="floating-button-icon">💬</span>
-    </button>
-
-    <!-- MODAL DE CHAT -->
-    <div class="chat-modal" id="chatModal">
-        <div class="chat-header">
-            <h3>❓ Dúvida da Aula</h3>
-            <button class="close-btn" id="closeBtn" onclick="toggleChat()">✕</button>
-        </div>
-        <div class="chat-body">
-            <div class="success-message" id="successMsg">
-                ✅ Dúvida enviada! Responderemos em breve no Discord.
-            </div>
-            <form class="chat-form" id="chatForm" onsubmit="sendQuestion(event)">
-                <div class="form-group">
-                    <label for="name">Seu Nome:</label>
-                    <input type="text" id="name" name="name" placeholder="Ex: João da Silva" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email (opcional):</label>
-                    <input type="email" id="email" name="email" placeholder="seu@email.com">
-                </div>
-                <div class="form-group">
-                    <label for="question">Sua Dúvida:</label>
-                    <textarea id="question" name="question" placeholder="Descreva sua dúvida aqui..." required></textarea>
-                </div>
-                <button type="submit" class="send-btn" id="sendBtn">Enviar Dúvida 🚀</button>
-            </form>
-        </div>
-    </div>
-
-    <script>
-        function toggleChat() {
-            const chatModal = document.getElementById('chatModal');
-            chatModal.classList.toggle('active');
-            if (chatModal.classList.contains('active')) {
-                document.getElementById('name').focus();
-            }
-        }
-
-        async function sendQuestion(event) {
-            event.preventDefault();
-
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const question = document.getElementById('question').value;
-            const sendBtn = document.getElementById('sendBtn');
-
-            sendBtn.disabled = true;
-            sendBtn.textContent = 'Enviando...';
-
-            try {
-                const webhookUrl = 'https://discord.com/api/webhooks/1453208362325115024/npjdfJpW-nw5U3Hp5oflciiL6y6UTl9UpCoo2N5i17JRgqrZNE7a_4GuhvVsq-w1DZVX';
-
-                const response = await fetch(webhookUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        content: '🙋‍♂️ **NOVA DÚVIDA DO SITE**',
-                        embeds: [{
-                            color: 3092790,
-                            fields: [
-                                { name: '👤 Nome', value: name, inline: true },
-                                { name: '📧 Email', value: email || 'Não informado', inline: true },
-                                { name: '📚 Dúvida', value: question, inline: false }
-                            ],
-                            timestamp: new Date().toISOString()
-                        }]
-                    })
-                });
-
-                if (response.ok) {
-                    document.getElementById('successMsg').classList.add('show');
-                    document.getElementById('chatForm').style.display = 'none';
-                    setTimeout(() => {
-                        document.getElementById('chatForm').reset();
-                        document.getElementById('chatForm').style.display = 'flex';
-                        document.getElementById('successMsg').classList.remove('show');
-                        toggleChat();
-                    }, 3000);
-                }
-            } catch (error) {
-                alert('❌ Erro ao enviar. Tente novamente!');
-            } finally {
-                sendBtn.disabled = false;
-                sendBtn.textContent = 'Enviar Dúvida 🚀';
-            }
-        }
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-    </script>
 </body>
 </html>
