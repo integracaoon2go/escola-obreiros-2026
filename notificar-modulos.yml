@@ -1,4 +1,4 @@
-name: Teste Notificação Módulos
+name: Notificação Módulos
 
 on:
   push:
