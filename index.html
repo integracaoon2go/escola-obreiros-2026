@@ -50,6 +50,17 @@
             margin-bottom: 12px;
         }
 
+        .module-dates {
+            display: inline-block;
+            background: #fff3cd;
+            color: #856404;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
         .btn-acesso {
             background: linear-gradient(135deg, #2186a0 0%, #1e7480 100%);
             color: white;
@@ -66,8 +77,60 @@
             box-shadow: 0 4px 12px rgba(33, 134, 160, 0.4);
         }
 
+        .btn-acesso.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
         .discord-btn { transition: all 0.3s ease; }
         .discord-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); }
+
+        .cronograma-timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline-item {
+            padding: 16px;
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border-left: 4px solid #2186a0;
+        }
+
+        .timeline-item.atual {
+            border-left-color: #22c55e;
+            background: #f0fdf4;
+        }
+
+        .timeline-item.futuro {
+            border-left-color: #3b82f6;
+        }
+
+        .timeline-date {
+            font-weight: bold;
+            color: #0369a1;
+            font-size: 12px;
+        }
+
+        .timeline-title {
+            font-weight: bold;
+            color: #1f2937;
+            margin-top: 4px;
+        }
+
+        .alert-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .alert-box strong {
+            color: #92400e;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -105,7 +168,7 @@
                 📚 Escola de Obreiros
             </h1>
             <p class="text-2xl text-indigo-100 mb-2">Preparando líderes para o Reino de Deus</p>
-            <p class="text-lg text-indigo-200">Vida Nova Church • Piracicaba</p>
+            <p class="text-lg text-indigo-200">Vida Nova Church • Piracicaba • 2026</p>
         </div>
     </section>
 
@@ -113,6 +176,46 @@
     <section class="py-20 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4">
             
+            <!-- AVISO IMPORTANTE -->
+            <div class="alert-box mb-12">
+                <strong>📢 Atenção Classe:</strong> Alteração no conteúdo programático! A última aula será uma <strong>Avaliação (Prova Escrita)</strong> de todas as matérias ensinadas. Quem perder aula pega as apostilas aqui e estuda. Sem restrição, apenas para avaliar o nível de retenção da matéria.
+            </div>
+
+            <!-- CRONOGRAMA GERAL -->
+            <div class="mb-20">
+                <h2 class="text-4xl font-bold text-blue-900 mb-8">📅 Cronograma Geral 2026</h2>
+                <div class="cronograma-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">📅 11/01 e 18/01</div>
+                        <div class="timeline-title">Módulo 1 – Soteriologia (Doutrina da Salvação)</div>
+                    </div>
+                    <div class="timeline-item atual">
+                        <div class="timeline-date">📅 25/01 e 01/02 ✅ ATUAL</div>
+                        <div class="timeline-title">Módulo 2 – Eclesiologia (Doutrina da Igreja)</div>
+                    </div>
+                    <div class="timeline-item futuro">
+                        <div class="timeline-date">📅 08/02 e 15/02</div>
+                        <div class="timeline-title">Módulo 3 – Hamartiologia (Doutrina do Pecado)</div>
+                    </div>
+                    <div class="timeline-item futuro">
+                        <div class="timeline-date">📅 22/02 e 01/03</div>
+                        <div class="timeline-title">Módulo 4 – Ética Cristã (Comportamental)</div>
+                    </div>
+                    <div class="timeline-item futuro">
+                        <div class="timeline-date">📅 08/03 e 15/03</div>
+                        <div class="timeline-title">Módulo 5 – Ordenanças (Batismo/Ceia)</div>
+                    </div>
+                    <div class="timeline-item futuro">
+                        <div class="timeline-date">📅 22/03 e 29/03</div>
+                        <div class="timeline-title">Módulo 6 – Pneumatologia (Batismo no ES/Frutos/Dons)</div>
+                    </div>
+                    <div class="timeline-item futuro">
+                        <div class="timeline-date">📅 05/04 a 19/04</div>
+                        <div class="timeline-title">Módulo 7 – Homilética (Arte de Pregar) - EM DISCUSSÃO</div>
+                    </div>
+                </div>
+            </div>
+
             <!-- MÓDULOS DE ENSINO -->
             <div class="mb-20">
                 <h2 class="text-4xl font-bold text-blue-900 mb-12">📖 Módulos de Ensino</h2>
@@ -121,7 +224,8 @@
                     <!-- MÓDULO 1 -->
                     <div class="module-card">
                         <div class="module-badge">Módulo 1</div>
-                        <h3 class="module-title">Soterologia</h3>
+                        <div class="module-dates">11/01 e 18/01</div>
+                        <h3 class="module-title">Soteriologia</h3>
                         <p class="module-desc">A Doutrina da Salvação • Compreenda como Deus salva a humanidade através de Cristo.</p>
                         <p class="text-xs text-slate-500 mb-4">👨‍🏫 Pr. Osvaldo Doreto</p>
                         <a href="modulo-1-soterologia.html" class="btn-acesso">Acessar Módulo →</a>
@@ -130,6 +234,7 @@
                     <!-- MÓDULO 2 -->
                     <div class="module-card">
                         <div class="module-badge">Módulo 2</div>
+                        <div class="module-dates">25/01 e 01/02</div>
                         <h3 class="module-title">Eclesiologia</h3>
                         <p class="module-desc">A Doutrina da Igreja • Os 6 Fundamentos da Organização Eclesiástica.</p>
                         <p class="text-xs text-slate-500 mb-4">👨‍🏫 Pr. Osvaldo Doreto</p>
@@ -139,19 +244,51 @@
                     <!-- MÓDULO 3 -->
                     <div class="module-card">
                         <div class="module-badge">Módulo 3</div>
-                        <h3 class="module-title">Pneumatologia</h3>
-                        <p class="module-desc">A Doutrina do Espírito Santo • O papel transformador do Espírito na vida do crente.</p>
-                        <p class="text-xs text-slate-500 mb-4">👨‍🏫 Em breve</p>
-                        <a href="#" class="btn-acesso opacity-50 cursor-not-allowed">Em Desenvolvimento</a>
+                        <div class="module-dates">08/02 e 15/02</div>
+                        <h3 class="module-title">Hamartiologia</h3>
+                        <p class="module-desc">A Doutrina do Pecado • Origem, natureza, consequências e como Deus trata o pecado.</p>
+                        <p class="text-xs text-slate-500 mb-4">👨‍🏫 Pr. Osvaldo Doreto</p>
+                        <a href="modulo-3-hamartiologia.html" class="btn-acesso">Acessar Módulo →</a>
                     </div>
 
                     <!-- MÓDULO 4 -->
                     <div class="module-card">
                         <div class="module-badge">Módulo 4</div>
-                        <h3 class="module-title">Escatologia</h3>
-                        <p class="module-desc">A Doutrina dos Últimos Tempos • Entenda o plano divino para o futuro.</p>
+                        <div class="module-dates">22/02 e 01/03</div>
+                        <h3 class="module-title">Ética Cristã</h3>
+                        <p class="module-desc">Doutrina do Comportamento • Princípios éticos cristãos aplicados à vida prática.</p>
                         <p class="text-xs text-slate-500 mb-4">👨‍🏫 Em breve</p>
-                        <a href="#" class="btn-acesso opacity-50 cursor-not-allowed">Em Desenvolvimento</a>
+                        <a href="#" class="btn-acesso disabled">Em Desenvolvimento</a>
+                    </div>
+
+                    <!-- MÓDULO 5 -->
+                    <div class="module-card">
+                        <div class="module-badge">Módulo 5</div>
+                        <div class="module-dates">08/03 e 15/03</div>
+                        <h3 class="module-title">Ordenanças</h3>
+                        <p class="module-desc">Batismo e Ceia • O significado e importância das ordenanças na fé cristã.</p>
+                        <p class="text-xs text-slate-500 mb-4">👨‍🏫 Em breve</p>
+                        <a href="#" class="btn-acesso disabled">Em Desenvolvimento</a>
+                    </div>
+
+                    <!-- MÓDULO 6 -->
+                    <div class="module-card">
+                        <div class="module-badge">Módulo 6</div>
+                        <div class="module-dates">22/03 e 29/03</div>
+                        <h3 class="module-title">Pneumatologia</h3>
+                        <p class="module-desc">Doutrina do Espírito Santo • Batismo no ES, frutos e dons do Espírito.</p>
+                        <p class="text-xs text-slate-500 mb-4">👨‍🏫 Em breve</p>
+                        <a href="#" class="btn-acesso disabled">Em Desenvolvimento</a>
+                    </div>
+
+                    <!-- MÓDULO 7 -->
+                    <div class="module-card">
+                        <div class="module-badge">Módulo 7</div>
+                        <div class="module-dates">05/04 a 19/04</div>
+                        <h3 class="module-title">Homilética</h3>
+                        <p class="module-desc">Arte de Pregar • Preparação e pregação de sermões eficazes.</p>
+                        <p class="text-xs text-slate-500 mb-4">👨‍🏫 Em discussão</p>
+                        <a href="#" class="btn-acesso disabled">Em Desenvolvimento</a>
                     </div>
                 </div>
             </div>
@@ -191,12 +328,13 @@
             <div class="grid md:grid-cols-3 gap-8 mb-12">
                 <div>
                     <h4 class="font-bold mb-4">Sobre</h4>
-                    <p class="text-slate-400 text-sm">Escola de Obreiros da Vida Nova Church, preparando líderes para o Reino de Deus.</p>
+                    <p class="text-slate-400 text-sm">Escola de Obreiros da Vida Nova Church, preparando líderes para o Reino de Deus com excelência e dedicação.</p>
                 </div>
                 <div>
                     <h4 class="font-bold mb-4">Módulos</h4>
                     <ul class="text-slate-400 text-sm space-y-2">
                         <li><a href="modulo-2-eclesiologia.html" class="hover:text-white">Eclesiologia</a></li>
+                        <li><a href="modulo-3-hamartiologia.html" class="hover:text-white">Hamartiologia</a></li>
                         <li><a href="mesa-exegese.html" class="hover:text-white">Mesa de Exegese</a></li>
                     </ul>
                 </div>
