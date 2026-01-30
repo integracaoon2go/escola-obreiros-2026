@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 3 - Hamartiologia | Escola de Obreiros</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        
+        .modulo-header {
+            background: linear-gradient(135deg, #2186a0 0%, #1e7480 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .versículo-box {
+            background: #e0f2fe;
+            border-left: 4px solid #0369a1;
+            padding: 16px;
+            border-radius: 8px;
+            margin: 16px 0;
+            font-style: italic;
+            color: #0369a1;
+            line-height: 1.8;
+        }
+
+        .tema-secao {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 20px 0;
+            border-left: 4px solid #2186a0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .tema-titulo {
+            color: #2186a0;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .tema-conteudo {
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .tema-conteudo ul {
+            list-style: disc;
+            margin-left: 20px;
+            margin-top: 12px;
+        }
+
+        .tema-conteudo li {
+            margin: 8px 0;
+        }
+
+        .btn-voltar {
+            background: linear-gradient(135deg, #2186a0 0%, #1e7480 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .btn-voltar:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(33, 134, 160, 0.4);
+        }
+
+        .btn-discord {
+            background: #5865f2;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin: 20px 10px 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .btn-discord:hover {
+            background: #4752c4;
+            transform: translateY(-2px);
+        }
+
+        .info-aula {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 16px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .info-aula strong {
+            color: #92400e;
+        }
+
+        .nav-bar {
+            background: white;
+            border-bottom: 2px solid #e2e8f0;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #0f172a;
+        }
+
+        .nav-logo img {
+            height: 40px;
+            width: 40px;
+        }
+
+        .nav-logo span {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .nav-links a {
+            color: #475569;
+            text-decoration: none;
+            margin: 0 16px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #2186a0;
+        }
+
+        .discord-btn {
+            background: #5865f2;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .discord-btn:hover {
+            background: #4752c4;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- NAVEGAÇÃO -->
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="https://i.ibb.co/pvs8vvzJ/logo-igreja-removebg-preview.png" alt="Logo">
+                <span>Escola de Obreiros</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">← Voltar ao Início</a>
+                <a href="https://discord.gg/nCTND4bPaM" target="_blank" class="discord-btn">💬 Discord</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER DO MÓDULO -->
+    <div class="modulo-header">
+        <div class="max-w-4xl mx-auto px-4">
+            <div style="font-size: 12px; opacity: 0.9; margin-bottom: 8px;">📖 MÓDULO 3</div>
+            <h1 class="text-5xl font-bold mb-2">Hamartiologia</h1>
+            <p class="text-xl opacity-90">A Doutrina do Pecado</p>
+            <p style="margin-top: 12px; opacity: 0.8;">📅 Aulas: 08/02 e 15/02 | 👨‍🏫 Pr. Osvaldo Doreto</p>
+        </div>
+    </div>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <section class="py-12 bg-slate-50">
+        <div class="max-w-4xl mx-auto px-4">
+
+            <!-- INFO DA AULA -->
+            <div class="info-aula">
+                <strong>📝 Informações Importantes:</strong> Quem perder aula pega a apostila aqui e estuda. A avaliação será feita em breve. Não é para reprovar ninguém, apenas para avaliar o nível de retenção da matéria.
+            </div>
+
+            <!-- INTRODUÇÃO -->
+            <div class="tema-secao">
+                <div class="tema-titulo">🔍 O que é Hamartiologia?</div>
+                <div class="tema-conteudo">
+                    <p>Hamartiologia é o estudo teológico sistemático do pecado, derivado do grego <strong>hamartia</strong> (errar o alvo) e <strong>logos</strong> (estudo). Aborda a origem, natureza, consequências e como Deus trata o pecado, sendo fundamental para entender a necessidade da salvação (Soteriologia) e a grandeza do amor divino.</p>
+                    <p style="margin-top: 12px;">Explora desde a desobediência até a corrupção da natureza humana e a redenção em Cristo.</p>
+                </div>
+            </div>
+
+            <!-- ORIGEM DO PECADO -->
+            <div class="tema-secao">
+                <div class="tema-titulo">📜 Origem do Pecado</div>
+                <div class="tema-conteudo">
+                    <p><strong>1. Origem em Satanás</strong></p>
+                    <div class="versículo-box">
+                        "Tu eras o sinete da perfeição, cheio de sabedoria e formoso em beleza... até que se achou iniquidade em ti" — Ezequiel 28:12, 15
+                    </div>
+                    
+                    <p style="margin-top: 16px;"><strong>2. O Pecado Original</strong></p>
+                    <p>Como o pecado entrou no mundo através da desobediência de Adão e Eva.</p>
+                    <div class="versículo-box">
+                        "A serpente era o mais astuto de todos os animais do campo que o Senhor Deus tinha feito. E disse à mulher: É assim que Deus disse: Não comereis de toda árvore do jardim?" — Gênesis 3:1-6
+                    </div>
+                </div>
+            </div>
+
+            <!-- NATUREZA DO PECADO -->
+            <div class="tema-secao">
+                <div class="tema-titulo">🎯 Natureza do Pecado</div>
+                <div class="tema-conteudo">
+                    <div class="versículo-box">
+                        "Todo aquele que pratica o pecado também transgride a lei, porque o pecado é a transgressão da lei" — 1 João 3:4
+                    </div>
+                    <p style="margin-top: 12px;">O pecador torna-se iniquidade, assemelhando-se ao pai do pecado (Satanás). O pecado é mais que um ato isolado: é uma condição espiritual que nos afasta de Deus e nos coloca sob o domínio do maligno.</p>
+                </div>
+            </div>
+
+            <!-- CONSEQUÊNCIAS DO PECADO -->
+            <div class="tema-secao">
+                <div class="tema-titulo">⚠️ Consequências do Pecado</div>
+                <div class="tema-conteudo">
+                    <div class="versículo-box">
+                        "Eis que a mão do Senhor não está encolhida, para que não possa salvar; nem o seu ouvido está atordoado, para que não possa ouvir. Mas as vossas iniquidades fazem separação entre vós e o vosso Deus" — Isaías 59:2
+                    </div>
+                    
+                    <p style="margin-top: 16px;"><strong>Consequências Espirituais e Morais:</strong></p>
+                    <ul>
+                        <li><strong>Separação de Deus</strong> - O pecado nos afasta da presença divina</li>
+                        <li><strong>Corrupção da Natureza Humana</strong> - Afeta intelecto, emoções e corpo</li>
+                        <li><strong>Condenação</strong> - A morte é o salário do pecado (Romanos 6:23)</li>
+                        <li><strong>Escravidão</strong> - "Todo aquele que comete pecado é servo do pecado" (João 8:34)</li>
+                        <li><strong>Inquietação Espiritual</strong> - Desassossego e aflição da consciência</li>
+                        <li><strong>Confusão Espiritual</strong> - Negação do pecado e afastamento da verdade</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- O LIVRE ARBÍTRIO -->
+            <div class="tema-secao">
+                <div class="tema-titulo">🤔 O Livre Arbítrio</div>
+                <div class="tema-conteudo">
+                    <div class="versículo-box">
+                        "Vê que hoje te pus diante de ti a vida e o bem, e a morte e o mal... a bênção e a maldição. Escolhe, pois, a vida, para que vivas tu e a tua descendência" — Deuteronômio 30:15, 19-20
+                    </div>
+                    <p style="margin-top: 12px;">Toda escolha tem sempre um conselho de Deus. Se escolher a bênção, terá vida, mas se escolher a maldição, terá morte. Deus nos dá a liberdade de escolher, mas também nos alerta sobre as consequências.</p>
+                </div>
+            </div>
+
+            <!-- EFEITOS DO PECADO NO PECADOR -->
+            <div class="tema-secao">
+                <div class="tema-titulo">😔 Efeitos do Pecado no Pecador</div>
+                <div class="tema-conteudo">
+                    <ul>
+                        <li><strong>Escravidão Espiritual</strong> - Prisioneiro do pecado sem poder se libertar</li>
+                        <li><strong>Inquietação Contínua</strong> - Desassossego que não cessa</li>
+                        <li><strong>Egocentrismo</strong> - Amor desordenado por si mesmo e rejeição dos outros</li>
+                        <li><strong>Competição Destrutiva</strong> - Guerras e conflitos entre pessoas</li>
+                        <li><strong>Antipatia</strong> - Ódio entre irmãos e falta de paz</li>
+                        <li><strong>Rejeição de Autoridade</strong> - Contaminação e vilipêndio das dignidades</li>
+                        <li><strong>Incapacidade de Amar</strong> - "Por se multiplicar a iniquidade, o amor de muitos esfriará" (Mateus 24:12)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- PECADOS ESPECIAIS -->
+            <div class="tema-secao">
+                <div class="tema-titulo">🚨 Pecados Especiais</div>
+                <div class="tema-conteudo">
+                    
+                    <p style="margin-bottom: 16px;"><strong>1. Pecado para a Morte</strong></p>
+                    <div class="versículo-box">
+                        "Se alguém vir pecar seu irmão, pecado que não é para morte, orará, e Deus lhe dará vida... Há pecado para morte, e por esse não digo que ore" — 1 João 5:16
+                    </div>
+                    <p style="margin-top: 12px;">O pecado para a morte é aquele que é proposital, deliberado, contínuo e que não expressa arrependimento. Quando Deus percebe que a pessoa não se arrepende, Ele pode permitir que essa pessoa receba as consequências finais do pecado.</p>
+
+                    <p style="margin-top: 20px; margin-bottom: 16px;"><strong>2. Blasfêmia / Pecado Imperdoável</strong></p>
+                    <div class="versículo-box">
+                        "O salário do pecado é a morte" — Romanos 6:23
+                    </div>
+                    <p style="margin-top: 12px;">Blasfêmia é o ato de proferir palavras ou ter atitudes de profundo desrespeito, injúria ou difamação contra algo considerado sagrado. É a rejeição deliberada da obra do Espírito Santo.</p>
+
+                    <p style="margin-top: 20px; margin-bottom: 16px;"><strong>3. A Escalada para Apostasia</strong></p>
+                    <ol style="list-style: decimal; margin-left: 20px;">
+                        <li>Desânimo e decepção</li>
+                        <li>Abandono da igreja, oração e leitura da Bíblia</li>
+                        <li>Pecados passam a ser normativos</li>
+                        <li>Comportamento público do que era oculto</li>
+                        <li>Abandono das verdades bíblicas críticas</li>
+                        <li>Escarnecer das coisas santas e aproximação do profano</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- IMPORTÂNCIA DA HAMARTIOLOGIA -->
+            <div class="tema-secao">
+                <div class="tema-titulo">💡 Por que Estudar Hamartiologia?</div>
+                <div class="tema-conteudo">
+                    <ul>
+                        <li><strong>Base para a Salvação</strong> - Compreender a profundidade do pecado é essencial para apreciar a salvação oferecida por Deus (Atos 2:36-38)</li>
+                        <li><strong>Fundamento para Outras Doutrinas</strong> - Nos leva a conhecer mais sobre Deus, o homem e o plano redentor</li>
+                        <li><strong>Chamado Central de Jesus</strong> - "Arrependei-vos e crede no evangelho" significa mudar de rumo, abandonar o pecado e confiar na Boa Nova</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- A SOLUÇÃO -->
+            <div class="tema-secao" style="background: linear-gradient(135deg, #dcfce7 0%, #e0f2fe 100%); border-left-color: #22c55e;">
+                <div class="tema-titulo" style="color: #22c55e;">✨ A Solução: O Papel de Jesus Cristo</div>
+                <div class="tema-conteudo">
+                    <div class="versículo-box" style="background: #fef3c7; color: #92400e; border-left-color: #f59e0b;">
+                        "Mas ele foi ferido pelas nossas transgressões, e moído pelas nossas iniquidades; o castigo que nos traz a paz estava sobre ele, e pelas suas pisaduras fomos sarados" — Isaías 53:5
+                    </div>
+                    
+                    <p style="margin-top: 16px;">A doutrina do pecado nos explica por que os humanos precisam ser salvos, o que nos separa de Deus e como o sacrifício de Jesus resolve esse problema fundamental, conectando a condição humana à graça divina.</p>
+                    
+                    <div class="versículo-box" style="background: #fef3c7; color: #92400e; border-left-color: #f59e0b; margin-top: 12px;">
+                        "Jesus respondeu: Eu sou o caminho, a verdade e a vida; ninguém vem ao Pai senão por mim" — João 14:6
+                    </div>
+                </div>
+            </div>
+
+            <!-- BOTÕES -->
+            <div style="margin-top: 40px; text-align: center;">
+                <a href="index.html" class="btn-voltar">← Voltar ao Início</a>
+                <a href="https://discord.gg/nCTND4bPaM" target="_blank" class="btn-discord">💬 Tirar Dúvidas no Discord</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer style="background: #0f172a; color: white; padding: 40px 20px; margin-top: 40px;">
+        <div class="max-w-4xl mx-auto text-center">
+            <p style="margin-bottom: 12px;">© 2026 Escola de Obreiros • Vida Nova Church Piracicaba</p>
+            <p style="font-size: 12px; opacity: 0.7;">Protocolo de Excelência • Preparando líderes para o Reino de Deus</p>
+        </div>
+    </footer>
+
+</body>
+</html>
