@@ -1,42 +1,29 @@
-name: Notificar 📘#materiais-dos-modulos
+name: Teste Notificação Módulos
 
 on:
   push:
     paths:
-      - 'modulo-*.html'  # Detecta qualquer módulo novo (modulo-1, modulo-2, etc.)
+      - 'modulo-*.html'
 
 jobs:
-  notificar-modulos:
+  notify:
     runs-on: ubuntu-latest
     steps:
-      - name: Extrair nome do módulo
-        id: modulo
+      - name: Enviar teste para Discord
         run: |
-          MODULO_FILE=$(git diff --name-only HEAD~1 | grep 'modulo-.*\.html' | head -1)
-          if [ -n "$MODULO_FILE" ]; then
-            MODULO_NAME=$(echo "$MODULO_FILE" | sed 's/modulo-\([0-9]*\)-\(.*\)\.html/\1 - \U\2/')
-            echo "modulo_file=$MODULO_FILE" >> $GITHUB_OUTPUT
-            echo "modulo_name=$MODULO_NAME" >> $GITHUB_OUTPUT
-          else
-            echo "modulo_file=modulo-desconhecido.html" >> $GITHUB_OUTPUT
-            echo "modulo_name=Módulo Novo" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Notificar 📘#materiais-dos-modulos
-        run: |
-          curl -X POST \
+          curl -v -X POST \
             -H 'Content-type: application/json' \
             -d '{
               "username": "📚 Escola de Obreiros Bot",
-              "avatar_url": "https://i.ibb.co/pvs8vvzJ/logo-igreja-removebg-preview.png",
+              "content": "🚀 Teste de notificação automática de módulos",
               "embeds": [{
                 "title": "📖 APOSTILA SEMANAL DISPONÍVEL",
-                "description": "Confira a apostila e os materiais desta semana!",
+                "description": "Novo módulo publicado!",
                 "color": 2186160,
                 "fields": [
                   {
                     "name": "✅ Novo Material Liberado",
-                    "value": "Módulo ${{ steps.modulo.outputs.modulo_name }} foi publicado na plataforma",
+                    "value": "Módulo de teste publicado na plataforma",
                     "inline": false
                   },
                   {
@@ -46,15 +33,10 @@ jobs:
                   },
                   {
                     "name": "📥 Download",
-                    "value": "[Acessar Módulo](https://integracaoon2go.github.io/escola-obreiros-2026/${{ steps.modulo.outputs.modulo_file }})",
+                    "value": "[Acessar Plataforma](https://integracaoon2go.github.io/escola-obreiros-2026/)",
                     "inline": true
                   }
-                ],
-                "footer": {
-                  "text": "Escola de Obreiros • Vida Nova Church Piracicaba",
-                  "icon_url": "https://i.ibb.co/pvs8vvzJ/logo-igreja-removebg-preview.png"
-                },
-                "timestamp": "'$(date -u +%Y-%m-%dT%H:%M:%SZ)'"
+                ]
               }]
             }' \
-            ${{ secrets.DISCORD_WEBHOOK_MATERIAIS }}
+            "${{ secrets.DISCORD_WEBHOOK_MATERIAIS }}"
