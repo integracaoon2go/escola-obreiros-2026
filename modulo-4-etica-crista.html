@@ -9,58 +9,209 @@
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; }
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
-        .modulo-header { background: linear-gradient(135deg, #2186a0 0%, #1e7480 100%); color: white; padding: 40px 0; text-align: center; }
-        .versículo-box { background: #e0f2fe; border-left: 4px solid #0369a1; padding: 16px; border-radius: 8px; margin: 16px 0; font-style: italic; color: #0369a1; line-height: 1.8; }
-        .tema-secao { background: white; border-radius: 12px; padding: 24px; margin: 20px 0; border-left: 4px solid #2186a0; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); }
-        .tema-titulo { color: #2186a0; font-size: 18px; font-weight: bold; margin-bottom: 12px; }
-        .tema-conteudo { line-height: 1.8; color: #555; }
-        .tema-conteudo ul { list-style: disc; margin-left: 20px; margin-top: 12px; }
-        .btn-download { background: #f59e0b; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 20px; }
-        .nav-bar { background: white; border-bottom: 2px solid #e2e8f0; position: sticky; top: 0; z-index: 50; }
-        .nav-container { max-width: 1280px; margin: 0 auto; padding: 20px; display: flex; justify-content: space-between; align-items: center; }
+        
+        .modulo-header {
+            background: linear-gradient(135deg, #2186a0 0%, #1e7480 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .versículo-box {
+            background: #e0f2fe;
+            border-left: 4px solid #0369a1;
+            padding: 16px;
+            border-radius: 8px;
+            margin: 16px 0;
+            font-style: italic;
+            color: #0369a1;
+            line-height: 1.8;
+        }
+
+        .tema-secao {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 20px 0;
+            border-left: 4px solid #2186a0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .tema-titulo {
+            color: #2186a0;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .tema-conteudo {
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .tema-conteudo ul {
+            list-style: disc;
+            margin-left: 20px;
+            margin-top: 12px;
+        }
+
+        .tema-conteudo li {
+            margin: 8px 0;
+        }
+
+        .nav-bar {
+            background: white;
+            border-bottom: 2px solid #e2e8f0;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #0f172a;
+        }
+
+        .nav-logo img {
+            height: 40px;
+            width: 40px;
+        }
+
+        .nav-logo span {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .nav-links a {
+            color: #475569;
+            text-decoration: none;
+            margin: 0 16px;
+            font-weight: 500;
+        }
+
+        .discord-btn {
+            background: #5865f2;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+        }
     </style>
 </head>
-<body>
+<body class="antialiased">
+
     <nav class="nav-bar">
         <div class="nav-container">
-            <a href="index.html" class="flex items-center gap-2 font-bold"><span>Escola de Obreiros</span></a>
-            <a href="index.html" class="text-blue-600">← Voltar</a>
+            <a href="index.html" class="nav-logo">
+                <img src="https://i.ibb.co/pvs8vvzJ/logo-igreja-removebg-preview.png" alt="Logo">
+                <span>Escola de Obreiros</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">← Voltar ao Início</a>
+                <a href="https://discord.gg/nCTND4bPaM" target="_blank" class="discord-btn">💬 Discord</a>
+            </div>
         </div>
     </nav>
 
     <div class="modulo-header">
         <div class="max-w-4xl mx-auto px-4">
-            <div class="text-xs opacity-90 mb-2">📖 MÓDULO 4</div>
-            <h1 class="text-5xl font-bold">Ética Cristã</h1>
-            <p class="text-xl opacity-90 mt-2">Valores e Princípios do Reino</p>
+            <div style="font-size: 12px; opacity: 0.9; margin-bottom: 8px;">📖 MÓDULO 4</div>
+            <h1 class="text-5xl font-bold mb-2">Ética Cristã</h1>
+            <p class="text-xl opacity-90 italic">O Sistema de Valores do Reino em um Mundo Contemporâneo</p>
+            <p style="margin-top: 12px; opacity: 0.8;">👨‍🏫 Pr. Osvaldo Doreto</p>
         </div>
     </div>
 
-    <section class="py-12 max-w-4xl mx-auto px-4">
-        <div class="tema-secao">
-            <div class="tema-titulo">🔍 O que é Ética Cristã?</div>
-            <div class="tema-conteudo">
-                É o sistema de valores e princípios morais baseados na Bíblia. Ela orienta como o cristão deve se comportar para honrar a Deus e amar o próximo.
-                <div class="versículo-box">"Somos peregrinos e forasteiros, não pertencemos a esse mundo."</div>
-            </div>
-        </div>
+    <main class="max-w-4xl mx-auto px-4 py-8">
 
-        <div class="tema-secao">
-            <div class="tema-titulo">🍎 O Fruto do Espírito (Gálatas 5:22)</div>
+        <section class="tema-secao">
+            <div class="tema-titulo">01. O que é Ética Cristã?</div>
+            <div class="tema-conteudo">
+                <p>É o sistema de valores e princípios morais fundamentado nas Escrituras Sagradas e nos ensinamentos de Jesus. Ela orienta o comportamento do cristão para honrar a Deus, amar o próximo e buscar a santidade, baseada no amor, na justiça e na vontade divina.</p>
+                <div class="versículo-box">
+                    "Somos peregrinos e forasteiros, não pertencemos a este mundo. Nossa pátria não é aqui, por isso nossos costumes são outros."
+                </div>
+            </div>
+        </section>
+
+        <section class="tema-secao">
+            <div class="tema-titulo">02. Aplicação Prática</div>
             <div class="tema-conteudo">
                 <ul>
-                    <li><strong>Amor:</strong> Caridade na prática.</li>
-                    <li><strong>Alegria:</strong> Mesmo nas crises.</li>
-                    <li><strong>Paz:</strong> Descanso nas batalhas.</li>
+                    <li><strong>Vida Cotidiana:</strong> Orienta decisões em relacionamentos, trabalho, finanças e respeito à propriedade.</li>
+                    <li><strong>Diante do Mundo:</strong> Guia o cristão a ser um bom cidadão, respeitando leis humanas sem ferir princípios divinos.</li>
+                    <li><strong>Contexto Moderno:</strong> Aplica verdades bíblicas a dilemas contemporâneos e bioética.</li>
                 </ul>
             </div>
-        </div>
+        </section>
 
-        <div class="text-center mt-10">
-            <a href="modulos/modulo-04-etica-crista/pdf/apostila-modulo-04-etica-crista.pdf" download class="btn-download">
-                📥 Baixar Apostila em PDF
-            </a>
-        </div>
-    </section>
+        <section class="tema-secao">
+            <div class="tema-titulo">03. Bases do Caráter Cristão</div>
+            <div class="tema-conteudo">
+                <p>Jesus reforça os traços de caráter de um cristão genuíno em Mt 5.1-16. O padrão é o Fruto do Espírito Santo (Gl 5.22):</p>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 mt-4">
+                    <li>• Caridade (Amor na prática)</li>
+                    <li>• Alegria/Gozo (Mesmo nas crises)</li>
+                    <li>• Paz (Descansar nas batalhas)</li>
+                    <li>• Longanimidade e Mansidão</li>
+                    <li>• Benignidade e Bondade</li>
+                    <li>• Fé e Temperança (Moderação)</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="tema-secao" style="border-left-color: #ef4444;">
+            <div class="tema-titulo" style="color: #ef4444;">04. O Alerta da Igreja de Corinto</div>
+            <div class="tema-conteudo">
+                <p>Uma congregação influenciada pela cultura imoral de sua época. Escândalos relatados por Paulo:</p>
+                <ul>
+                    <li>Imoralidade sexual grave e desunião.</li>
+                    <li>Processos judiciais entre irmãos.</li>
+                    <li>Banalização da Ceia e orgulho espiritual.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="tema-secao">
+            <div class="tema-titulo">05. DNA Cristão: Atitudes Inegociáveis</div>
+            <div class="tema-conteudo">
+                <ul class="space-y-2">
+                    <li><strong>Honestidade:</strong> Cumprir todas as regras e compromissos.</li>
+                    <li><strong>Veracidade:</strong> "Sim, sim; não, não" (At 5.1-11).</li>
+                    <li><strong>Responsabilidade:</strong> Não fugir de obrigações (Ec 5.5).</li>
+                    <li><strong>Respeito:</strong> Tratar a todos com educação (1 Pe 2.17).</li>
+                    <li><strong>Integridade:</strong> Não aceitar suborno ou enganar (Pv 11.1).</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="tema-secao" style="background-color: #f0f9ff;">
+            <div class="tema-titulo">Reflexão Final</div>
+            <div class="tema-conteudo italic">
+                <p>"Morrer para Cristo talvez não seja tão difícil quanto viver para Ele. Os padrões deste mundo vão totalmente na contramão da Palavra. Precisamos nos esforçar cada dia para vencer as ofertas deste século e continuar fiel ao que temos lido nas santas escrituras."</p>
+                <p class="mt-4 font-bold text-center">Deus te abençoe! <br> Pr. Osvaldo Doreto</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer style="background: #0f172a; color: white; padding: 40px 20px; text-align: center;">
+        <p>© 2026 Vida Nova Church Piracicaba • Escola de Obreiros</p>
+    </footer>
+
 </body>
 </html>
