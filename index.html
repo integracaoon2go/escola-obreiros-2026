@@ -9,97 +9,18 @@
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; }
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
-        
-        .module-card {
-            background: white;
-            border-radius: 16px;
-            padding: 24px;
-            transition: all 0.3s ease;
-            border-left: 4px solid #2186a0;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .module-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-        }
-
-        .module-title {
-            color: #2186a0;
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-
-        .module-desc {
-            color: #555;
-            font-size: 14px;
-            margin-bottom: 12px;
-            line-height: 1.6;
-        }
-
-        .module-badge {
-            display: inline-block;
-            background: #e0f2fe;
-            color: #0369a1;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-            margin-bottom: 12px;
-            width: fit-content;
-        }
-
-        .module-dates {
-            display: inline-block;
-            background: #fff3cd;
-            color: #856404;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-            margin-bottom: 12px;
-            width: fit-content;
-        }
-
-        .btn-acesso {
-            background: linear-gradient(135deg, #2186a0 0%, #1e7480 100%);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .btn-acesso:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(33, 134, 160, 0.4);
-        }
-
-        .btn-acesso.disabled {
-            opacity: 0.5;
-            background: #cbd5e1;
-            cursor: not-allowed;
-            pointer-events: none;
-        }
-
-        .alert-box {
-            background: #fef3c7;
-            border-left: 4px solid #f59e0b;
-            padding: 16px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
+        .module-card { background: white; border-radius: 16px; padding: 24px; transition: all 0.3s ease; border-left: 4px solid #2186a0; box-shadow: 0 2px 8px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; }
+        .module-card:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(0,0,0,0.15); }
+        .module-title { color: #2186a0; font-size: 20px; font-weight: bold; margin-bottom: 8px; }
+        .module-desc { color: #555; font-size: 14px; margin-bottom: 12px; line-height: 1.6; }
+        .module-badge { display: inline-block; background: #e0f2fe; color: #0369a1; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; margin-bottom: 12px; width: fit-content; }
+        .module-dates { display: inline-block; background: #fff3cd; color: #856404; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; margin-bottom: 12px; width: fit-content; }
+        .btn-acesso { background: linear-gradient(135deg, #2186a0 0%, #1e7480 100%); color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block; transition: all 0.3s ease; text-align: center; }
+        .btn-acesso:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(33, 134, 160, 0.4); }
+        .btn-acesso.disabled { opacity: 0.5; background: #cbd5e1; cursor: not-allowed; pointer-events: none; }
     </style>
 </head>
 <body class="antialiased">
-
     <nav class="bg-white border-b border-slate-100 sticky top-0 z-50 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20">
@@ -112,98 +33,29 @@
                         <span class="block text-xl font-bold text-blue-900 leading-tight">Escola de Obreiros</span>
                     </div>
                 </div>
-                <div class="flex items-center gap-3">
-                    <a href="https://discord.gg/nCTND4bPaM" target="_blank" class="bg-indigo-600 text-white px-4 py-2 rounded-xl text-sm font-bold shadow-md flex items-center gap-2">
-                        <span>💬 Campus Virtual</span>
-                    </a>
-                </div>
             </div>
         </div>
     </nav>
 
-    <section class="bg-gradient-to-r from-blue-900 to-purple-900 text-white py-16">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <h1 class="text-5xl font-bold mb-4">📚 Escola de Obreiros 2026</h1>
-            <p class="text-xl opacity-90">Preparando líderes para o Reino de Deus</p>
-        </div>
+    <section class="bg-gradient-to-r from-blue-900 to-purple-900 text-white py-16 text-center">
+        <h1 class="text-5xl font-bold mb-4">📚 Escola de Obreiros 2026</h1>
+        <p class="text-xl opacity-90">Preparando líderes para o Reino de Deus</p>
     </section>
 
     <section class="py-12 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4">
-            
-            <div class="alert-box">
-                <strong>📢 Atenção:</strong> Estudem pelas apostilas! Teremos uma avaliação final de todas as matérias.
-            </div>
-
-            <div class="mb-12">
-                <h2 class="text-3xl font-bold text-blue-900 mb-8">📖 Módulos de Ensino</h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    
-                    <div class="module-card">
-                        <div>
-                            <div class="module-badge">Módulo 1</div>
-                            <div class="module-dates">11/01 e 18/01</div>
-                            <h3 class="module-title">Soteriologia</h3>
-                            <p class="module-desc">A Doutrina da Salvação • Compreenda como Deus salva a humanidade.</p>
-                        </div>
-                        <a href="modulo-1-soteriologia.html" class="btn-acesso">Acessar Módulo →</a>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="module-card">
+                    <div>
+                        <div class="module-badge">Módulo 4</div>
+                        <div class="module-dates">22/02 e 01/03</div>
+                        <h3 class="module-title" style="color: #b45309;">Ética Cristã</h3>
+                        <p class="module-desc">Doutrina do Comportamento • Princípios aplicados à vida prática.</p>
                     </div>
-
-                    <div class="module-card">
-                        <div>
-                            <div class="module-badge">Módulo 2</div>
-                            <div class="module-dates">25/01 e 01/02</div>
-                            <h3 class="module-title">Eclesiologia</h3>
-                            <p class="module-desc">A Doutrina da Igreja • Os Fundamentos da Organização Eclesiástica.</p>
-                        </div>
-                        <a href="modulo-2-eclesiologia.html" class="btn-acesso">Acessar Módulo →</a>
-                    </div>
-
-                    <div class="module-card">
-                        <div>
-                            <div class="module-badge">Módulo 3</div>
-                            <div class="module-dates">08/02 e 15/02</div>
-                            <h3 class="module-title">Hamartiologia</h3>
-                            <p class="module-desc">A Doutrina do Pecado • Origem e consequências.</p>
-                        </div>
-                        <a href="modulo-3-hamartiologia.html" class="btn-acesso">Acessar Módulo →</a>
-                    </div>
-
-                    <div class="module-card" style="border-left-color: #f59e0b;">
-                        <div>
-                            <div class="module-badge" style="background: #fef3c7; color: #b45309;">Módulo 4</div>
-                            <div class="module-dates">22/02 e 01/03</div>
-                            <h3 class="module-title" style="color: #b45309;">Ética Cristã</h3>
-                            <p class="module-desc">Doutrina do Comportamento • Princípios aplicados à vida prática.</p>
-                        </div>
-                        <a href="modulo-4-etica-crista.html" class="btn-acesso" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">Acessar Módulo →</a>
-                    </div>
-
-                    <div class="module-card">
-                        <div>
-                            <div class="module-badge">Módulo 5</div>
-                            <div class="module-dates">08/03 e 15/03</div>
-                            <h3 class="module-title">Ordenanças</h3>
-                            <p class="module-desc">Batismo e Ceia • O significado e importância.</p>
-                        </div>
-                        <a href="#" class="btn-acesso disabled">Em Breve</a>
-                    </div>
-
+                    <a href="modulo-4-etica-crista.html" class="btn-acesso" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">Acessar Módulo →</a>
                 </div>
             </div>
-
-            <div class="module-card" style="border-left-color: #9333ea;">
-                <h3 class="module-title" style="color: #9333ea;">🎙️ Mesa de Exegese</h3>
-                <p class="module-desc">Debate Teológico Semanal. Toda segunda-feira às 19:00.</p>
-                <a href="mesa-exegese.html" class="btn-acesso" style="background: linear-gradient(135deg, #9333ea 0%, #7e22ce 100%); width: fit-content;">Ver Episódios →</a>
-            </div>
-
         </div>
     </section>
-
-    <footer class="bg-slate-900 text-white py-8 text-center">
-        <p>© 2026 Vida Nova Church Piracicaba</p>
-    </footer>
-
 </body>
 </html>
