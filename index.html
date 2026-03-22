@@ -3,207 +3,316 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escola de Obreiros - Vida Nova Church</title>
+    <title>Módulo 6 - Exegese e Hermenêutica | Escola de Obreiros</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; }
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
-        
-        .module-card {
-            background: white;
-            border-radius: 16px;
-            padding: 24px;
-            transition: all 0.3s ease;
-            border-left: 4px solid #2186a0;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .module-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-        }
-
-        .module-title {
-            color: #2186a0;
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-
-        .module-desc {
-            color: #555;
-            font-size: 14px;
-            margin-bottom: 12px;
-            line-height: 1.6;
-        }
-
-        .module-badge {
-            display: inline-block;
-            background: #e0f2fe;
-            color: #0369a1;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-            margin-bottom: 12px;
-            width: fit-content;
-        }
-
-        .module-dates {
-            display: inline-block;
-            background: #fff3cd;
-            color: #856404;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-            margin-bottom: 12px;
-            width: fit-content;
-        }
-
-        .btn-acesso {
-            background: linear-gradient(135deg, #2186a0 0%, #1e7480 100%);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .btn-acesso:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(33, 134, 160, 0.4);
-        }
-
-        .btn-acesso.disabled {
-            opacity: 0.5;
-            background: #cbd5e1;
-            cursor: not-allowed;
-            pointer-events: none;
-        }
-
-        .alert-box {
-            background: #fef3c7;
-            border-left: 4px solid #f59e0b;
-            padding: 16px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
+        .modulo-header { background: linear-gradient(135deg, #2186a0 0%, #1e7480 100%); color: white; padding: 48px 0; text-align: center; }
+        .versiculo-box { background: #e0f2fe; border-left: 4px solid #0369a1; padding: 20px; border-radius: 8px; margin: 20px 0; color: #0369a1; line-height: 1.8; }
+        .tema-secao { background: white; border-radius: 16px; padding: 32px; margin: 32px 0; border-left: 5px solid #2186a0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); }
+        .tema-titulo { color: #2186a0; font-size: 24px; font-weight: bold; margin-bottom: 20px; border-bottom: 2px solid #f1f5f9; padding-bottom: 12px; }
+        .tema-conteudo { line-height: 1.8; color: #475569; }
+        .nav-bar { background: white; border-bottom: 1px solid #e2e8f0; padding: 16px 24px; position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+        .btn-footer { background: #2186a0; color: white; padding: 14px 28px; border-radius: 8px; font-weight: bold; display: inline-block; margin-top: 20px; transition: all 0.3s; }
+        .btn-footer:hover { background: #1e7480; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(33, 134, 160, 0.3); }
+        .destaque-card { background: #f1f5f9; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0; }
+        .biblia-texto { font-style: italic; color: #1e293b; background: #f8fafc; padding: 12px; border-radius: 8px; margin-top: 8px; border-left: 3px solid #cbd5e1; }
     </style>
 </head>
 <body class="antialiased">
 
-    <nav class="bg-white border-b border-slate-100 sticky top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20">
-                <div class="flex items-center gap-4">
-                    <div class="h-14 w-14 bg-gradient-to-br from-blue-900 to-indigo-900 rounded-full flex items-center justify-center shadow-lg border-2 border-amber-400">
-                        <img src="https://i.ibb.co/pvs8vvzJ/logo-igreja-removebg-preview.png" alt="Logo" class="h-12 w-12 object-contain filter brightness-200">
-                    </div>
-                    <div>
-                        <span class="block text-[10px] font-bold text-slate-400 tracking-widest uppercase">Vida Nova Church</span>
-                        <span class="block text-xl font-bold text-blue-900 leading-tight">Escola de Obreiros</span>
-                    </div>
-                </div>
-                <div class="flex items-center gap-3">
-                    <a href="https://discord.gg/nCTND4bPaM" target="_blank" class="bg-indigo-600 text-white px-4 py-2 rounded-xl text-sm font-bold shadow-md flex items-center gap-2">
-                        <span>💬 Campus Virtual</span>
-                    </a>
-                </div>
+    <!-- Navbar -->
+    <nav class="nav-bar max-w-7xl mx-auto">
+        <div class="flex items-center gap-3">
+            <div class="h-10 w-10 bg-gradient-to-br from-blue-900 to-indigo-900 rounded-full flex items-center justify-center shadow-md">
+                <img src="https://i.ibb.co/pvs8vvzJ/logo-igreja-removebg-preview.png" alt="Logo" class="h-6 w-6 object-contain filter brightness-200">
+            </div>
+            <div>
+                <span class="block text-[10px] font-bold text-slate-400 tracking-widest uppercase leading-none">Vida Nova Church</span>
+                <span class="block text-lg font-bold text-blue-900 leading-tight">Escola de Obreiros</span>
             </div>
         </div>
+        <a href="index.html" class="text-sm font-bold text-slate-600 hover:text-blue-900 transition-colors flex items-center gap-2 bg-slate-100 hover:bg-slate-200 px-4 py-2 rounded-lg">
+            ← Voltar ao Início
+        </a>
     </nav>
 
-    <section class="bg-gradient-to-r from-blue-900 to-purple-900 text-white py-16">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <h1 class="text-5xl font-bold mb-4">📚 Escola de Obreiros 2026</h1>
-            <p class="text-xl opacity-90">Preparando líderes para o Reino de Deus</p>
+    <!-- Header do Módulo -->
+    <header class="modulo-header">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="inline-block bg-white/20 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6 backdrop-blur-sm border border-white/30">Módulo 6</div>
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">Exegese e Hermenêutica</h1>
+            <p class="text-xl md:text-2xl opacity-90 italic font-serif">Para interpretar o que a bíblia diz.</p>
         </div>
-    </section>
+    </header>
 
-    <section class="py-12 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-4">
-            
-            <div class="alert-box">
-                <strong>📢 Atenção:</strong> Estudem pelas apostilas! Teremos uma avaliação final de todas as matérias.
-            </div>
+    <!-- Conteúdo Principal -->
+    <main class="max-w-4xl mx-auto px-4 py-8">
 
-            <div class="mb-12">
-                <h2 class="text-3xl font-bold text-blue-900 mb-8">📖 Módulos de Ensino</h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Seção 1: Conceitos Iniciais -->
+        <section class="tema-secao">
+            <h2 class="tema-titulo">01. O que são Exegese e Hermenêutica?</h2>
+            <div class="tema-conteudo space-y-6">
+                <p class="text-lg">A <strong>exegese</strong> é a análise detalhada e crítica do texto original (hebraico/grego) para descobrir o que o autor comunicou no seu contexto histórico. A <strong>hermenêutica</strong> é a ciência ou os princípios gerais que regem a interpretação, aplicando o significado do texto à atualidade.</p>
+                <p class="text-lg font-bold text-blue-900 bg-blue-50 p-4 rounded-lg">Em resumo: exegese é "tirar do texto", hermenêutica é "interpretar o texto".</p>
+
+                <div class="grid md:grid-cols-2 gap-6 mt-6">
+                    <div class="destaque-card border-l-4 border-l-cyan-600">
+                        <h3 class="font-bold text-cyan-800 text-xl mb-2">Exegese</h3>
+                        <p class="mb-3 font-semibold text-cyan-900">Dá o significado, tira do texto. (A Prática)</p>
+                        <ul class="space-y-2 text-sm">
+                            <li><strong>Foco:</strong> Investigar a gramática, o contexto histórico, o sentido etimológico e a cultura original.</li>
+                            <li><strong>Objetivo:</strong> Descobrir a intenção original do autor, sem impor ideias próprias.</li>
+                            <li><strong>Ação:</strong> "Mão na massa", analisando o que o texto dizia aos primeiros ouvintes.</li>
+                        </ul>
+                    </div>
                     
-                    <div class="module-card">
-                        <div>
-                            <div class="module-badge">Módulo 1</div>
-                            <div class="module-dates">11/01 e 18/01</div>
-                            <h3 class="module-title">Soteriologia</h3>
-                            <p class="module-desc">A Doutrina da Salvação • Compreenda como Deus salva a humanidade.</p>
-                        </div>
-                        <a href="modulo-1-soteriologia.html" class="btn-acesso">Acessar Módulo →</a>
+                    <div class="destaque-card border-l-4 border-l-emerald-600">
+                        <h3 class="font-bold text-emerald-800 text-xl mb-2">Hermenêutica</h3>
+                        <p class="mb-3 font-semibold text-emerald-900">Dá o sentido, explicação. (A Teoria/Princípios)</p>
+                        <ul class="space-y-2 text-sm">
+                            <li><strong>Foco:</strong> Estudo dos métodos e regras para uma interpretação correta (bíblica, jurídica, literária).</li>
+                            <li><strong>Objetivo:</strong> Ponte entre o passado e o presente, trazendo a mensagem para os dias atuais.</li>
+                            <li><strong>Ação:</strong> Define as regras do "jogo" de interpretação.</li>
+                        </ul>
                     </div>
+                </div>
 
-                    <div class="module-card">
-                        <div>
-                            <div class="module-badge">Módulo 2</div>
-                            <div class="module-dates">25/01 e 01/02</div>
-                            <h3 class="module-title">Eclesiologia</h3>
-                            <p class="module-desc">A Doutrina da Igreja • Os Fundamentos da Organização Eclesiástica.</p>
-                        </div>
-                        <a href="modulo-2-eclesiologia.html" class="btn-acesso">Acessar Módulo →</a>
-                    </div>
+                <div class="bg-red-50 p-5 rounded-xl border border-red-200 mt-6">
+                    <h4 class="font-bold text-red-800 mb-2">⚠️ Cuidado com a Eisegese</h4>
+                    <p class="text-red-900">A <strong>eisegese</strong> é a arte de por no texto o que não está nele.</p>
+                </div>
 
-                    <div class="module-card">
-                        <div>
-                            <div class="module-badge">Módulo 3</div>
-                            <div class="module-dates">08/02 e 15/02</div>
-                            <h3 class="module-title">Hamartiologia</h3>
-                            <p class="module-desc">A Doutrina do Pecado • Origem e consequências.</p>
-                        </div>
-                        <a href="modulo-3-hamartiologia.html" class="btn-acesso">Acessar Módulo →</a>
-                    </div>
-
-                    <div class="module-card">
-                        <div>
-                            <div class="module-badge">Módulo 4</div>
-                            <div class="module-dates">22/02 e 01/03</div>
-                            <h3 class="module-title">Ética Cristã</h3>
-                            <p class="module-desc">Doutrina do Comportamento • Princípios aplicados à vida prática.</p>
-                        </div>
-                        <a href="modulo-4-etica-crista.html" class="btn-acesso">Acessar Módulo →</a>
-                    </div>
-
-                    <!-- MÓDULO 5 -->
-                    <div class="module-card">
-                        <div>
-                            <div class="module-badge">Módulo 5</div>
-                            <div class="module-dates">8-15-22/03</div>
-                            <h3 class="module-title">Batismo e dons do Espirito Santo</h3>
-                            <p class="module-desc">O Revestimento de Poder e Capacitação para o Serviço.</p>
-                        </div>
-                        <a href="modulo-5-batismo-dons.html" class="btn-acesso">Acessar Módulo →</a>
-                    </div>
-
+                <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 mt-6">
+                    <h4 class="font-bold text-slate-800 mb-2">Diferenças Principais</h4>
+                    <ul class="list-disc ml-5 space-y-2">
+                        <li><strong>Escopo:</strong> A exegese é específica para cada texto, enquanto a hermenêutica é abrangente.</li>
+                        <li><strong>Ordem:</strong> Primeiro faz-se a exegese (texto em si), depois aplica-se a hermenêutica (interpretação para hoje).</li>
+                    </ul>
+                    <p class="mt-4 font-semibold text-slate-700">A união de ambas é crucial para evitar a má interpretação (eisegese), garantindo que o texto comunique sua real mensagem, sendo inseparáveis para a compreensão plena.</p>
                 </div>
             </div>
+        </section>
 
-            <div class="module-card" style="border-left-color: #9333ea;">
-                <h3 class="module-title" style="color: #9333ea;">🎙️ Mesa de Exegese</h3>
-                <p class="module-desc">Debate Teológico Semanal. Toda segunda-feira às 19:00.</p>
-                <a href="mesa-exegese.html" class="btn-acesso" style="background: linear-gradient(135deg, #9333ea 0%, #7e22ce 100%); width: fit-content;">Ver Episódios →</a>
+        <!-- Seção 2: Vejam os textos -->
+        <section class="tema-secao">
+            <h2 class="tema-titulo">02. Vejam os Textos</h2>
+            <div class="tema-conteudo space-y-8">
+
+                <div>
+                    <strong class="text-blue-900 block text-lg mb-1">Neemias 8:8</strong>
+                    <div class="biblia-texto">
+                        “E leram no livro, na lei de Deus; e declarando, e explicando o sentido, faziam que, lendo, se entendesse.”
+                    </div>
+                </div>
+
+                <div>
+                    <strong class="text-blue-900 block text-lg mb-1">Lucas 10:25-28</strong>
+                    <div class="biblia-texto">
+                        “Certa ocasião, um perito na lei levantou-se para pôr Jesus à prova e lhe perguntou: "Mestre, o que preciso fazer para herdar a vida eterna?"<br>
+                        ²⁶ "O que está escrito na Lei?", respondeu Jesus. "Como você a lê?"<br>
+                        ²⁷ Ele respondeu: "‘Ame o Senhor, o seu Deus de todo o seu coração, de toda a sua alma, de todas as suas forças e de todo o seu entendimento’ e ‘Ame o seu próximo como a si mesmo’".<br>
+                        ²⁸ Disse Jesus: "Você respondeu corretamente. Faça isso, e viverá".”
+                    </div>
+                </div>
+
+                <div>
+                    <strong class="text-blue-900 block text-lg mb-1">Mateus 4:1-11</strong>
+                    <div class="biblia-texto space-y-2">
+                        <p>¹ Então foi conduzido Jesus pelo Espírito ao deserto, para ser tentado pelo diabo.</p>
+                        <p>² E, tendo jejuado quarenta dias e quarenta noites, depois teve fome;</p>
+                        <p>³ E, chegando-se a ele o tentador, disse: Se tu és o Filho de Deus, manda que estas pedras se tornem em pães.</p>
+                        <p>⁴ Ele, porém, respondendo, disse: Está escrito: Nem só de pão viverá o homem, mas de toda a palavra que sai da boca de Deus.</p>
+                        <p>⁵ Então o diabo o transportou à cidade santa, e colocou-o sobre o pináculo do templo,</p>
+                        <p>⁶ E disse-lhe: Se tu és o Filho de Deus, lança-te de aqui abaixo; porque está escrito: Que aos seus anjos dará ordens a teu respeito, e tomar-te-ão nas mãos, para que nunca tropeces com o teu pé em alguma pedra.</p>
+                        <p>⁷ Disse-lhe Jesus: Também está escrito: Não tentarás o Senhor teu Deus.</p>
+                        <p>⁸ Novamente o transportou o diabo a um monte muito alto; e mostrou-lhe todos os reinos do mundo, e a glória deles.</p>
+                        <p>⁹ E disse-lhe: Tudo isto te darei se, prostrado, me adorares.</p>
+                        <p>¹⁰ Então disse-lhe Jesus: Vai-te, Satanás, porque está escrito: Ao Senhor teu Deus adorarás, e só a ele servirás.</p>
+                        <p>¹¹ Então o diabo o deixa; e, eis que chegaram os anjos, e o serviam.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <strong class="text-blue-900 block text-lg mb-1">Atos 8:30-35</strong>
+                    <div class="biblia-texto space-y-2">
+                        <p>³⁰ E, correndo Filipe, ouviu que lia o profeta Isaías, e disse: Entendes tu o que lês?</p>
+                        <p>³¹ E ele disse: Como poderei entender, se alguém não me ensinar? E rogou a Filipe que subisse e com ele se assentasse.</p>
+                        <p>³² E o lugar da Escritura que lia era este: Foi levado como a ovelha para o matadouro; e, como está mudo o cordeiro diante do que o tosquia, assim não abriu a sua boca.</p>
+                        <p>³³ Na sua humilhação foi tirado o seu julgamento; e quem contará a sua geração? Porque a sua vida é tirada da terra.</p>
+                        <p>³⁴ E, respondendo o eunuco a Filipe, disse: Rogo-te, de quem diz isto o profeta? De si mesmo, ou de algum outro?</p>
+                        <p>³⁵ Então Filipe, abrindo a sua boca, e começando nesta Escritura, lhe anunciou a Jesus.</p>
+                    </div>
+                </div>
+
             </div>
+        </section>
 
+        <!-- Seção 3: Desafios da Interpretação -->
+        <section class="tema-secao bg-slate-50">
+            <h2 class="tema-titulo">03. Desafios da Interpretação: Precisamos considerar</h2>
+            <div class="tema-conteudo">
+                <ol class="list-decimal ml-5 space-y-4">
+                    <li>
+                        <strong>A Bíblia é explicada com a própria bíblia.</strong><br>
+                        <span class="text-slate-600 italic">("Eu acho, eu penso, assim me ensinaram" não cabe em uma interpretação apropriada para qualquer texto da palavra).</span>
+                    </li>
+                    <li>
+                        <strong>Conhecer/considerar o Todo (O panorama bíblico).</strong>
+                    </li>
+                    <li>
+                        <strong>Faça perguntas constantemente:</strong>
+                        <ul class="list-disc ml-5 mt-2 space-y-1 text-slate-700">
+                            <li>Quem escreveu o texto?</li>
+                            <li>Quando?</li>
+                            <li>Como?</li>
+                            <li>Para quem?</li>
+                            <li>O que o texto tem a ver comigo?</li>
+                            <li>Qual a aplicação para os dias atuais?</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Seção 4: Textos ricos e Panorama -->
+        <section class="tema-secao">
+            <h2 class="tema-titulo">04. Textos Ricos e Panorama</h2>
+            <div class="tema-conteudo space-y-6">
+                
+                <p class="font-bold text-lg text-slate-800">Raio X e não uma olhada superficial.</p>
+
+                <div>
+                    <strong class="text-blue-900 block">Isaías 28:13</strong>
+                    <p class="text-sm font-semibold">“Regra sobre regras...”</p>
+                    <div class="biblia-texto text-sm">
+                        "Assim, pois, a palavra do Senhor lhes será: Mandamento sobre mandamento, mandamento sobre mandamento, regra sobre regra, regra sobre regra, um pouco aqui, um pouco ali; para que vão, e caiam para trás, e se quebrantem, e se enlacem, e sejam presos."
+                    </div>
+                </div>
+
+                <div>
+                    <strong class="text-blue-900 block">Salmos 119:160</strong>
+                    <p class="text-sm font-semibold">“A soma da tua palavra...”</p>
+                    <div class="biblia-texto text-sm">
+                        "A soma da tua palavra é a verdade, e cada uma das tuas justas ordenanças dura para sempre."
+                    </div>
+                </div>
+
+                <div>
+                    <strong class="text-blue-900 block">Mateus 22:41-46</strong>
+                    <p class="text-sm font-semibold">“Como pode O messias ser filho se o chama de Senhor?”</p>
+                    <div class="biblia-texto text-sm space-y-1">
+                        <p>⁴¹ E, estando reunidos os fariseus, interrogou-os Jesus,</p>
+                        <p>⁴² Dizendo: Que pensais vós do Cristo? De quem é filho? Eles disseram-lhe: De Davi.</p>
+                        <p>⁴³ Disse-lhes ele: Como é então que Davi, em espírito, lhe chama Senhor, dizendo:</p>
+                        <p>⁴⁴ Disse o Senhor ao meu Senhor: Assenta-te à minha direita, Até que eu ponha os teus inimigos por escabelo de teus pés?</p>
+                        <p>⁴⁵ Se Davi, pois, lhe chama Senhor, como é seu filho?</p>
+                        <p>⁴⁶ E ninguém podia responder-lhe uma palavra; nem desde aquele dia ousou mais alguém interrogá-lo.</p>
+                    </div>
+                </div>
+
+                <div class="bg-indigo-50 p-5 rounded-lg border-l-4 border-indigo-500 mt-6">
+                    <p class="mb-2"><strong>O entendimento das escrituras é progressivo de Gn a Ap, da criação ao final dos tempos.</strong></p>
+                    <p class="mb-2">Toda revelação do NT está fundamentada no AT. Aquilo que foi revelado no AT é explicado no NT.</p>
+                    <p class="italic text-indigo-900">A sombra do AT está apontando para aquilo que viria.</p>
+                </div>
+
+                <div>
+                    <strong class="text-blue-900 block">Hebreus 7:8,12 e 8:13</strong>
+                    <p class="text-sm font-semibold">Não há uma invalidação e sim uma mudança de sacerdócio.</p>
+                    <div class="biblia-texto text-sm space-y-2">
+                        <p><strong>Hb 7:8,12:</strong> "E aqui certamente tomam dízimos homens que morrem; ali, porém, aquele de quem se testifica que vive... Porque, mudando-se o sacerdócio, necessariamente se faz também mudança da lei."</p>
+                        <p><strong>Hb 8:13:</strong> "Dizendo Nova aliança, envelheceu a primeira. Ora, o que foi tornado velho, e se envelhece, perto está de acabar."</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Seção 5: A Mesma Palavra, Sentidos Diferentes -->
+        <section class="tema-secao">
+            <h2 class="tema-titulo">05. A mesma palavra com sentidos totalmente diferentes</h2>
+            <div class="tema-conteudo">
+                <p class="mb-6 font-semibold text-lg">Exemplo: Que <span class="text-blue-600 uppercase font-bold text-xl">Mundo</span> é esse?</p>
+
+                <div class="space-y-4">
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <div class="md:w-1/3 font-bold text-slate-800 bg-slate-100 p-3 rounded-lg flex items-center justify-center text-center">João 3:16<br>(Pessoas)</div>
+                        <div class="md:w-2/3 biblia-texto m-0 flex items-center">“Porque Deus amou o mundo de tal maneira que deu o seu Filho unigênito, para que todo aquele que nele crê não pereça, mas tenha a vida eterna.”</div>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <div class="md:w-1/3 font-bold text-slate-800 bg-slate-100 p-3 rounded-lg flex items-center justify-center text-center">1 João 2:15<br>(Coisas)</div>
+                        <div class="md:w-2/3 biblia-texto m-0 flex items-center">“Não ameis o mundo, nem o que no mundo há. Se alguém ama o mundo, o amor do Pai não está nele.”</div>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <div class="md:w-1/3 font-bold text-slate-800 bg-slate-100 p-3 rounded-lg flex items-center justify-center text-center">Romanos 12:2<br>(Sistema)</div>
+                        <div class="md:w-2/3 biblia-texto m-0 flex items-center">“E não sede conformados com este mundo, mas sede transformados pela renovação do vosso entendimento, para que experimenteis qual seja a boa, agradável, e perfeita vontade de Deus.”</div>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <div class="md:w-1/3 font-bold text-slate-800 bg-slate-100 p-3 rounded-lg flex items-center justify-center text-center">Marcos 8:36<br>(Conquistas Humanas)</div>
+                        <div class="md:w-2/3 biblia-texto m-0 flex items-center">“Pois, que aproveitaria ao homem ganhar todo o mundo e perder a sua alma?”</div>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <div class="md:w-1/3 font-bold text-slate-800 bg-slate-100 p-3 rounded-lg flex items-center justify-center text-center">João 16:33<br>(Vida)</div>
+                        <div class="md:w-2/3 biblia-texto m-0 flex items-center">“Tenho-vos dito isto, para que em mim tenhais paz; no mundo tereis aflições, mas tende bom ânimo, eu venci o mundo.”</div>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <div class="md:w-1/3 font-bold text-slate-800 bg-slate-100 p-3 rounded-lg flex items-center justify-center text-center">Marcos 16:15<br>(Geografia)</div>
+                        <div class="md:w-2/3 biblia-texto m-0 flex items-center">“E disse-lhes: Ide por todo o mundo, pregai o evangelho a toda criatura.”</div>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <div class="md:w-1/3 font-bold text-slate-800 bg-slate-100 p-3 rounded-lg flex items-center justify-center text-center">João 14:27<br>(Coisas boas que a vida oferece)</div>
+                        <div class="md:w-2/3 biblia-texto m-0 flex items-center">“Deixo-vos a paz, a minha paz vos dou; não vo-la dou como o mundo a dá. Não se turbe o vosso coração, nem se atemorize.”</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 6: Exercício -->
+        <section class="tema-secao border-l-4 border-l-amber-500">
+            <h2 class="tema-titulo text-amber-600 border-b-amber-100">06. Exercício Exegético e Hermenêutico</h2>
+            <div class="tema-conteudo">
+                <p class="font-bold text-xl mb-4 text-slate-800">Jefté sacrificou ou não a sua filha?</p>
+                <strong class="text-blue-900 block text-lg mb-2">Juízes 11:29-40</strong>
+                <div class="biblia-texto text-sm space-y-2 max-h-96 overflow-y-auto pr-2">
+                    <p>²⁹ Então o Espírito do Senhor veio sobre Jefté, e atravessou ele por Gileade e Manassés; e, passando por Mizpá de Gileade, de Mizpá de Gileade foi contra os filhos de Amom.</p>
+                    <p>³⁰ E Jefté fez um voto ao Senhor, e disse: Se totalmente deres os filhos de Amom na minha mão,</p>
+                    <p>³¹ Aquilo que, saindo da porta de minha casa, me vier ao encontro, voltando eu dos filhos de Amom em paz, isso será do Senhor, e o oferecerei em holocausto.</p>
+                    <p>³² Assim Jefté foi de encontro aos filhos de Amom, a combater contra eles; e o Senhor os entregou na sua mão.</p>
+                    <p>³³ E os feriu com grande mortandade, desde Aroer até chegar a Minite, vinte cidades, e até Abel-Queramim; assim foram subjugados os filhos de Amom diante dos filhos de Israel.</p>
+                    <p>³⁴ Vindo, pois, Jefté a Mizpá, à sua casa, eis que a sua filha lhe saiu ao encontro com adufes e com danças; e era ela a única filha; não tinha ele outro filho nem filha.</p>
+                    <p>³⁵ E aconteceu que, quando a viu, rasgou as suas vestes, e disse: Ah! filha minha, muito me abateste, e estás entre os que me turbam! Porque eu abri a minha boca ao Senhor, e não tornarei atrás.</p>
+                    <p>³⁶ E ela lhe disse: Pai meu, abriste tu a tua boca ao Senhor; faze de mim como saiu da tua boca; pois o Senhor te vingou dos teus inimigos, os filhos de Amom.</p>
+                    <p>³⁷ Disse mais a seu pai: Conceda-se-me isto: Deixa-me por dois meses que vá, e desça pelos montes, e chore a minha virgindade com as minhas companheiras.</p>
+                    <p>³⁸ E disse ele: Vai. E deixou-a ir por dois meses; então foi ela com as suas companheiras, e chorou a sua virgindade pelos montes.</p>
+                    <p>³⁹ E sucedeu que, ao fim de dois meses, tornou ela para seu pai, o qual cumpriu nela o seu voto que tinha feito; e ela não conheceu varão. E daí veio o costume de Israel,</p>
+                    <p>⁴⁰ Que as filhas de Israel iam de ano em ano lamentar a filha de Jefté, o gileadita, por quatro dias no ano.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Botão Voltar -->
+        <div class="text-center mt-16 mb-8">
+            <a href="index.html" class="btn-footer inline-flex items-center gap-2 text-lg">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                Concluir Leitura e Voltar
+            </a>
         </div>
-    </section>
+    </main>
 
-    <footer class="bg-slate-900 text-white py-8 text-center">
-        <p>© 2026 Vida Nova Church Piracicaba</p>
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 text-center mt-8 border-t-4 border-blue-900">
+        <img src="https://i.ibb.co/pvs8vvzJ/logo-igreja-removebg-preview.png" alt="Logo" class="h-12 mx-auto mb-6 brightness-0 invert opacity-40 hover:opacity-100 transition-opacity">
+        <p class="text-sm tracking-widest uppercase font-semibold text-slate-500">© 2026 Vida Nova Church Piracicaba</p>
+        <p class="text-xs mt-2 opacity-50">Escola de Obreiros</p>
     </footer>
 
 </body>
